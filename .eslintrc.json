@@ -4,7 +4,12 @@
     "browser": false,
     "es2021": true
   },
-  "plugins": ["prettier", "javascriptreact"],
+  "ecmaFeatures": {
+    "modules": true,
+    "spread": true,
+    "restParams": true
+  },
+  "plugins": ["prettier", "javascriptreact", "only-warn"],
   "rules": {
     "prettier/prettier": "error",
     "no-unused-vars": "warn",

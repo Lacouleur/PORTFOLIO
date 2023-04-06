@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 
 const colorsList = {
-  brightRed: "#FF4848",
+  brightRed: "#FF5F55",
   brightGreen: "#72F9C8",
   darkGreen: "#2C3A38",
   dark80: "#2b302f",

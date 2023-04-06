@@ -9,13 +9,26 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 32px;
-  flex-wrap: wrap;
 `;
 
-export const SocialIconsBox = styled.div``;
+export const HeaderLeftContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+`;
+
+export const SocialIconsBox = styled.div`
+  margin-left: 20px;
+`;
 
 export const SocialIcon = styled(SVG)`
   margin-right: 10px;
+  & path {
+    fill: ${({ theme, mail }) => (mail ? "none" : theme.colors.font)};
+    stroke: ${({ theme, mail }) => (mail ? theme.colors.font : "none")};
+  }
   &:hover {
     cursor: pointer;
     & path {
@@ -28,4 +41,7 @@ export const SocialIcon = styled(SVG)`
 export const HeaderName = styled.p`
   cursor: pointer;
   font: ${({ theme }) => theme.fonts.titleSmall};
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+  }
 `;
