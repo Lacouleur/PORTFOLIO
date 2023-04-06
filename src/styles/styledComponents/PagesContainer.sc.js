@@ -5,12 +5,9 @@ const PageContainer = styled.div`
   position: ${(props) => props.position || "relative"};
   height: ${(props) => props.height || ""};
   width: 100%;
-  min-width: 800px;
+  min-width: 150px;
   color: ${(props) => props.theme.colors.font};
   background-color: ${(props) => props.theme.colors.background};
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   top: 0;
   right: 0;
   left: 0;
