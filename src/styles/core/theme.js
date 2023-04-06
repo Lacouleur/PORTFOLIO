@@ -33,7 +33,7 @@ const themeLight = {
     fontDimmed: white50,
     accent: brightRed,
   },
-  fontSizes: {
+  fonts: {
     ...fontSizesList,
   },
 };
@@ -45,15 +45,17 @@ const themeDark = {
     fontDimmed: dark50,
     accent: brightRed,
   },
-  fontSizes: {
+  fonts: {
     ...fontSizesList,
   },
 };
 
-const Theme = ({ children, isDark }) => (
-  <ThemeProvider theme={isDark ? themeDark : themeLight}>
-    {children}
-  </ThemeProvider>
-);
+function Theme({ children, isDark }) {
+  return (
+    <ThemeProvider theme={isDark ? themeDark : themeLight}>
+      {children}
+    </ThemeProvider>
+  );
+}
 
 export default Theme;

@@ -7,10 +7,10 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "eslint-plugin-only-warn": "^1.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-inlinesvg": "^3.0.2",
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.9",
@@ -43,11 +43,17 @@
   "devDependencies": {
     "eslint": "^8.37.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "2.8.7",
+    "prettier": "^2.8.7",
     "webpack": "^5.76.3"
-  }
+  },
+  "lint": "eslint --max-warnings=0 ..."
 }

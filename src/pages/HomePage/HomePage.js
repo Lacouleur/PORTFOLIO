@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Header from "../../components/header";
 
 function Home() {
-  return <p>Home</p>;
+  return <Header />;
 }
 
 /* Home.defaultProps = {
