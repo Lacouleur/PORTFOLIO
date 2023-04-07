@@ -1,6 +1,20 @@
 import styled from "styled-components";
 
-const PageContainer = styled.div`
+export const PageContainer = styled.div`
+  position: absolute;
+  height: ${(props) => props.height || ""};
+  width: 100%;
+  min-width: 150px;
+  color: ${(props) => props.theme.colors.font};
+  top: 0;
+  bottom: 0;
+  padding: 0 32px;
+  content: "";
+  box-sizing: border-box;
+  overflow: ${(props) => (props.isModalOpen ? "hidden" : "visible")};
+`;
+
+export const SiteContainer = styled.div`
   padding: 0;
   position: ${(props) => props.position || "relative"};
   height: ${(props) => props.height || ""};
@@ -14,5 +28,3 @@ const PageContainer = styled.div`
   bottom: 0;
   overflow: ${(props) => (props.isModalOpen ? "hidden" : "visible")};
 `;
-
-export default PageContainer;

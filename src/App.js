@@ -2,7 +2,10 @@ import React, { useState } from "react";
 
 import Home from "./pages/HomePage/HomePage";
 import Theme from "./styles/core/theme";
-import PageContainer from "./styles/styledComponents/PagesContainer.sc";
+import {
+  PageContainer,
+  SiteContainer,
+} from "./styles/styledComponents/PagesContainer.sc";
 import { Provider, useSelector } from "react-redux";
 
 function App() {
@@ -10,9 +13,11 @@ function App() {
 
   return (
     <Theme isDark={isDark}>
-      <PageContainer position="absolute">
-        <Home />
-      </PageContainer>
+      <SiteContainer position="absolute">
+        <PageContainer>
+          <Home />
+        </PageContainer>
+      </SiteContainer>
     </Theme>
   );
 }

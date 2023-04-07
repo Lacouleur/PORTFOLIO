@@ -1,9 +1,25 @@
 import styled, { css } from "styled-components";
 
+const homepageSwitchBoxMixin = css`
+  position: relative;
+`;
+
 export const SwitchBox = styled.label`
-  margin-left: 20px;
-  margin-top: 16px;
+  margin: 16px 32px 0 0;
   cursor: pointer;
+
+  ${(props) => props.styleVariant === "homeSwitch" && homepageSwitchBoxMixin}
+`;
+
+const homepageSwitchLabelMixin = css`
+  bottom: 0;
+  transform: translate(0, 0);
+
+  &::after {
+    margin-top: 4px;
+    width: 22px;
+    height: 22px;
+  }
 `;
 
 export const SwitchLabel = styled.label`
@@ -30,14 +46,18 @@ export const SwitchLabel = styled.label`
     margin-left: 1px;
     transition: 0.2s;
   }
+
+  ${(props) => props.styleVariant === "homeSwitch" && homepageSwitchLabelMixin}
 `;
+
+const homepageSwitchMixin = css``;
 
 export const Switch = styled.input`
   opacity: 0;
   z-index: 1;
   border-radius: 15px;
-  width: 42px;
-  height: 26px;
+  width: 0;
+  height: 0;
   border: 2px solid ${({ theme }) => theme.colors.font};
 
   &:checked + ${SwitchLabel} {
@@ -53,4 +73,6 @@ export const Switch = styled.input`
       transition: all 0.2s ease 0s;
     }
   }
+
+  ${(props) => props.styleVariant === "homeSwitch" && homepageSwitchMixin}
 `;

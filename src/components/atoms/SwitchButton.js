@@ -6,13 +6,14 @@ import {
   SwitchLabel,
 } from "../../styles/styledComponents/atoms/SwitchButton.sc.js";
 
-const SwitchButton = ({ isChecked, action, componentId }) => {
+const SwitchButton = ({ isChecked, action, componentId, styleVariant }) => {
   return (
     <SwitchBox
       htmlFor={componentId}
       onChange={() => {
         action();
       }}
+      styleVariant={styleVariant}
     >
       <Switch
         className="Switch"
@@ -20,8 +21,13 @@ const SwitchButton = ({ isChecked, action, componentId }) => {
         type="checkbox"
         checked={isChecked}
         readOnly
+        styleVariant={styleVariant}
       />
-      <SwitchLabel className="SwitchLabel" htmlFor={componentId} />
+      <SwitchLabel
+        className="SwitchLabel"
+        htmlFor={componentId}
+        styleVariant={styleVariant}
+      />
     </SwitchBox>
   );
 };
