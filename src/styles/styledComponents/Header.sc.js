@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
 
 export const HeaderContainer = styled.div`
@@ -18,8 +18,14 @@ export const HeaderLeftContainer = styled.div`
   position: relative;
 `;
 
+const isHomeSocialIconsBox = css`
+  margin: 0;
+`;
+
 export const SocialIconsBox = styled.div`
   margin-left: 20px;
+  ${(props) => console.warn(props.isHome)}
+  ${(props) => props.isHome && isHomeSocialIconsBox}
 `;
 
 export const SocialIcon = styled(SVG)`

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import Header from "../../components/header";
 import texts from "../../texts/texts.json";
-import { TextBody, Title } from "../../styles/styledComponents/atoms/texts.sc";
+import {
+  Link,
+  TextBlock,
+  TextBody,
+  Title,
+} from "../../styles/styledComponents/atoms/texts.sc";
 import {
   HomeTextBox,
   HomeSiteContainer,
@@ -27,8 +32,26 @@ function Home() {
           componentId="switch-dark-light-theme-home"
         />
         <HomeTextBox>
-          <TextBody>{texts.mainPage.fr}</TextBody>
-          <TextBody>{texts.mainPage.en}</TextBody>
+          <TextBlock>
+            <TextBody>{texts.mainPage.fr.prez}</TextBody>
+            <Link
+              onClick={() =>
+                window.open(`${texts.mainPage.fr.cta.link}`, "_blank")
+              }
+            >
+              {texts.mainPage.fr.cta.text}
+            </Link>
+          </TextBlock>
+          <TextBlock>
+            <TextBody>{texts.mainPage.en.prez}</TextBody>
+            <Link
+              onClick={() =>
+                window.open(`${texts.mainPage.en.cta.link}`, "_blank")
+              }
+            >
+              {texts.mainPage.en.cta.text}
+            </Link>
+          </TextBlock>
         </HomeTextBox>
       </HomeSiteContainer>
     </>

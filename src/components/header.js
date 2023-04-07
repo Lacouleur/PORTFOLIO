@@ -12,22 +12,26 @@ import {
 import SwitchButton from "./atoms/SwitchButton";
 import { toggleIsDark } from "../store/redux";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 function Header() {
   const dispatch = useDispatch();
   const { isDark } = useSelector((state) => state.main);
+  const isHome = useLocation().pathname === "/";
 
   return (
     <HeaderContainer>
       <HeaderLeftContainer>
-        <SwitchButton
-          action={() => {
-            dispatch(toggleIsDark());
-          }}
-          isChecked={isDark}
-          componentId="switch-dark-light-theme"
-        />
-        <SocialIconsBox>
+        {!isHome && (
+          <SwitchButton
+            action={() => {
+              dispatch(toggleIsDark());
+            }}
+            isChecked={isDark}
+            componentId="switch-dark-light-theme"
+          />
+        )}
+        <SocialIconsBox isHome={isHome}>
           <SocialIcon
             src={artStationIcon}
             onClick={() =>

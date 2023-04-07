@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 const homepageSwitchBoxMixin = css`
   position: relative;
+  margin: 0;
 `;
 
 export const SwitchBox = styled.label`
@@ -12,7 +13,7 @@ export const SwitchBox = styled.label`
 `;
 
 const homepageSwitchLabelMixin = css`
-  bottom: 0;
+  bottom: 16px;
   transform: translate(0, 0);
 
   &::after {

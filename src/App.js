@@ -8,15 +8,13 @@ import {
 } from "./styles/styledComponents/PagesContainer.sc";
 import { Provider, useSelector } from "react-redux";
 
-function App() {
+function App({ page }) {
   const { isDark } = useSelector((state) => state.main);
 
   return (
     <Theme isDark={isDark}>
       <SiteContainer position="absolute">
-        <PageContainer>
-          <Home />
-        </PageContainer>
+        <PageContainer>{page}</PageContainer>
       </SiteContainer>
     </Theme>
   );
