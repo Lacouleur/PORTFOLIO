@@ -14,6 +14,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import SwitchButton from "../../components/atoms/SwitchButton";
 import { toggleIsDark } from "../../store/redux";
+import {
+  HomeNavContainer,
+  HomeNavText,
+  NavButton,
+} from "../../styles/styledComponents/molecules/mainNav.sc";
 
 function Home() {
   const dispatch = useDispatch();
@@ -53,6 +58,16 @@ function Home() {
             </Link>
           </TextBlock>
         </HomeTextBox>
+        <HomeNavContainer>
+          <NavButton type="button">
+            <HomeNavText>{texts.mainPage.fr.nav.paints}</HomeNavText>
+            <HomeNavText>{texts.mainPage.en.nav.paints}</HomeNavText>
+          </NavButton>
+          <NavButton type="button">
+            <HomeNavText>{texts.mainPage.fr.nav.illustrations}</HomeNavText>
+            <HomeNavText>{texts.mainPage.en.nav.illustrations}</HomeNavText>
+          </NavButton>
+        </HomeNavContainer>
       </HomeSiteContainer>
     </>
   );

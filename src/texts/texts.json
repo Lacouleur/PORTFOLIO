@@ -6,14 +6,16 @@
       "cta": {
         "text": "contactez-moi",
         "link": "mailto:damien.voindrot@gmail.com"
-      }
+      },
+      "nav": { "paints": "peintures", "illustrations": "illustrations" }
     },
     "en": {
       "prez": "EN - My name is Damien Voindrot and I am an artist passionate about painting and illustration. I love creating unique and captivating works that I hope will charm people all over the world. I like to play with colors and shapes to give life to landscapes and characters that inspire me. Even though I learned a lot and gained experience, I still consider myself a constant learner.",
       "cta": {
         "text": "contact-me",
         "link": "mailto:damien.voindrot@gmail.com"
-      }
+      },
+      "nav": { "paints": "paints", "illustrations": "illustrations" }
     }
   }
 }

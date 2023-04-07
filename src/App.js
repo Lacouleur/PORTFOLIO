@@ -13,7 +13,7 @@ function App({ page }) {
 
   return (
     <Theme isDark={isDark}>
-      <SiteContainer position="absolute">
+      <SiteContainer position="relative">
         <PageContainer>{page}</PageContainer>
       </SiteContainer>
     </Theme>

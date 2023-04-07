@@ -57,8 +57,7 @@ function Header() {
           />
         </SocialIconsBox>
       </HeaderLeftContainer>
-
-      <HeaderName>Damien Voindrot</HeaderName>
+      {!isHome && <HeaderName>Damien Voindrot</HeaderName>}
     </HeaderContainer>
   );
 }

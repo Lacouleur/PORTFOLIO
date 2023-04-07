@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Title = styled.h1`
   font: ${({ theme }) => theme.fonts.titleBig};
+  margin: 16px 0;
 `;
 
 export const TextBody = styled.p`

@@ -14,12 +14,11 @@ export const SwitchBox = styled.label`
 
 const homepageSwitchLabelMixin = css`
   bottom: 16px;
-  transform: translate(0, 0);
 
   &::after {
-    margin-top: 4px;
+    margin-top: 3px;
     width: 22px;
-    height: 22px;
+    height: 23px;
   }
 `;
 
@@ -34,6 +33,10 @@ export const SwitchLabel = styled.label`
   border: 2px solid ${({ theme }) => theme.colors.font};
   cursor: pointer;
   background: transparent;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.accent};
+  }
 
   &::after {
     content: "";

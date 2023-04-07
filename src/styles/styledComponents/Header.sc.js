@@ -24,7 +24,6 @@ const isHomeSocialIconsBox = css`
 
 export const SocialIconsBox = styled.div`
   margin-left: 20px;
-  ${(props) => console.warn(props.isHome)}
   ${(props) => props.isHome && isHomeSocialIconsBox}
 `;
 
