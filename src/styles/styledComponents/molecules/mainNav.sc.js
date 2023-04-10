@@ -19,6 +19,8 @@ export const NavButton = styled.button`
   border: none;
   background-color: transparent;
   border-top: solid 1px ${({ theme }) => theme.colors.font};
+  border-bottom: ${({ last, theme }) =>
+    last ? `solid 1px ${theme.colors.font}` : "none"};
   display: block;
   transition: background-color 0.2s ease;
   max-height: 307px;

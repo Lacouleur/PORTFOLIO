@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { breakpoints } from "../../core/breakpoints";
 
 const homepageSwitchBoxMixin = css`
   position: relative;
@@ -14,7 +15,7 @@ export const SwitchBox = styled.label`
 
 const homepageSwitchLabelMixin = css`
   bottom: 16px;
-
+  ${breakpoints("mobile", `bottom: 0px;`)};
   &::after {
     margin-top: 3px;
     width: 22px;
@@ -54,8 +55,6 @@ export const SwitchLabel = styled.label`
   ${(props) => props.styleVariant === "homeSwitch" && homepageSwitchLabelMixin}
 `;
 
-const homepageSwitchMixin = css``;
-
 export const Switch = styled.input`
   opacity: 0;
   z-index: 1;
@@ -77,6 +76,4 @@ export const Switch = styled.input`
       transition: all 0.2s ease 0s;
     }
   }
-
-  ${(props) => props.styleVariant === "homeSwitch" && homepageSwitchMixin}
 `;

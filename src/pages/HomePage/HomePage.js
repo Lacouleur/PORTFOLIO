@@ -19,6 +19,7 @@ import {
   HomeNavText,
   NavButton,
 } from "../../styles/styledComponents/molecules/mainNav.sc";
+import { Wrapper } from "../../styles/core/breakpoints";
 
 function Home() {
   const dispatch = useDispatch();
@@ -63,7 +64,7 @@ function Home() {
             <HomeNavText>{texts.mainPage.fr.nav.paints}</HomeNavText>
             <HomeNavText>{texts.mainPage.en.nav.paints}</HomeNavText>
           </NavButton>
-          <NavButton type="button">
+          <NavButton type="button" last>
             <HomeNavText>{texts.mainPage.fr.nav.illustrations}</HomeNavText>
             <HomeNavText>{texts.mainPage.en.nav.illustrations}</HomeNavText>
           </NavButton>

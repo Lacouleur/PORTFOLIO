@@ -1,8 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { breakpoints } from "../core/breakpoints";
 
 export const HomeSiteContainer = styled.div`
   height: 100vh;
   overflow: hidden;
+`;
+
+const MobileHomeTextBox = css`
+  display: none;
 `;
 
 export const HomeTextBox = styled.div`
@@ -12,4 +17,6 @@ export const HomeTextBox = styled.div`
   width: 80%;
   max-width: 1900px;
   min-width: 800px;
+
+  ${breakpoints("mobile", `${MobileHomeTextBox}`)};
 `;

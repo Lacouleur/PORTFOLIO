@@ -9,7 +9,7 @@
     "spread": true,
     "restParams": true
   },
-  "plugins": ["prettier", "only-warn", "javascriptreact"],
+  "plugins": ["prettier", "only-warn"],
   "rules": {
     "prettier/prettier": "error",
     "no-unused-vars": "warn",
