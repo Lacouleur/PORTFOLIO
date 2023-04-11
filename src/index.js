@@ -11,6 +11,8 @@ import {
 
 import App from "./App";
 import Home from "./pages/HomePage/HomePage";
+import PaintsGaleriePage from "./pages/Galeries/PaintsGaleriePage/PaintsGaleriePage";
+import IllustrationsGaleriePage from "./pages/Galeries/IllustrationsGaleriePage/IllustrationsGaleriePage";
 
 const domNode = document.getElementById("root");
 const root = createRoot(domNode);
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App page={<Home />} />,
+  },
+  {
+    path: "/paints",
+    element: <App page={<PaintsGaleriePage />} />,
+  },
+  {
+    path: "/illustrations",
+    element: <App page={<IllustrationsGaleriePage />} />,
   },
 ]);
 

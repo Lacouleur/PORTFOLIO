@@ -11,14 +11,18 @@ export const TextBody = styled.p`
 
 export const TextBlock = styled.div`
   width: 48%;
+  max-width: 400px;
   position: relative;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 16px;
 `;
 
-export const Link = styled.a`
+export const CtaLink = styled.a`
   text-decoration: underline;
   cursor: pointer;
-  position: absolute;
-  bottom: -20px;
   font: ${({ theme }) => theme.fonts.labelLink};
   &:hover {
     color: ${({ theme }) => theme.colors.accent};

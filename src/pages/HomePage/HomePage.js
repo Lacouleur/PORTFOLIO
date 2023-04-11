@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Header from "../../components/header";
-import texts from "../../texts/texts.json";
+import texts from "../../utils/texts/texts.json";
 import {
-  Link,
+  CtaLink,
   TextBlock,
   TextBody,
   Title,
 } from "../../styles/styledComponents/atoms/texts.sc";
+
 import {
   HomeTextBox,
   HomeSiteContainer,
@@ -16,12 +17,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import SwitchButton from "../../components/atoms/SwitchButton";
 import { toggleIsDark } from "../../store/redux";
-import {
-  HomeNavContainer,
-  HomeNavText,
-  NavButton,
-} from "../../styles/styledComponents/molecules/mainNav.sc";
 import { Wrapper } from "../../styles/core/breakpoints";
+import Navigation from "../../components/atoms/Navigation";
 
 function Home() {
   const dispatch = useDispatch();
@@ -42,35 +39,26 @@ function Home() {
         <HomeTextBox>
           <TextBlock>
             <TextBody>{texts.mainPage.fr.prez}</TextBody>
-            <Link
+            <CtaLink
               onClick={() =>
                 window.open(`${texts.mainPage.fr.cta.link}`, "_blank")
               }
             >
               {texts.mainPage.fr.cta.text}
-            </Link>
+            </CtaLink>
           </TextBlock>
           <TextBlock>
             <TextBody>{texts.mainPage.en.prez}</TextBody>
-            <Link
+            <CtaLink
               onClick={() =>
                 window.open(`${texts.mainPage.en.cta.link}`, "_blank")
               }
             >
               {texts.mainPage.en.cta.text}
-            </Link>
+            </CtaLink>
           </TextBlock>
         </HomeTextBox>
-        <HomeNavContainer>
-          <NavButton type="button">
-            <HomeNavText>{texts.mainPage.fr.nav.paints}</HomeNavText>
-            <HomeNavText>{texts.mainPage.en.nav.paints}</HomeNavText>
-          </NavButton>
-          <NavButton type="button" last>
-            <HomeNavText>{texts.mainPage.fr.nav.illustrations}</HomeNavText>
-            <HomeNavText>{texts.mainPage.en.nav.illustrations}</HomeNavText>
-          </NavButton>
-        </HomeNavContainer>
+        <Navigation styleVariant="home" />
       </HomeSection>
     </HomepageContainer>
   );
