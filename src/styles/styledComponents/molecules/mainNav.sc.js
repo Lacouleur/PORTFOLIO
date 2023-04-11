@@ -15,6 +15,7 @@ export const HomeNavText = styled.p`
 
 export const NavButton = styled.button`
   width: 100%;
+  height: 50%;
   display: flex;
   border: none;
   background-color: transparent;
@@ -24,7 +25,6 @@ export const NavButton = styled.button`
   display: block;
   transition: background-color 0.2s ease;
   max-height: 307px;
-  height: 10%;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.accent};

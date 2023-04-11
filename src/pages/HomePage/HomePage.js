@@ -10,6 +10,8 @@ import {
 import {
   HomeTextBox,
   HomeSiteContainer,
+  HomeSection,
+  HomepageContainer,
 } from "../../styles/styledComponents/Home.sc";
 import { useDispatch, useSelector } from "react-redux";
 import SwitchButton from "../../components/atoms/SwitchButton";
@@ -25,9 +27,9 @@ function Home() {
   const dispatch = useDispatch();
   const { isDark } = useSelector((state) => state.main);
   return (
-    <>
+    <HomepageContainer>
       <Header />
-      <HomeSiteContainer>
+      <HomeSection>
         <Title>Damien Voindrot</Title>
         <SwitchButton
           action={() => {
@@ -69,8 +71,8 @@ function Home() {
             <HomeNavText>{texts.mainPage.en.nav.illustrations}</HomeNavText>
           </NavButton>
         </HomeNavContainer>
-      </HomeSiteContainer>
-    </>
+      </HomeSection>
+    </HomepageContainer>
   );
 }
 

@@ -6,7 +6,6 @@ export const breakpoints = (media, css, type = "screen") => {
   if (!media || !css) {
     return;
   }
-  console.warn("breakpoint()", breakpointsList[media]);
   return `
     @media ${type} and (max-width: ${breakpointsList[media]}px) {
       ${css};

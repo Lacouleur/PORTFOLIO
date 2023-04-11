@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PageContainer = styled.div`
   position: relative;
-  height: ${(props) => props.height || ""};
+  height: 100vh;
   width: 100%;
   min-width: 150px;
   color: ${(props) => props.theme.colors.font};
@@ -11,7 +11,7 @@ export const PageContainer = styled.div`
   padding: 0 32px;
   content: "";
   box-sizing: border-box;
-  overflow: ${(props) => (props.isModalOpen ? "hidden" : "visible")};
+  overflow: hidden;
 `;
 
 export const SiteContainer = styled.div`
