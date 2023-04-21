@@ -9,6 +9,7 @@ export const GaleriePageContainer = styled.div`
 export const GaleriePageSection = styled.div``;
 
 export const GaleriesContainer = styled.div`
+  margin-top: 32px;
   display: flex;
   flex-direction: row;
   width: 100%;
