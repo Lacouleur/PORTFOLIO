@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Descriptionbox,
   GalerieImages4SquaresContainer,
@@ -8,6 +8,12 @@ import {
 import fullavatar from "../../styles/assets/imgs/DamienVoindrot-874102122022-weblight.jpg";
 
 function GalerieImages4Squares() {
+  const [imgHovered, setImgHovered] = useState("");
+
+  useEffect(() => {
+    console.warn("imgHovered", imgHovered);
+  }, [imgHovered]);
+
   return (
     <GalerieImages4SquaresContainer>
       <Descriptionbox>
@@ -15,15 +21,33 @@ function GalerieImages4Squares() {
       </Descriptionbox>
       <ImgBox>
         <SquareImg
-          id="image"
+          onMouseEnter={() => setImgHovered("1")}
+          onMouseLeave={() => setImgHovered("")}
+          imgHovered={imgHovered}
+          imgId="1"
           src="https://ik.imagekit.io/artworks/paintings/Weblight-2mo-leger/Avatar_Bleu_Maze/DamienVoindrot-874402122022-weblight.jpg?updatedAt=1682066160008"
         />
         <SquareImg
-          id="image"
+          onMouseEnter={() => setImgHovered("2")}
+          onMouseLeave={() => setImgHovered("")}
+          imgHovered={imgHovered}
+          imgId="2"
           src="https://ik.imagekit.io/artworks/paintings/Weblight-2mo-leger/Avatar_Bleu_Maze/DamienVoindrot-874402122022-weblight.jpg?updatedAt=1682066160008"
         />
-        <SquareImg id="image" src={fullavatar} />
-        <SquareImg id="image" src={fullavatar} />
+        <SquareImg
+          imgId="3"
+          imgHovered={imgHovered}
+          src={fullavatar}
+          onMouseEnter={() => setImgHovered("3")}
+          onMouseLeave={() => setImgHovered("")}
+        />
+        <SquareImg
+          imgId="4"
+          imgHovered={imgHovered}
+          src={fullavatar}
+          onMouseEnter={() => setImgHovered("4")}
+          onMouseLeave={() => setImgHovered("")}
+        />
       </ImgBox>
     </GalerieImages4SquaresContainer>
   );

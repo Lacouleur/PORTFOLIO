@@ -15,6 +15,8 @@ function PaintsGaleriePage() {
   const navigate = useNavigate();
   const [isTop, setIsTop] = useState(true);
 
+  const [imgIshovered, setImgIsHovered] = useState("");
+
   useEffect(() => {
     window.onscroll = function () {
       if (window.pageYOffset === 0) {

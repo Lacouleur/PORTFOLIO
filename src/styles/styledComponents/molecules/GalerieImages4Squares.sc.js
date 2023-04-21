@@ -9,11 +9,27 @@ export const GalerieImages4SquaresContainer = styled.div`
   display: flex;
   align-self: flex-start;
 `;
+
+const hoverZoom = css`
+  ${({ imgId, imgHovered }) => {
+    if (imgHovered === "") {
+      return "display: block";
+    }
+    if (imgHovered !== "" && imgHovered !== imgId) {
+      return "display: none";
+    }
+    if (imgHovered !== "" && imgHovered === imgId) {
+      return "visibility: visible; width: 100%";
+    }
+  }};
+`;
+
 export const SquareImg = styled.img`
   aspect-ratio: 1 / 1;
   width: 49%;
   max-height: 100%;
   align-self: center;
+  ${hoverZoom}
 `;
 
 export const ImgBox = styled.div`

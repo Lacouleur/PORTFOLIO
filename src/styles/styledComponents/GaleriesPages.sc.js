@@ -21,7 +21,6 @@ export const GaleriesContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: bisque;
   width: 100%;
   ${breakpoints("mobile", `${MobileGaleriesContainer}`)};
 `;
