@@ -12,7 +12,7 @@ import {
 import SwitchButton from "./atoms/SwitchButton";
 import { toggleIsDark } from "../store/redux";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
   const dispatch = useDispatch();
@@ -57,7 +57,11 @@ function Header() {
           />
         </SocialIconsBox>
       </HeaderLeftContainer>
-      {!isHome && <HeaderName>Damien Voindrot</HeaderName>}
+      {!isHome && (
+        <Link to="/">
+          <HeaderName>Damien Voindrot</HeaderName>
+        </Link>
+      )}
     </HeaderContainer>
   );
 }

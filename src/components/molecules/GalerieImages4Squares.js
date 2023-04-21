@@ -14,8 +14,14 @@ function GalerieImages4Squares() {
         <p>describ</p>
       </Descriptionbox>
       <ImgBox>
-        <SquareImg id="image" src={fullavatar} />
-        <SquareImg id="image" src={fullavatar} />
+        <SquareImg
+          id="image"
+          src="https://ik.imagekit.io/artworks/paintings/Weblight-2mo-leger/Avatar_Bleu_Maze/DamienVoindrot-874402122022-weblight.jpg?updatedAt=1682066160008"
+        />
+        <SquareImg
+          id="image"
+          src="https://ik.imagekit.io/artworks/paintings/Weblight-2mo-leger/Avatar_Bleu_Maze/DamienVoindrot-874402122022-weblight.jpg?updatedAt=1682066160008"
+        />
         <SquareImg id="image" src={fullavatar} />
         <SquareImg id="image" src={fullavatar} />
       </ImgBox>

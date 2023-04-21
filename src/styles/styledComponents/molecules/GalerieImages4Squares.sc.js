@@ -4,7 +4,7 @@ import { breakpoints } from "../../core/breakpoints";
 export const GalerieImages4SquaresContainer = styled.div`
   border: ${({ theme }) => `1px solid ${theme.colors.font}`};
   padding: 8px;
-  width: 50%;
+  max-width: 47%;
   max-height: 100%;
   display: flex;
   align-self: flex-start;

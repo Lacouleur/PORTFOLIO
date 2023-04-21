@@ -9,12 +9,24 @@ import texts from "../../utils/texts/texts.json";
 import { useLocation } from "react-router-dom";
 import ArrowDownIcon from "../../styles/assets/icons/Arrow/Down.svg";
 import ArrowRightIcon from "../../styles/assets/icons/Arrow/Right.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleIsFirstLoad } from "../../store/redux";
 
 function Navigation({ styleVariant }) {
   const location = useLocation().pathname;
+  const { isFirstLoad } = useSelector((state) => state.nav);
+  const dispatch = useDispatch();
   return (
     <NavContainer styleVariant={styleVariant}>
-      <NavButton location={location} styleVariant={styleVariant} to={"/paints"}>
+      <NavButton
+        onClick={() => {
+          dispatch(toggleIsFirstLoad(false));
+        }}
+        firstLoad={isFirstLoad}
+        location={location}
+        styleVariant={styleVariant}
+        to={"/paints"}
+      >
         {styleVariant && styleVariant === "home" && (
           <>
             <NavText styleVariant={styleVariant}>
@@ -37,6 +49,10 @@ function Navigation({ styleVariant }) {
         )}
       </NavButton>
       <NavButton
+        onClick={() => {
+          dispatch(toggleIsFirstLoad(false));
+        }}
+        firstLoad={isFirstLoad}
         location={location}
         styleVariant={styleVariant}
         to={"/illustrations"}

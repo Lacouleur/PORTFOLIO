@@ -8,7 +8,6 @@ import {
 } from "../../styles/styledComponents/molecules/GaleriePresentationBlockText.sc";
 
 function GaleriePresentationBlockText() {
-  console.warn("text", texts.paintsGaleriePage.fr.prez);
   return (
     <GaleriePresentationContainer>
       <GaleriePresentationTitle>

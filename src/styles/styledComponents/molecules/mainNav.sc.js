@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import SVG from "react-inlinesvg";
 
@@ -65,6 +65,18 @@ const HomeNavButtonMixin = css`
   }
 `;
 
+function blinkingEffect() {
+  return keyframes`
+  50% {
+    opacity: 0.5;
+  }
+`;
+}
+
+const mixinAnim = css`
+  animation: ${blinkingEffect} 0.8s linear;
+`;
+
 const GalerieNavButtonMixin = css`
   height: 74px;
   display: flex;
@@ -79,6 +91,9 @@ const GalerieNavButtonMixin = css`
     location === to ? theme.colors.accent : "transparent"};
   border-bottom: solid 1px ${({ theme }) => theme.colors.accent};
   opacity: ${({ location, to }) => (location === to ? "1" : "0.6")};
+
+  ${({ location, to, firstLoad }) =>
+    location === to && firstLoad === true && mixinAnim};
 
   &:hover {
     opacity: 1;

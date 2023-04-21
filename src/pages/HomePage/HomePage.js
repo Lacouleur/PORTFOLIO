@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../components/header";
 import texts from "../../utils/texts/texts.json";
 import {
@@ -7,7 +7,6 @@ import {
   TextBody,
   Title,
 } from "../../styles/styledComponents/atoms/texts.sc";
-
 import {
   HomeTextBox,
   HomeSiteContainer,
@@ -19,14 +18,23 @@ import SwitchButton from "../../components/atoms/SwitchButton";
 import { toggleIsDark } from "../../store/redux";
 import { Wrapper } from "../../styles/core/breakpoints";
 import Navigation from "../../components/atoms/Navigation";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const dispatch = useDispatch();
   const { isDark } = useSelector((state) => state.main);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   return (
     <HomepageContainer>
       <Header />
-      <HomeSection>
+      <HomeSection
+        onWheel={(event) => {
+          if (event.nativeEvent.wheelDelta < 0) {
+            navigate("/paints");
+          }
+        }}
+      >
         <Title>Damien Voindrot</Title>
         <SwitchButton
           action={() => {
