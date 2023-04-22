@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { breakpoints } from "../core/breakpoints";
 
 export const HomepageContainer = styled.div`
-  position: absolute;
+  position: relative;
   top: 0;
   bottom: 0;
   right: 0;

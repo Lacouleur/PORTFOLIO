@@ -10,10 +10,6 @@ import fullavatar from "../../styles/assets/imgs/DamienVoindrot-874102122022-web
 function GalerieImages4Squares() {
   const [imgHovered, setImgHovered] = useState("");
 
-  useEffect(() => {
-    console.warn("imgHovered", imgHovered);
-  }, [imgHovered]);
-
   return (
     <GalerieImages4SquaresContainer>
       <Descriptionbox>

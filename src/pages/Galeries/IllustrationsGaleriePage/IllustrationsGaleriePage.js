@@ -7,7 +7,7 @@ function IllustrationsGaleriePage() {
   return (
     <GaleriePageContainer>
       <Header />
-      <Navigation styleVariant="galery" />
+      <Navigation stylevariant="galery" />
     </GaleriePageContainer>
   );
 }

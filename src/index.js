@@ -22,14 +22,14 @@ const router = createBrowserRouter([
     path: "/",
     element: <App page={<Home />} />,
   },
-  {
+  /*   {
     path: "/paints",
     element: <App page={<PaintsGaleriePage />} />,
   },
   {
     path: "/illustrations",
     element: <App page={<IllustrationsGaleriePage />} />,
-  },
+  }, */
 ]);
 
 root.render(

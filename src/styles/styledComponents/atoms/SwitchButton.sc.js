@@ -10,7 +10,7 @@ export const SwitchBox = styled.label`
   margin: 16px 32px 0 0;
   cursor: pointer;
 
-  ${(props) => props.styleVariant === "homeSwitch" && homepageSwitchBoxMixin}
+  ${(props) => props.stylevariant === "homeSwitch" && homepageSwitchBoxMixin}
 `;
 
 const homepageSwitchLabelMixin = css`
@@ -52,7 +52,7 @@ export const SwitchLabel = styled.label`
     transition: 0.2s;
   }
 
-  ${(props) => props.styleVariant === "homeSwitch" && homepageSwitchLabelMixin}
+  ${(props) => props.stylevariant === "homeSwitch" && homepageSwitchLabelMixin}
 `;
 
 export const Switch = styled.input`

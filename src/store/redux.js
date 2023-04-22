@@ -1,12 +1,13 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-return-assign */
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const mainSlice = createSlice({
   name: "main",
   initialState: { isDark: false },
   reducers: {
-    toggleIsDark: (state, action) => {
-      return (state = { ...state, isDark: !state.isDark });
-    },
+    toggleIsDark: (state, action) =>
+      (state = { ...state, isDark: !state.isDark }),
   },
 });
 
@@ -14,9 +15,8 @@ const navSlice = createSlice({
   name: "nav",
   initialState: { isFirstLoad: true },
   reducers: {
-    toggleIsFirstLoad: (state, action) => {
-      return (state = { ...state, isFirstLoad: action.payload });
-    },
+    toggleIsFirstLoad: (state, action) =>
+      (state = { ...state, isFirstLoad: action.payload }),
   },
 });
 

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
+import { Provider, useSelector } from "react-redux";
 import Home from "./pages/HomePage/HomePage";
 import Theme from "./styles/core/theme";
 import {
   PageContainer,
   SiteContainer,
 } from "./styles/styledComponents/PagesContainer.sc";
-import { Provider, useSelector } from "react-redux";
+import PaintsGaleriePage from "./pages/Galeries/PaintsGaleriePage/PaintsGaleriePage";
+import IllustrationsGaleriePage from "./pages/Galeries/IllustrationsGaleriePage/IllustrationsGaleriePage";
 
 function App({ page }) {
   const { isDark } = useSelector((state) => state.main);
@@ -14,7 +16,12 @@ function App({ page }) {
   return (
     <Theme isDark={isDark}>
       <SiteContainer position="relative">
-        <PageContainer>{page}</PageContainer>
+        <PageContainer>
+          {/* {page} */}
+          <Home />
+          <PaintsGaleriePage />
+          <IllustrationsGaleriePage />
+        </PageContainer>
       </SiteContainer>
     </Theme>
   );

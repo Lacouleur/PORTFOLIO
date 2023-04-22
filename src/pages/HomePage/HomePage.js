@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/header";
 import texts from "../../utils/texts/texts.json";
 import {
@@ -13,12 +15,10 @@ import {
   HomeSection,
   HomepageContainer,
 } from "../../styles/styledComponents/Home.sc";
-import { useDispatch, useSelector } from "react-redux";
 import SwitchButton from "../../components/atoms/SwitchButton";
 import { toggleIsDark } from "../../store/redux";
 import { Wrapper } from "../../styles/core/breakpoints";
 import Navigation from "../../components/atoms/Navigation";
-import { useNavigate } from "react-router-dom";
 
 function Home() {
   const { isDark } = useSelector((state) => state.main);
@@ -28,20 +28,21 @@ function Home() {
   return (
     <HomepageContainer>
       <Header />
-      <HomeSection
+      {/*    <HomeSection
         onWheel={(event) => {
           if (event.nativeEvent.wheelDelta < 0) {
             navigate("/paints");
           }
         }}
-      >
+      > */}
+      <HomeSection>
         <Title>Damien Voindrot</Title>
         <SwitchButton
           action={() => {
             dispatch(toggleIsDark());
           }}
           isChecked={isDark}
-          styleVariant={"homeSwitch"}
+          stylevariant="homeSwitch"
           componentId="switch-dark-light-theme-home"
         />
         <HomeTextBox>
@@ -66,7 +67,6 @@ function Home() {
             </CtaLink>
           </TextBlock>
         </HomeTextBox>
-        <Navigation styleVariant="home" />
       </HomeSection>
     </HomepageContainer>
   );

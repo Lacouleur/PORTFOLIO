@@ -15,9 +15,21 @@ const GalerieNavMixin = css`
   justify-content: space-between;
 `;
 
+const FixedNavMixin = css`
+  position: fixed;
+  top: 48px;
+  left: 32px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  background-color: ${({ theme }) => theme.colors.background};
+`;
+
 export const NavContainer = styled.div`
-  ${({ styleVariant }) => styleVariant === "home" && HomeNavMixin};
-  ${({ styleVariant }) => styleVariant === "galery" && GalerieNavMixin};
+  ${({ stylevariant }) => stylevariant === "home" && HomeNavMixin};
+  ${({ stylevariant }) => stylevariant === "galery" && GalerieNavMixin};
+  ${({ stylevariant }) => stylevariant === "fixed" && FixedNavMixin};
 `;
 
 const HomeNavTextMixin = css`
@@ -39,8 +51,8 @@ const GalerieNavTextMixin = css`
 `;
 
 export const NavText = styled.p`
-  ${({ styleVariant }) => styleVariant === "home" && HomeNavTextMixin};
-  ${({ styleVariant }) => styleVariant === "galery" && GalerieNavTextMixin};
+  ${({ stylevariant }) => stylevariant === "home" && HomeNavTextMixin};
+  ${({ stylevariant }) => stylevariant === "galery" && GalerieNavTextMixin};
 `;
 
 const HomeNavButtonMixin = css`
@@ -52,8 +64,8 @@ const HomeNavButtonMixin = css`
   border: none;
   background-color: transparent;
   border-top: solid 1px ${({ theme }) => theme.colors.font};
-  border-bottom: ${({ last, theme }) =>
-    last ? `solid 1px ${theme.colors.font}` : "none"};
+  border-bottom: ${({ $last, theme }) =>
+    $last ? `solid 1px ${theme.colors.font}` : "none"};
   transition: background-color 0.2s ease;
   max-height: 307px;
 
@@ -103,8 +115,8 @@ const GalerieNavButtonMixin = css`
 `;
 
 export const NavButton = styled(Link)`
-  ${({ styleVariant }) => styleVariant === "home" && HomeNavButtonMixin};
-  ${({ styleVariant }) => styleVariant === "galery" && GalerieNavButtonMixin};
+  ${({ stylevariant }) => stylevariant === "home" && HomeNavButtonMixin};
+  ${({ stylevariant }) => stylevariant === "galery" && GalerieNavButtonMixin};
 `;
 
 export const CrossIcon = styled(SVG)`

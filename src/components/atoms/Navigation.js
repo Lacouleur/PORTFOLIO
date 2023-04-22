@@ -1,4 +1,8 @@
-import React from "react";
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-expressions */
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   NavContainer,
   NavText,
@@ -6,40 +10,71 @@ import {
   CrossIcon,
 } from "../../styles/styledComponents/molecules/mainNav.sc";
 import texts from "../../utils/texts/texts.json";
-import { useLocation } from "react-router-dom";
 import ArrowDownIcon from "../../styles/assets/icons/Arrow/Down.svg";
 import ArrowRightIcon from "../../styles/assets/icons/Arrow/Right.svg";
-import { useDispatch, useSelector } from "react-redux";
 import { toggleIsFirstLoad } from "../../store/redux";
+import useScrollPosition from "../../utils/customHooks/useScrollPosition";
 
-function Navigation({ styleVariant }) {
+function Navigation({ stylevariant }) {
   const location = useLocation().pathname;
   const { isFirstLoad } = useSelector((state) => state.nav);
   const dispatch = useDispatch();
+  const navigationRef = useRef(null);
+  const [fixedNav, setFixedNav] = useState(false);
+  const [navBarTop, setNavbarTop] = useState(undefined);
+
+  const isSticky = (e) => {
+    const scrollTop = window.scrollY;
+    console.warn("scrollTop", scrollTop);
+    console.warn("navBarTop", navBarTop);
+    if (scrollTop >= navBarTop) {
+      setFixedNav(true);
+    } else {
+      setFixedNav(false);
+    }
+  };
+
+  useEffect(() => {
+    const navBarEl = navigationRef.current.getBoundingClientRect();
+    setNavbarTop(navBarEl.top);
+  }, []);
+
+  useEffect(() => {
+    if (!navBarTop) return;
+    console.error("called 2");
+    window.addEventListener("scroll", isSticky);
+    return () => {
+      window.removeEventListener("scroll", isSticky);
+    };
+  }, [navBarTop]);
+
   return (
-    <NavContainer styleVariant={styleVariant}>
+    <NavContainer
+      stylevariant={fixedNav ? "fixed" : stylevariant}
+      ref={navigationRef}
+    >
       <NavButton
         onClick={() => {
           dispatch(toggleIsFirstLoad(false));
         }}
-        firstLoad={isFirstLoad}
+        $firstload={!!isFirstLoad}
         location={location}
-        styleVariant={styleVariant}
-        to={"/paints"}
+        stylevariant={stylevariant}
+        to="/paints"
       >
-        {styleVariant && styleVariant === "home" && (
+        {stylevariant && stylevariant === "home" && (
           <>
-            <NavText styleVariant={styleVariant}>
+            <NavText stylevariant={stylevariant}>
               {texts.mainPage.fr.nav.paints}
             </NavText>
-            <NavText styleVariant={styleVariant}>
+            <NavText stylevariant={stylevariant}>
               {texts.mainPage.en.nav.paints}
             </NavText>
           </>
         )}
-        {styleVariant && styleVariant === "galery" && (
+        {stylevariant && stylevariant === "galery" && (
           <>
-            <NavText styleVariant={styleVariant}>
+            <NavText stylevariant={stylevariant}>
               {texts.mainPage.fr.nav.paints} - {texts.mainPage.en.nav.paints}
             </NavText>
             <CrossIcon
@@ -52,25 +87,25 @@ function Navigation({ styleVariant }) {
         onClick={() => {
           dispatch(toggleIsFirstLoad(false));
         }}
-        firstLoad={isFirstLoad}
+        $firstLoad={isFirstLoad}
         location={location}
-        styleVariant={styleVariant}
-        to={"/illustrations"}
-        last
+        stylevariant={stylevariant}
+        to="/illustrations"
+        $last
       >
-        {styleVariant && styleVariant === "home" && (
+        {stylevariant && stylevariant === "home" && (
           <>
-            <NavText styleVariant={styleVariant}>
+            <NavText stylevariant={stylevariant}>
               {texts.mainPage.fr.nav.illustrations}
             </NavText>
-            <NavText styleVariant={styleVariant}>
+            <NavText stylevariant={stylevariant}>
               {texts.mainPage.en.nav.illustrations}
             </NavText>
           </>
         )}
-        {styleVariant && styleVariant === "galery" && (
+        {stylevariant && stylevariant === "galery" && (
           <>
-            <NavText styleVariant={styleVariant}>
+            <NavText stylevariant={stylevariant}>
               {texts.mainPage.fr.nav.illustrations} -{" "}
               {texts.mainPage.en.nav.illustrations}
             </NavText>

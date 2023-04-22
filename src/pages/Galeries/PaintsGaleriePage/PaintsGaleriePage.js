@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   GaleriePageContainer,
   GaleriePageSection,
@@ -8,16 +9,14 @@ import Header from "../../../components/header";
 import Navigation from "../../../components/atoms/Navigation";
 import GaleriePresentationBlockText from "../../../components/molecules/GaleriePresentationBlockText";
 import GalerieImages4Squares from "../../../components/molecules/GalerieImages4Squares";
-import { useNavigate } from "react-router-dom";
 
 function PaintsGaleriePage() {
-  const ref = useRef();
   const navigate = useNavigate();
   const [isTop, setIsTop] = useState(true);
+  /* 
+  const [imgIshovered, setImgIsHovered] = useState(""); */
 
-  const [imgIshovered, setImgIsHovered] = useState("");
-
-  useEffect(() => {
+  /*   useEffect(() => {
     window.onscroll = function () {
       if (window.pageYOffset === 0) {
         setIsTop(true);
@@ -25,19 +24,17 @@ function PaintsGaleriePage() {
         setIsTop(false);
       }
     };
-  }, [window.pageYOffset]);
+  }, [window.pageYOffset]); */
 
   return (
     <GaleriePageContainer
-      ref={ref}
       onWheel={(event) => {
         if (isTop && event.nativeEvent.wheelDelta > 0) {
           navigate("/");
         }
       }}
     >
-      <Header />
-      <Navigation styleVariant="galery" />
+      <Navigation stylevariant="galery" />
       <GaleriePageSection>
         <GaleriePresentationBlockText />
         <GaleriesContainer>
