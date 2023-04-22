@@ -1,13 +1,28 @@
 import React from "react";
-import { GaleriePageContainer } from "../../../styles/styledComponents/GaleriesPages.sc";
-import Header from "../../../components/header";
-import Navigation from "../../../components/atoms/Navigation";
+import {
+  GaleriePageContainer,
+  GaleriePageSection,
+  GaleriesContainer,
+} from "../../../styles/styledComponents/GaleriesPages.sc";
+import GaleriePresentationBlockText from "../../../components/molecules/GaleriePresentationBlockText";
+import GalerieImages4Squares from "../../../components/molecules/GalerieImages4Squares";
 
 function IllustrationsGaleriePage() {
   return (
     <GaleriePageContainer>
-      <Header />
-      <Navigation stylevariant="galery" />
+      <GaleriePageSection>
+        <GaleriePresentationBlockText galeryName="illustrations" />
+        <GaleriesContainer>
+          <GalerieImages4Squares />
+          <GalerieImages4Squares />
+          <GalerieImages4Squares />
+          <GalerieImages4Squares />
+          <GalerieImages4Squares />
+          <GalerieImages4Squares />
+          <GalerieImages4Squares />
+          <GalerieImages4Squares />
+        </GaleriesContainer>
+      </GaleriePageSection>
     </GaleriePageContainer>
   );
 }

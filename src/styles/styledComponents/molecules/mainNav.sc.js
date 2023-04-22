@@ -18,17 +18,20 @@ const GalerieNavMixin = css`
 const FixedNavMixin = css`
   position: fixed;
   top: 48px;
-  left: 32px;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 95%;
   justify-content: space-between;
+  z-index: 10;
   background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const NavContainer = styled.div`
   ${({ stylevariant }) => stylevariant === "home" && HomeNavMixin};
-  ${({ stylevariant }) => stylevariant === "galery" && GalerieNavMixin};
+  ${({ stylevariant, fixedVersion }) =>
+    stylevariant === "galery" && fixedVersion
+      ? FixedNavMixin
+      : GalerieNavMixin};
   ${({ stylevariant }) => stylevariant === "fixed" && FixedNavMixin};
 `;
 

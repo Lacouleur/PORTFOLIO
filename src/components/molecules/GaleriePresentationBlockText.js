@@ -1,5 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import texts from "../../utils/texts/texts.json";
+
 import {
   GaleriePresentationContainer,
   GaleriePresentationTextBlock,
@@ -7,18 +9,18 @@ import {
   GaleriePresentationTitle,
 } from "../../styles/styledComponents/molecules/GaleriePresentationBlockText.sc";
 
-function GaleriePresentationBlockText() {
+function GaleriePresentationBlockText({ galeryName }) {
   return (
     <GaleriePresentationContainer>
       <GaleriePresentationTitle>
-        {texts.paintsGaleriePage.fr.title}
+        {texts[galeryName].fr.title}
       </GaleriePresentationTitle>
       <GaleriePresentationTextBlock>
         <GaleriePresentationTextBody>
-          {texts.paintsGaleriePage.fr.prez}
+          {texts[galeryName].fr.prez}
         </GaleriePresentationTextBody>
         <GaleriePresentationTextBody>
-          {texts.paintsGaleriePage.en.prez}
+          {texts[galeryName].en.prez}
         </GaleriePresentationTextBody>
       </GaleriePresentationTextBlock>
     </GaleriePresentationContainer>
@@ -27,11 +29,10 @@ function GaleriePresentationBlockText() {
 
 /* GaleriePresentationBlockText.defaultProps = {
   position: undefined,
-};
+}; */
 
 GaleriePresentationBlockText.propTypes = {
-  position: PropTypes.string,
+  galeryName: PropTypes.string.isRequired,
 };
- */
 
 export default GaleriePresentationBlockText;

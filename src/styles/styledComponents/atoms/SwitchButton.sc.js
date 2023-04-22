@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { breakpoints } from "../../core/breakpoints";
+import breakpoints from "../../core/breakpoints";
 
 const homepageSwitchBoxMixin = css`
   position: relative;

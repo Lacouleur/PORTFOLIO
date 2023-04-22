@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { breakpoints } from "../core/breakpoints";
+import breakpoints from "../core/breakpoints";
 
 export const HomepageContainer = styled.div`
   position: relative;
@@ -7,7 +7,6 @@ export const HomepageContainer = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-  padding: 0 32px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -18,8 +17,7 @@ export const HomeSection = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 45%;
-
-  ${breakpoints("mobile", `height: auto`)};
+  margin: 64px 0 32px 0;
 `;
 
 const MobileHomeTextBox = css`

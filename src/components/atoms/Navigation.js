@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
 import {
   NavContainer,
   NavText,
@@ -12,46 +13,27 @@ import {
 import texts from "../../utils/texts/texts.json";
 import ArrowDownIcon from "../../styles/assets/icons/Arrow/Down.svg";
 import ArrowRightIcon from "../../styles/assets/icons/Arrow/Right.svg";
-import { toggleIsFirstLoad } from "../../store/redux";
+import {
+  setFixedNav,
+  setNavBarRef,
+  toggleIsFirstLoad,
+} from "../../store/redux";
 import useScrollPosition from "../../utils/customHooks/useScrollPosition";
 
-function Navigation({ stylevariant }) {
+function Navigation({ stylevariant, fixedVersion }) {
   const location = useLocation().pathname;
   const { isFirstLoad } = useSelector((state) => state.nav);
   const dispatch = useDispatch();
   const navigationRef = useRef(null);
-  const [fixedNav, setFixedNav] = useState(false);
-  const [navBarTop, setNavbarTop] = useState(undefined);
 
-  const isSticky = (e) => {
-    const scrollTop = window.scrollY;
-    console.warn("scrollTop", scrollTop);
-    console.warn("navBarTop", navBarTop);
-    if (scrollTop >= navBarTop) {
-      setFixedNav(true);
-    } else {
-      setFixedNav(false);
-    }
-  };
-
-  useEffect(() => {
-    const navBarEl = navigationRef.current.getBoundingClientRect();
-    setNavbarTop(navBarEl.top);
-  }, []);
-
-  useEffect(() => {
-    if (!navBarTop) return;
-    console.error("called 2");
-    window.addEventListener("scroll", isSticky);
-    return () => {
-      window.removeEventListener("scroll", isSticky);
-    };
-  }, [navBarTop]);
+  useScrollPosition(navigationRef, dispatch, setFixedNav, -48, fixedVersion);
 
   return (
     <NavContainer
-      stylevariant={fixedNav ? "fixed" : stylevariant}
-      ref={navigationRef}
+      id={fixedVersion ? "fixedNav" : "classicNav"}
+      stylevariant={stylevariant}
+      fixedVersion={fixedVersion}
+      ref={fixedVersion ? undefined : navigationRef}
     >
       <NavButton
         onClick={() => {
@@ -121,13 +103,14 @@ function Navigation({ stylevariant }) {
   );
 }
 
-/* Navigation.defaultProps = {
-  position: undefined,
+Navigation.defaultProps = {
+  stylevariant: "galery",
+  fixedVersion: false,
 };
 
 Navigation.propTypes = {
-  position: PropTypes.string,
+  stylevariant: PropTypes.string,
+  fixedVersion: PropTypes.bool,
 };
- */
 
 export default Navigation;

@@ -11,32 +11,10 @@ import GaleriePresentationBlockText from "../../../components/molecules/GalerieP
 import GalerieImages4Squares from "../../../components/molecules/GalerieImages4Squares";
 
 function PaintsGaleriePage() {
-  const navigate = useNavigate();
-  const [isTop, setIsTop] = useState(true);
-  /* 
-  const [imgIshovered, setImgIsHovered] = useState(""); */
-
-  /*   useEffect(() => {
-    window.onscroll = function () {
-      if (window.pageYOffset === 0) {
-        setIsTop(true);
-      } else {
-        setIsTop(false);
-      }
-    };
-  }, [window.pageYOffset]); */
-
   return (
-    <GaleriePageContainer
-      onWheel={(event) => {
-        if (isTop && event.nativeEvent.wheelDelta > 0) {
-          navigate("/");
-        }
-      }}
-    >
-      <Navigation stylevariant="galery" />
+    <GaleriePageContainer>
       <GaleriePageSection>
-        <GaleriePresentationBlockText />
+        <GaleriePresentationBlockText galeryName="paints" />
         <GaleriesContainer>
           <GalerieImages4Squares />
           <GalerieImages4Squares />

@@ -1,52 +1,36 @@
-import { useRef, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 
-/* code from : https://dev.to/n8tb1t/tracking-scroll-position-with-react-hooks-3bbj */
-
-const isBrowser = typeof window !== `undefined`;
-
-function getScrollPosition({ element, useWindow }) {
-  if (!isBrowser) return { x: 0, y: 0 };
-
-  const target = element ? element.current : document.body;
-  const position = target.getBoundingClientRect();
-
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top };
-}
-
-export default function useScrollPosition(
-  effect,
-  deps,
-  element,
-  useWindow,
-  wait,
+export function useScrollPosition(
+  elementRef,
+  dispatch,
+  setter,
+  positionShift = 0,
+  exeption = false,
 ) {
-  console.log({ effect, deps, element, useWindow, wait });
-  const position = useRef(getScrollPosition({ useWindow }));
+  const [navBarTop, setNavbarTop] = useState(undefined);
 
-  let throttleTimeout = null;
-
-  const callBack = () => {
-    const currPos = getScrollPosition({ element, useWindow });
-    effect({ prevPos: position.current, currPos });
-    position.current = currPos;
-    throttleTimeout = null;
+  const isSticky = () => {
+    const scrollTop = window.scrollY;
+    if (scrollTop >= navBarTop + positionShift) {
+      dispatch(setter(true));
+    } else {
+      dispatch(setter(false));
+    }
   };
 
-  useLayoutEffect(() => {
-    const handleScroll = () => {
-      if (wait) {
-        if (throttleTimeout === null) {
-          throttleTimeout = setTimeout(callBack, wait);
-        }
-      } else {
-        callBack();
-      }
+  useEffect(() => {
+    if (exeption) return;
+    const navBarEl = elementRef.current.getBoundingClientRect();
+    setNavbarTop(navBarEl.top);
+  }, [elementRef]);
+
+  useEffect(() => {
+    if (!navBarTop || exeption) return;
+    window.addEventListener("scroll", isSticky);
+    return () => {
+      window.removeEventListener("scroll", isSticky);
     };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, deps);
+  }, [navBarTop]);
 }
+
+export default useScrollPosition;

@@ -2,22 +2,19 @@ import styled from "styled-components";
 
 export const PageContainer = styled.div`
   position: relative;
-  min-height: 100vh;
-  height: 100%;
-  width: 100%;
-  min-width: 150px;
+  min-width: 800px;
   color: ${(props) => props.theme.colors.font};
   top: 0;
   bottom: 0;
-  padding: 0 32px;
+  width: 95%;
+  margin: auto;
   content: "";
-  box-sizing: border-box;
   overflow: hidden;
 `;
 
 export const SiteContainer = styled.div`
   padding: 0;
-  position: ${(props) => props.position || "relative"};
+  position: relative;
   height: ${(props) => props.height || ""};
   width: 100%;
   min-width: 150px;

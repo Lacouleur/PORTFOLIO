@@ -32,10 +32,15 @@ function SwitchButton({ isChecked, action, componentId, stylevariant }) {
   );
 }
 
+SwitchButton.defaultProps = {
+  stylevariant: undefined,
+};
+
 SwitchButton.propTypes = {
   isChecked: PropTypes.bool.isRequired,
   componentId: PropTypes.string.isRequired,
   action: PropTypes.func.isRequired,
+  stylevariant: PropTypes.string,
 };
 
 export default SwitchButton;

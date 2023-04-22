@@ -33,14 +33,14 @@ function GalerieImages4Squares() {
         <SquareImg
           imgId="3"
           imgHovered={imgHovered}
-          src={fullavatar}
+          src="https://ik.imagekit.io/artworks/paintings/Weblight-2mo-leger/Avatar_Bleu_Maze/DamienVoindrot-874402122022-weblight.jpg?updatedAt=1682066160008"
           onMouseEnter={() => setImgHovered("3")}
           onMouseLeave={() => setImgHovered("")}
         />
         <SquareImg
           imgId="4"
           imgHovered={imgHovered}
-          src={fullavatar}
+          src="https://ik.imagekit.io/artworks/paintings/Weblight-2mo-leger/Avatar_Bleu_Maze/DamienVoindrot-874402122022-weblight.jpg?updatedAt=1682066160008"
           onMouseEnter={() => setImgHovered("4")}
           onMouseLeave={() => setImgHovered("")}
         />

@@ -5,6 +5,23 @@ export const Title = styled.h1`
   margin: 16px 0;
 `;
 
+export const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const SubTitleBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+  height: 100%;
+`;
+
+export const SubTitle = styled.h2`
+  font: ${({ theme }) => theme.fonts.labelSmall};
+  line-height: 9px;
+`;
+
 export const TextBody = styled.p`
   font: ${({ theme }) => theme.fonts.bodyMedium};
 `;

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { breakpoints } from "../../core/breakpoints";
+import breakpoints from "../../core/breakpoints";
 
 export const GalerieImages4SquaresContainer = styled.div`
   border: ${({ theme }) => `1px solid ${theme.colors.font}`};
