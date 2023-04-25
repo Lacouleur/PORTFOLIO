@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 import { Provider, useDispatch, useSelector } from "react-redux";
+import { number } from "prop-types";
 import Home from "./pages/HomePage/HomePage";
 import Theme from "./styles/core/theme";
 import {
   PageContainer,
   SiteContainer,
 } from "./styles/styledComponents/PagesContainer.sc";
-import PaintsGaleriePage from "./pages/Galeries/PaintsGaleriePage/PaintsGaleriePage";
+import PaintingsGaleriePage from "./pages/Galeries/PaintingsGaleriePage/PaintingsGaleriePage";
 import IllustrationsGaleriePage from "./pages/Galeries/IllustrationsGaleriePage/IllustrationsGaleriePage";
 import Header from "./components/header";
 import Navigation from "./components/atoms/Navigation";
@@ -26,7 +27,7 @@ function App({ page }) {
           {fixedNav && <Navigation stylevariant="galery" fixedVersion />}
           <Navigation stylevariant="galery" />
 
-          {/*           <PaintsGaleriePage /> */}
+          <PaintingsGaleriePage />
           <IllustrationsGaleriePage />
         </PageContainer>
       </SiteContainer>

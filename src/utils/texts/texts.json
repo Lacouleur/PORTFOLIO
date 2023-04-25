@@ -7,7 +7,7 @@
         "text": "contactez-moi",
         "link": "mailto:damien.voindrot@gmail.com"
       },
-      "nav": { "paints": "peintures", "illustrations": "illustrations" }
+      "nav": { "paintings": "peintures", "illustrations": "illustrations" }
     },
     "en": {
       "prez": "EN - My name is Damien Voindrot and I am an artist passionate about painting and illustration. I love creating unique and captivating works that I hope will charm people all over the world. I like to play with colors and shapes to give life to landscapes and characters that inspire me. Even though I learned a lot and gained experience, I still consider myself a constant learner.",
@@ -15,11 +15,11 @@
         "text": "contact-me",
         "link": "mailto:damien.voindrot@gmail.com"
       },
-      "nav": { "paints": "paints", "illustrations": "illustrations" }
+      "nav": { "paintings": "paintings", "illustrations": "illustrations" }
     }
   },
-  "paints": {
-    "id": "paints",
+  "paintings": {
+    "id": "paintings",
     "fr": {
       "title": "Labyrinthes",
       "prez": "FR - Je peins des formes abstraites de labyrinthes. En les créant, c'est moi qui me perds dans ces labyrinthes. Trouver l'issue du labyrinthe signifie offrir au spectateur l'harmonie des formes et la dynamique des couleurs. De façons métaphoriques,les labyrinthes sont les difficultés, inutiles, rituelles, que nous mettons dans notre quotidien pour donner de la valeur à ce que nous accomplissons. Combien de temps faut-il travailler sur un sujet pour qu'il soit sérieux ? Comment faut-il réaliser ce cocktail pour qu'il ait le parfum du luxe ? Comment dois-je choisir mes vêtements pour avoir l'air formel ? Toutes ces choses que l'on fait, nous perdant dans le repli de nos esprits, espérant donner de la valeur au chemin parcouru, une couleur à nos questions et une texture à nos histoires."

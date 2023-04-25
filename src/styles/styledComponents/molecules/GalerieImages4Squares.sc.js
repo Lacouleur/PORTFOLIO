@@ -1,5 +1,10 @@
 import styled, { css } from "styled-components";
 import breakpoints from "../../core/breakpoints";
+import {
+  ScaleDownTopLeftAnimation,
+  ScaleUpTopLeftAnimation,
+  mountAnimation,
+} from "../atoms/mountUnmountAnim.sc";
 
 export const GalerieImages4SquaresContainer = styled.div`
   border: ${({ theme }) => `1px solid ${theme.colors.font}`};
@@ -8,18 +13,31 @@ export const GalerieImages4SquaresContainer = styled.div`
   max-height: 100%;
   display: flex;
   align-self: flex-start;
+  position: relative;
 `;
 
-const hoverZoom = css`
-  ${({ imgId, imgHovered }) => {
-    if (imgHovered === "") {
-      return "display: block";
+const regularViewMixin = css`
+  z-index: 1;
+  width: 49%;
+  top: 0;
+  position: absolute;
+  ${ScaleDownTopLeftAnimation}
+`;
+
+const zoomFullMixin = css`
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  ${ScaleUpTopLeftAnimation};
+`;
+
+const hoverZoomMixin = css`
+  ${({ imgHovered }) => {
+    if (!imgHovered) {
+      return regularViewMixin;
     }
-    if (imgHovered !== "" && imgHovered !== imgId) {
-      return "display: none";
-    }
-    if (imgHovered !== "" && imgHovered === imgId) {
-      return "visibility: visible; width: 100%";
+    if (imgHovered) {
+      return zoomFullMixin;
     }
   }};
 `;
@@ -29,7 +47,14 @@ export const SquareImg = styled.img`
   width: 49%;
   max-height: 100%;
   align-self: center;
-  ${hoverZoom}
+  ${({ imgId }) => imgId === "full" && hoverZoomMixin};
+`;
+
+export const EmptyBlock = styled.div`
+  aspect-ratio: 1 / 1;
+  width: 49%;
+  max-height: 100%;
+  align-self: center;
 `;
 
 export const ImgBox = styled.div`
@@ -38,7 +63,9 @@ export const ImgBox = styled.div`
   max-height: 100%;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   gap: 2%;
+  position: relative;
 `;
 
 export const Descriptionbox = styled.div`

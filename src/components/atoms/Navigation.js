@@ -26,7 +26,7 @@ function Navigation({ stylevariant, fixedVersion }) {
   const dispatch = useDispatch();
   const navigationRef = useRef(null);
 
-  useScrollPosition(navigationRef, dispatch, setFixedNav, -48, fixedVersion);
+  useScrollPosition(navigationRef, dispatch, setFixedNav, 48, fixedVersion);
 
   return (
     <NavContainer
@@ -47,17 +47,18 @@ function Navigation({ stylevariant, fixedVersion }) {
         {stylevariant && stylevariant === "home" && (
           <>
             <NavText stylevariant={stylevariant}>
-              {texts.mainPage.fr.nav.paints}
+              {texts.mainPage.fr.nav.paintings}
             </NavText>
             <NavText stylevariant={stylevariant}>
-              {texts.mainPage.en.nav.paints}
+              {texts.mainPage.en.nav.paintings}
             </NavText>
           </>
         )}
         {stylevariant && stylevariant === "galery" && (
           <>
             <NavText stylevariant={stylevariant}>
-              {texts.mainPage.fr.nav.paints} - {texts.mainPage.en.nav.paints}
+              {texts.mainPage.fr.nav.paintings} -{" "}
+              {texts.mainPage.en.nav.paintings}
             </NavText>
             <CrossIcon
               src={location === "/paints" ? ArrowDownIcon : ArrowRightIcon}

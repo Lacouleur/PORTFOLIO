@@ -11,7 +11,7 @@ import {
 
 import App from "./App";
 import Home from "./pages/HomePage/HomePage";
-import PaintsGaleriePage from "./pages/Galeries/PaintsGaleriePage/PaintsGaleriePage";
+import PaintingsGaleriePage from "./pages/Galeries/PaintingsGaleriePage/PaintingsGaleriePage";
 import IllustrationsGaleriePage from "./pages/Galeries/IllustrationsGaleriePage/IllustrationsGaleriePage";
 
 const domNode = document.getElementById("root");
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   },
   /*   {
     path: "/paints",
-    element: <App page={<PaintsGaleriePage />} />,
+    element: <App page={<PaintingsGaleriePage />} />,
   },
   {
     path: "/illustrations",

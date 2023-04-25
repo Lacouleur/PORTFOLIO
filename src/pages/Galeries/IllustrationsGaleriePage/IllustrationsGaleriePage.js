@@ -8,19 +8,20 @@ import GaleriePresentationBlockText from "../../../components/molecules/GalerieP
 import GalerieImages4Squares from "../../../components/molecules/GalerieImages4Squares";
 
 function IllustrationsGaleriePage() {
+  const galeryName = "illustrations";
   return (
     <GaleriePageContainer>
       <GaleriePageSection>
-        <GaleriePresentationBlockText galeryName="illustrations" />
+        <GaleriePresentationBlockText galeryName={galeryName} />
         <GaleriesContainer>
+          {/*           <GalerieImages4Squares />
           <GalerieImages4Squares />
           <GalerieImages4Squares />
           <GalerieImages4Squares />
           <GalerieImages4Squares />
           <GalerieImages4Squares />
           <GalerieImages4Squares />
-          <GalerieImages4Squares />
-          <GalerieImages4Squares />
+          <GalerieImages4Squares /> */}
         </GaleriesContainer>
       </GaleriePageSection>
     </GaleriePageContainer>
