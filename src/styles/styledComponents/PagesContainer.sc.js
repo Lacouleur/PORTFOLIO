@@ -1,4 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import breakpoints from "../core/breakpoints";
+
+export const MobilePageContainer = css`
+  position: relative;
+  max-width: 800px;
+  min-width: 150px;
+  color: ${(props) => props.theme.colors.font};
+  content: "";
+  overflow: hidden;
+`;
 
 export const PageContainer = styled.div`
   position: relative;
@@ -10,6 +20,8 @@ export const PageContainer = styled.div`
   margin: auto;
   content: "";
   overflow: hidden;
+
+  ${breakpoints("mobile", `${MobilePageContainer}`)};
 `;
 
 export const SiteContainer = styled.div`

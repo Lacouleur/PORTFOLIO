@@ -15,31 +15,29 @@ function PaintingsGaleriePage() {
 
   return (
     <GaleriePageContainer>
-      <GaleriePageSection>
-        <GaleriePresentationBlockText galeryName={galeryName} />
-        <GaleriesContainer>
-          <GalerieImages4Squares
-            galeryName={galeryName}
-            artworkName="eyes"
-            selectedIds={[1, 2, 3]}
-          />
-          <GalerieImages4Squares
-            galeryName={galeryName}
-            artworkName="avatar"
-            selectedIds={[1, 2, 3]}
-          />
-          <GalerieImages4Squares
-            galeryName={galeryName}
-            artworkName="complementary"
-            selectedIds={[1, 2, 3]}
-          />
-          <GalerieImages4Squares
-            galeryName={galeryName}
-            artworkName="opposite"
-            selectedIds={[1, 2, 3]}
-          />
-        </GaleriesContainer>
-      </GaleriePageSection>
+      <GaleriePresentationBlockText galeryName={galeryName} />
+      <GaleriesContainer>
+        <GalerieImages4Squares
+          galeryName={galeryName}
+          artworkName="eyes"
+          selectedIds={[1, 2, 3]}
+        />
+        <GalerieImages4Squares
+          galeryName={galeryName}
+          artworkName="avatar"
+          selectedIds={[1, 2, 3]}
+        />
+        <GalerieImages4Squares
+          galeryName={galeryName}
+          artworkName="complementary"
+          selectedIds={[1, 2, 3]}
+        />
+        <GalerieImages4Squares
+          galeryName={galeryName}
+          artworkName="opposite"
+          selectedIds={[1, 2, 3]}
+        />
+      </GaleriesContainer>
     </GaleriePageContainer>
   );
 }

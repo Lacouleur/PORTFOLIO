@@ -11,10 +11,9 @@ function IllustrationsGaleriePage() {
   const galeryName = "illustrations";
   return (
     <GaleriePageContainer>
-      <GaleriePageSection>
-        <GaleriePresentationBlockText galeryName={galeryName} />
-        <GaleriesContainer>
-          {/*           <GalerieImages4Squares />
+      <GaleriePresentationBlockText galeryName={galeryName} />
+      <GaleriesContainer>
+        {/*           <GalerieImages4Squares />
           <GalerieImages4Squares />
           <GalerieImages4Squares />
           <GalerieImages4Squares />
@@ -22,8 +21,7 @@ function IllustrationsGaleriePage() {
           <GalerieImages4Squares />
           <GalerieImages4Squares />
           <GalerieImages4Squares /> */}
-        </GaleriesContainer>
-      </GaleriePageSection>
+      </GaleriesContainer>
     </GaleriePageContainer>
   );
 }

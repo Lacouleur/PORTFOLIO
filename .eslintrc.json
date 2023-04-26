@@ -20,6 +20,9 @@
   "parserOptions": {
     "requireConfigFile": false,
     "sourceType": "module",
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    },
     "ecmaFeatures": {
       "modules": true,
       "spread": true,

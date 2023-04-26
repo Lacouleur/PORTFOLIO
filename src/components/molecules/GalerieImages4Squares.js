@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import {
+  ArtworkAboutBox,
+  ArtworkAboutText,
+  ArtworkTitleBox,
+  ArtworkTitleSize,
+  ArtworkTitleText,
   Descriptionbox,
   EmptyBlock,
   GalerieImages4SquaresContainer,
   ImgBox,
   SquareImg,
 } from "../../styles/styledComponents/molecules/GalerieImages4Squares.sc";
-import PropTypes from "prop-types";
-import fullavatar from "../../styles/assets/imgs/DamienVoindrot-874102122022-weblight.jpg";
 import urlBuilder from "../../utils/helpers/urlBuilder";
 
 function GalerieImages4Squares({ galeryName, artworkName, selectedIds }) {
@@ -24,7 +28,21 @@ function GalerieImages4Squares({ galeryName, artworkName, selectedIds }) {
   return (
     <GalerieImages4SquaresContainer>
       <Descriptionbox>
-        <p>describ</p>
+        <ArtworkTitleBox>
+          <ArtworkTitleText>{artworkName} maze</ArtworkTitleText>
+          <ArtworkTitleSize>100x100 - 2020</ArtworkTitleSize>
+        </ArtworkTitleBox>
+        <ArtworkAboutBox>
+          <ArtworkAboutText>
+            FR - Châssis ébéniste en bois plein français, toiles de lin épaisse
+            d’artisanat Italien, peintures haut de gamme Hollandaises, vernis
+            UV3
+          </ArtworkAboutText>
+          <ArtworkAboutText>
+            EN - Cabinetmaker frame in French solid wood, thick linen canvas of
+            Italian craftsmanship, high-end Dutch paints, UV3 varnish
+          </ArtworkAboutText>
+        </ArtworkAboutBox>
       </Descriptionbox>
       <ImgBox
         onMouseEnter={() => setImgHovered(true)}
@@ -32,26 +50,29 @@ function GalerieImages4Squares({ galeryName, artworkName, selectedIds }) {
       >
         <SquareImg
           imgHovered={imgHovered}
-          imgId="full"
+          id="1"
           src={urlBuilder(galeryName, artworkName, ids[0], {
             side: "w",
             size: 600,
           })}
         />
-        <EmptyBlock imgId="empty" />
+        <EmptyBlock id="empty" />
         <SquareImg
+          id="2"
           src={urlBuilder(galeryName, artworkName, ids[1], {
             side: "w",
             size: 600,
           })}
         />
         <SquareImg
+          id="3"
           src={urlBuilder(galeryName, artworkName, ids[2], {
             side: "w",
             size: 600,
           })}
         />
         <SquareImg
+          id="4"
           src={urlBuilder(galeryName, artworkName, ids[3], {
             side: "w",
             size: 600,
