@@ -28,30 +28,22 @@ export const unMountAnimation = css`
 
 const ScaleUpTopLeft = keyframes`
   0% {
-    -webkit-transform: scale(0.5);
             transform: scale(0.5);
-    -webkit-transform-origin: 0% 0%;
             transform-origin: 0% 0%;
   }
   100% {
-    -webkit-transform: scale(1);
             transform: scale(1);
-    -webkit-transform-origin: 0% 0%;
             transform-origin: 0% 0%;
   }
 `;
 
 const ScaleDownTopLeft = keyframes`
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-transform-origin: 0% 0%;
+            width: 100%;
             transform-origin: 0% 0%;
   }
   100% {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-    -webkit-transform-origin: 0% 0%;
+            width: 49%;
             transform-origin: 0% 0%;
   }
 `;

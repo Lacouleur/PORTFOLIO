@@ -11,7 +11,7 @@ import fullavatar from "../../styles/assets/imgs/DamienVoindrot-874102122022-web
 import urlBuilder from "../../utils/helpers/urlBuilder";
 
 function GalerieImages4Squares({ galeryName, artworkName, selectedIds }) {
-  const [imgHovered, setImgHovered] = useState(false);
+  const [imgHovered, setImgHovered] = useState(undefined);
 
   let ids = [];
 
@@ -26,10 +26,11 @@ function GalerieImages4Squares({ galeryName, artworkName, selectedIds }) {
       <Descriptionbox>
         <p>describ</p>
       </Descriptionbox>
-      <ImgBox>
+      <ImgBox
+        onMouseEnter={() => setImgHovered(true)}
+        onMouseLeave={() => setImgHovered(false)}
+      >
         <SquareImg
-          onMouseEnter={() => setImgHovered(true)}
-          onMouseLeave={() => setImgHovered(false)}
           imgHovered={imgHovered}
           imgId="full"
           src={urlBuilder(galeryName, artworkName, ids[0], {

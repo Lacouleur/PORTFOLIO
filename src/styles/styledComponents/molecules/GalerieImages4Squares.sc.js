@@ -18,10 +18,11 @@ export const GalerieImages4SquaresContainer = styled.div`
 
 const regularViewMixin = css`
   z-index: 1;
-  width: 49%;
   top: 0;
   position: absolute;
-  ${ScaleDownTopLeftAnimation}
+  ${({ imgHovered }) => {
+    if (imgHovered !== undefined) return ScaleDownTopLeftAnimation;
+  }}
 `;
 
 const zoomFullMixin = css`
