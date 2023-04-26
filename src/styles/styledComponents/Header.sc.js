@@ -1,13 +1,18 @@
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
+import { mountAnimation, unMountAnimation } from "./atoms/mountUnmountAnim.sc";
 
 export const HeaderContainer = styled.div`
-  max-height: 96px;
-  min-height: 48px;
+  position: fixed;
+  top: 0;
+  height: 48px;
+  width: 95%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.background};
+  z-index: 10;
 `;
 
 export const HeaderLeftContainer = styled.div`
@@ -18,13 +23,8 @@ export const HeaderLeftContainer = styled.div`
   position: relative;
 `;
 
-const isHomeSocialIconsBox = css`
-  margin: 0;
-`;
-
 export const SocialIconsBox = styled.div`
-  margin-left: 20px;
-  ${(props) => props.isHome && isHomeSocialIconsBox}
+  margin-left: 32px;
 `;
 
 export const SocialIcon = styled(SVG)`
@@ -45,6 +45,8 @@ export const SocialIcon = styled(SVG)`
 export const HeaderName = styled.p`
   cursor: pointer;
   font: ${({ theme }) => theme.fonts.titleSmall};
+  ${({ fade }) => (fade === "in" ? mountAnimation : unMountAnimation)};
+
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
   }

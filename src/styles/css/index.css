@@ -12,6 +12,7 @@ body {
   color: #2f3640;
   width: 100%;
   padding: 0;
+  background-origin: padding-box;
 }
 
 /* Scrollbar */

@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import artStationIcon from "../styles/assets/icons/Social/Artstation.svg";
 import InstaIcon from "../styles/assets/icons/Social/Instagram.svg";
 import mailToIcon from "../styles/assets/icons/Social/Mail.svg";
@@ -11,26 +13,27 @@ import {
 } from "../styles/styledComponents/Header.sc";
 import SwitchButton from "./atoms/SwitchButton";
 import { toggleIsDark } from "../store/redux";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import useDelayUnmount from "../utils/customHooks/useDelayUnmount";
 
 function Header() {
   const dispatch = useDispatch();
   const { isDark } = useSelector((state) => state.main);
   const isHome = useLocation().pathname === "/";
+  const { showName } = useSelector((state) => state.header);
+
+  const shouldRender = useDelayUnmount(showName, 200);
 
   return (
     <HeaderContainer>
       <HeaderLeftContainer>
-        {!isHome && (
-          <SwitchButton
-            action={() => {
-              dispatch(toggleIsDark());
-            }}
-            isChecked={isDark}
-            componentId="switch-dark-light-theme"
-          />
-        )}
+        <SwitchButton
+          action={() => {
+            dispatch(toggleIsDark());
+          }}
+          isChecked={isDark}
+          componentId="switch-dark-light-theme"
+        />
+
         <SocialIconsBox isHome={isHome}>
           <SocialIcon
             src={artStationIcon}
@@ -57,7 +60,9 @@ function Header() {
           />
         </SocialIconsBox>
       </HeaderLeftContainer>
-      {!isHome && <HeaderName>Damien Voindrot</HeaderName>}
+      {shouldRender && (
+        <HeaderName fade={showName ? "in" : "out"}>Damien Voindrot</HeaderName>
+      )}
     </HeaderContainer>
   );
 }

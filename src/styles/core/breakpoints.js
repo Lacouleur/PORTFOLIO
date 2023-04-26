@@ -2,7 +2,7 @@ const breakpointsList = {
   mobile: 800,
 };
 
-export const breakpoints = (media, css, type = "screen") => {
+function breakpoints(media, css, type = "screen") {
   if (!media || !css) {
     return;
   }
@@ -11,8 +11,9 @@ export const breakpoints = (media, css, type = "screen") => {
       ${css};
     }
     `;
-};
+}
 
+export default breakpoints;
 /* const MobileWrapper = css`
   width: 40px;
   height: 40px;

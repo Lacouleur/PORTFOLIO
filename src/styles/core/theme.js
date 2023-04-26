@@ -15,7 +15,7 @@ const fontSizesList = {
   artTitleBig: "italic 600 32px/32px Labrada",
   artTitleMedium: "italic 700 20px/29px Labrada",
   titleBig: "normal 700 64px 'DM Sans', sans-serif",
-  titleMedium: "normal 700 32px/42px 'DM Sans', sans-serif",
+  titleMedium: "normal 700 32px 'DM Sans', sans-serif",
   titleSmall: "normal 700 20px/26px 'DM Sans', sans-serif",
   titleTiny: "italic 700 16px/16px 'DM Sans', sans-serif",
   bodyMedium: "normal 500 16px/19px 'DM Sans', sans-serif",
