@@ -1,12 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import {
   GaleriePageContainer,
-  GaleriePageSection,
   GaleriesContainer,
 } from "../../../styles/styledComponents/GaleriesPages.sc";
-import Header from "../../../components/header";
-import Navigation from "../../../components/atoms/Navigation";
 import GaleriePresentationBlockText from "../../../components/molecules/GaleriePresentationBlockText";
 import GalerieImages4Squares from "../../../components/molecules/GalerieImages4Squares";
 
@@ -14,7 +10,7 @@ function PaintingsGaleriePage() {
   const galeryName = "paintings";
 
   return (
-    <GaleriePageContainer>
+    <GaleriePageContainer id={galeryName}>
       <GaleriePresentationBlockText galeryName={galeryName} />
       <GaleriesContainer>
         <GalerieImages4Squares

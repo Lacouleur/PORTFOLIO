@@ -1,7 +1,7 @@
 import React from "react";
+
 import {
   GaleriePageContainer,
-  GaleriePageSection,
   GaleriesContainer,
 } from "../../../styles/styledComponents/GaleriesPages.sc";
 import GaleriePresentationBlockText from "../../../components/molecules/GaleriePresentationBlockText";
@@ -9,18 +9,31 @@ import GalerieImages4Squares from "../../../components/molecules/GalerieImages4S
 
 function IllustrationsGaleriePage() {
   const galeryName = "illustrations";
+
   return (
-    <GaleriePageContainer>
+    <GaleriePageContainer id={galeryName}>
       <GaleriePresentationBlockText galeryName={galeryName} />
       <GaleriesContainer>
-        {/*           <GalerieImages4Squares />
-          <GalerieImages4Squares />
-          <GalerieImages4Squares />
-          <GalerieImages4Squares />
-          <GalerieImages4Squares />
-          <GalerieImages4Squares />
-          <GalerieImages4Squares />
-          <GalerieImages4Squares /> */}
+        <GalerieImages4Squares
+          galeryName="paintings"
+          artworkName="eyes"
+          selectedIds={[1, 2, 3]}
+        />
+        <GalerieImages4Squares
+          galeryName="paintings"
+          artworkName="avatar"
+          selectedIds={[1, 2, 3]}
+        />
+        <GalerieImages4Squares
+          galeryName="paintings"
+          artworkName="complementary"
+          selectedIds={[1, 2, 3]}
+        />
+        <GalerieImages4Squares
+          galeryName="paintings"
+          artworkName="opposite"
+          selectedIds={[1, 2, 3]}
+        />
       </GaleriesContainer>
     </GaleriePageContainer>
   );

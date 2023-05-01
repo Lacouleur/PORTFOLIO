@@ -31,7 +31,7 @@ const themeLight = {
   colors: {
     background: brightSand,
     font: darkLake,
-    fontDimmed: white50,
+    fontDimmed: dark50,
     accent: brightRed,
   },
   fonts: {

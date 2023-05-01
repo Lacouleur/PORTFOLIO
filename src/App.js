@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { number } from "prop-types";
+import { useSelector } from "react-redux";
+
 import Home from "./pages/HomePage/HomePage";
 import Theme from "./styles/core/theme";
 import {
@@ -13,14 +13,14 @@ import IllustrationsGaleriePage from "./pages/Galeries/IllustrationsGaleriePage/
 import Header from "./components/header";
 import Navigation from "./components/atoms/Navigation";
 
-function App({ page }) {
+function App() {
   const { isDark } = useSelector((state) => state.main);
-  const { fixedNav, fixedHeader } = useSelector((state) => state.nav);
+  const { fixedNav } = useSelector((state) => state.nav);
 
   return (
     <Theme isDark={isDark}>
       <SiteContainer position="relative">
-        <PageContainer>
+        <PageContainer id="home">
           {/* {page} */}
           <Header />
           <Home />
@@ -35,12 +35,4 @@ function App({ page }) {
   );
 }
 
-/* App.defaultProps = {
-  position: undefined,
-};
-
-App.propTypes = {
-  position: PropTypes.string,
-};
- */
 export default App;

@@ -11,14 +11,6 @@ function urlBuilder(galeryName, artworkName, id, askedSize) {
     console.error("askedSize must be a number, we get : ", typeof askedSize);
   }
 
-  /*   if (!galeryName || !artworkName || !id) {
-    console.error(
-      "Missing mandatory Parameters (galeryName, artworkName, id, askedSize) we get : ",
-      { galeryName, artworkName, id, askedSize },
-    );
-    return `https://ik.imagekit.io/artworks/Gesture_3CarnetCroquis.jpg`;
-  }
- */
   if (galeryName === "paintings")
     return `https://ik.imagekit.io/artworks/${galeryName}${size}/${artworkName}_maze/dvoindrot-${artworkName}_maze-${id}.jpg`;
 }

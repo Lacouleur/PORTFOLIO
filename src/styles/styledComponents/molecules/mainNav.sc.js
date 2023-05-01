@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import SVG from "react-inlinesvg";
 
 const HomeNavMixin = css`
@@ -117,7 +117,7 @@ const GalerieNavButtonMixin = css`
   }
 `;
 
-export const NavButton = styled(Link)`
+export const NavButton = styled.div`
   ${({ stylevariant }) => stylevariant === "home" && HomeNavButtonMixin};
   ${({ stylevariant }) => stylevariant === "galery" && GalerieNavButtonMixin};
 `;

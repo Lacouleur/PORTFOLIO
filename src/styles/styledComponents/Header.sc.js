@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
+import { HashLink } from "react-router-hash-link";
 import { mountAnimation, unMountAnimation } from "./atoms/mountUnmountAnim.sc";
 
 export const HeaderContainer = styled.div`
@@ -42,7 +43,7 @@ export const SocialIcon = styled(SVG)`
   }
 `;
 
-export const HeaderName = styled.p`
+export const HeaderName = styled.div`
   cursor: pointer;
   font: ${({ theme }) => theme.fonts.titleSmall};
   ${({ fade }) => (fade === "in" ? mountAnimation : unMountAnimation)};

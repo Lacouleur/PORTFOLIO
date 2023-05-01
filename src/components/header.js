@@ -14,6 +14,7 @@ import {
 import SwitchButton from "./atoms/SwitchButton";
 import { toggleIsDark } from "../store/redux";
 import useDelayUnmount from "../utils/customHooks/useDelayUnmount";
+import { handleClickScroll } from "../utils/helpers/navigationHelpers";
 
 function Header() {
   const dispatch = useDispatch();
@@ -61,7 +62,14 @@ function Header() {
         </SocialIconsBox>
       </HeaderLeftContainer>
       {shouldRender && (
-        <HeaderName fade={showName ? "in" : "out"}>Damien Voindrot</HeaderName>
+        <HeaderName
+          onClick={() => {
+            handleClickScroll("home");
+          }}
+          fade={showName ? "in" : "out"}
+        >
+          Damien Voindrot
+        </HeaderName>
       )}
     </HeaderContainer>
   );

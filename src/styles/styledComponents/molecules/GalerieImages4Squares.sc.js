@@ -77,7 +77,6 @@ const hoverZoomMixin = css`
 
 const dispatchCard = css`
   ${({ id }) => {
-    console.warn("ID", id);
     if (id === "2") {
       return "top: 0; right: 0;";
     }
