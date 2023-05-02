@@ -24,8 +24,8 @@ function App() {
           {/* {page} */}
           <Header />
           <Home />
-          {fixedNav && <Navigation stylevariant="galery" fixedVersion />}
-          <Navigation stylevariant="galery" />
+          {fixedNav && <Navigation stylevariant="galerie" fixedVersion />}
+          <Navigation stylevariant="galerie" />
 
           <PaintingsGaleriePage />
           <IllustrationsGaleriePage />

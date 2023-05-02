@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
-import { HashLink } from "react-router-hash-link";
 import { mountAnimation, unMountAnimation } from "./atoms/mountUnmountAnim.sc";
 
 export const HeaderContainer = styled.div`

@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from "styled-components";
-import { HashLink } from "react-router-hash-link";
 import SVG from "react-inlinesvg";
 
 const HomeNavMixin = css`
@@ -29,7 +28,7 @@ const FixedNavMixin = css`
 export const NavContainer = styled.div`
   ${({ stylevariant }) => stylevariant === "home" && HomeNavMixin};
   ${({ stylevariant, fixedVersion }) =>
-    stylevariant === "galery" && fixedVersion
+    stylevariant === "galerie" && fixedVersion
       ? FixedNavMixin
       : GalerieNavMixin};
   ${({ stylevariant }) => stylevariant === "fixed" && FixedNavMixin};
@@ -55,7 +54,7 @@ const GalerieNavTextMixin = css`
 
 export const NavText = styled.p`
   ${({ stylevariant }) => stylevariant === "home" && HomeNavTextMixin};
-  ${({ stylevariant }) => stylevariant === "galery" && GalerieNavTextMixin};
+  ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavTextMixin};
 `;
 
 const HomeNavButtonMixin = css`
@@ -119,7 +118,7 @@ const GalerieNavButtonMixin = css`
 
 export const NavButton = styled.div`
   ${({ stylevariant }) => stylevariant === "home" && HomeNavButtonMixin};
-  ${({ stylevariant }) => stylevariant === "galery" && GalerieNavButtonMixin};
+  ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavButtonMixin};
 `;
 
 export const CrossIcon = styled(SVG)`

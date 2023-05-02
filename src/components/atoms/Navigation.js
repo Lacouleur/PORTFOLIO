@@ -43,7 +43,7 @@ function Navigation({ stylevariant, fixedVersion }) {
         stylevariant={stylevariant}
         smooth
       >
-        {stylevariant && stylevariant === "galery" && (
+        {stylevariant && stylevariant === "galerie" && (
           <>
             <NavText stylevariant={stylevariant}>
               {texts.mainPage.fr.nav.paintings} -{" "}
@@ -67,7 +67,7 @@ function Navigation({ stylevariant, fixedVersion }) {
         to="/#illustrations"
         $last
       >
-        {stylevariant && stylevariant === "galery" && (
+        {stylevariant && stylevariant === "galerie" && (
           <>
             <NavText stylevariant={stylevariant}>
               {texts.mainPage.fr.nav.illustrations} -{" "}
@@ -86,7 +86,7 @@ function Navigation({ stylevariant, fixedVersion }) {
 }
 
 Navigation.defaultProps = {
-  stylevariant: "galery",
+  stylevariant: "galerie",
   fixedVersion: false,
 };
 

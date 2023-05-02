@@ -7,29 +7,29 @@ import GaleriePresentationBlockText from "../../../components/molecules/GalerieP
 import GalerieImages4Squares from "../../../components/molecules/GalerieImages4Squares";
 
 function PaintingsGaleriePage() {
-  const galeryName = "paintings";
+  const galerieName = "paintings";
 
   return (
-    <GaleriePageContainer id={galeryName}>
-      <GaleriePresentationBlockText galeryName={galeryName} />
+    <GaleriePageContainer id={galerieName}>
+      <GaleriePresentationBlockText galerieName={galerieName} />
       <GaleriesContainer>
         <GalerieImages4Squares
-          galeryName={galeryName}
+          galerieName={galerieName}
           artworkName="eyes"
           selectedIds={[1, 2, 3]}
         />
         <GalerieImages4Squares
-          galeryName={galeryName}
+          galerieName={galerieName}
           artworkName="avatar"
           selectedIds={[1, 2, 3]}
         />
         <GalerieImages4Squares
-          galeryName={galeryName}
+          galerieName={galerieName}
           artworkName="complementary"
           selectedIds={[1, 2, 3]}
         />
         <GalerieImages4Squares
-          galeryName={galeryName}
+          galerieName={galerieName}
           artworkName="opposite"
           selectedIds={[1, 2, 3]}
         />

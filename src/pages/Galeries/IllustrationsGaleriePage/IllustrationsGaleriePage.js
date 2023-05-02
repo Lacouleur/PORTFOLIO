@@ -5,35 +5,45 @@ import {
   GaleriesContainer,
 } from "../../../styles/styledComponents/GaleriesPages.sc";
 import GaleriePresentationBlockText from "../../../components/molecules/GaleriePresentationBlockText";
-import GalerieImages4Squares from "../../../components/molecules/GalerieImages4Squares";
+import GalerieImagesList from "../../../components/molecules/GalerieImagesList";
 
 function IllustrationsGaleriePage() {
-  const galeryName = "illustrations";
+  const galerieName = "illustrations";
 
   return (
-    <GaleriePageContainer id={galeryName}>
-      <GaleriePresentationBlockText galeryName={galeryName} />
+    <GaleriePageContainer id={galerieName}>
+      <GaleriePresentationBlockText
+        galerieName={galerieName}
+        isDescription={false}
+      />
       <GaleriesContainer>
-        <GalerieImages4Squares
-          galeryName="paintings"
-          artworkName="eyes"
-          selectedIds={[1, 2, 3]}
+        <GalerieImagesList
+          galerieName={galerieName}
+          artworkName="landscapes"
+          customName="Paysages / Landscapes"
+          nbOfImgs={3}
         />
-        <GalerieImages4Squares
-          galeryName="paintings"
-          artworkName="avatar"
-          selectedIds={[1, 2, 3]}
+        <GalerieImagesList
+          galerieName={galerieName}
+          artworkName="cards"
+          customName="cartes / cards concept"
+          nbOfImgs={9}
         />
-        <GalerieImages4Squares
-          galeryName="paintings"
-          artworkName="complementary"
-          selectedIds={[1, 2, 3]}
+        <GalerieImagesList
+          galerieName={galerieName}
+          artworkName="characters"
+          subCollection={[
+            { subName: "fox", imagesNumber: 3, type: "png" },
+            { subName: "rpg", imagesNumber: 3 },
+          ]}
+          customName="Paysages / Landscapes"
         />
-        <GalerieImages4Squares
-          galeryName="paintings"
-          artworkName="opposite"
-          selectedIds={[1, 2, 3]}
-        />
+        {/*  <GalerieImagesList
+          galerieName={galerieName}
+          artworkName="landscapes"
+          customName="Paysages / Landscapes"
+          nbOfImgs={3}
+        /> */}
       </GaleriesContainer>
     </GaleriePageContainer>
   );

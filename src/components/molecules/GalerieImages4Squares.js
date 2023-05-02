@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
   ArtworkAboutBox,
@@ -12,18 +12,21 @@ import {
   ImgBox,
   SquareImg,
 } from "../../styles/styledComponents/molecules/GalerieImages4Squares.sc";
-import urlBuilder from "../../utils/helpers/urlBuilder";
 
-function GalerieImages4Squares({ galeryName, artworkName, selectedIds }) {
+import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
+
+function GalerieImages4Squares({ galerieName, artworkName }) {
   const [imgHovered, setImgHovered] = useState(undefined);
+  const [imgsUrls, setImgsUrls] = useState([]);
 
-  let ids = [];
+  const askedSize = {
+    side: "h",
+    size: 600,
+  };
 
-  // selected ids is an array and can have maximum 3 custom values plus the 0
-  // we add "0" cause it's the id of full size image
-  if (selectedIds && selectedIds[0] !== 0) {
-    ids = [0, ...selectedIds];
-  }
+  useEffect(() => {
+    setImgsUrls(dynamicUrls(askedSize, 4, galerieName, artworkName));
+  }, []);
 
   return (
     <GalerieImages4SquaresContainer>
@@ -48,36 +51,15 @@ function GalerieImages4Squares({ galeryName, artworkName, selectedIds }) {
         onMouseEnter={() => setImgHovered(true)}
         onMouseLeave={() => setImgHovered(false)}
       >
-        <SquareImg
-          imgHovered={imgHovered}
-          id="1"
-          src={urlBuilder(galeryName, artworkName, ids[0], {
-            side: "w",
-            size: 600,
-          })}
-        />
-        <EmptyBlock id="empty" />
-        <SquareImg
-          id="2"
-          src={urlBuilder(galeryName, artworkName, ids[1], {
-            side: "w",
-            size: 600,
-          })}
-        />
-        <SquareImg
-          id="3"
-          src={urlBuilder(galeryName, artworkName, ids[2], {
-            side: "w",
-            size: 600,
-          })}
-        />
-        <SquareImg
-          id="4"
-          src={urlBuilder(galeryName, artworkName, ids[3], {
-            side: "w",
-            size: 600,
-          })}
-        />
+        {imgsUrls && (
+          <>
+            <SquareImg imgHovered={imgHovered} id="1" src={imgsUrls[0]} />
+            <EmptyBlock id="empty" />
+            <SquareImg id="2" src={imgsUrls[1]} />
+            <SquareImg id="3" src={imgsUrls[2]} />
+            <SquareImg id="4" src={imgsUrls[3]} />
+          </>
+        )}
       </ImgBox>
     </GalerieImages4SquaresContainer>
   );
@@ -88,7 +70,7 @@ GalerieImages4Squares.defaultProps = {
 };
 
 GalerieImages4Squares.propTypes = {
-  galeryName: PropTypes.string.isRequired,
+  galerieName: PropTypes.string.isRequired,
   artworkName: PropTypes.string.isRequired,
   selectedIds: PropTypes.arrayOf(PropTypes.number),
 };

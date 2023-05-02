@@ -9,30 +9,33 @@ import {
   GaleriePresentationTitle,
 } from "../../styles/styledComponents/molecules/GaleriePresentationBlockText.sc";
 
-function GaleriePresentationBlockText({ galeryName }) {
+function GaleriePresentationBlockText({ galerieName, isDescription }) {
   return (
     <GaleriePresentationContainer>
       <GaleriePresentationTitle>
-        {texts[galeryName].fr.title}
+        {texts[galerieName].fr.title}
       </GaleriePresentationTitle>
-      <GaleriePresentationTextBlock>
-        <GaleriePresentationTextBody>
-          {texts[galeryName].fr.prez}
-        </GaleriePresentationTextBody>
-        <GaleriePresentationTextBody>
-          {texts[galeryName].en.prez}
-        </GaleriePresentationTextBody>
-      </GaleriePresentationTextBlock>
+      {isDescription && (
+        <GaleriePresentationTextBlock>
+          <GaleriePresentationTextBody>
+            {texts[galerieName].fr.prez}
+          </GaleriePresentationTextBody>
+          <GaleriePresentationTextBody>
+            {texts[galerieName].en.prez}
+          </GaleriePresentationTextBody>
+        </GaleriePresentationTextBlock>
+      )}
     </GaleriePresentationContainer>
   );
 }
 
-/* GaleriePresentationBlockText.defaultProps = {
-  position: undefined,
-}; */
+GaleriePresentationBlockText.defaultProps = {
+  isDescription: true,
+};
 
 GaleriePresentationBlockText.propTypes = {
-  galeryName: PropTypes.string.isRequired,
+  galerieName: PropTypes.string.isRequired,
+  isDescription: PropTypes.bool,
 };
 
 export default GaleriePresentationBlockText;
