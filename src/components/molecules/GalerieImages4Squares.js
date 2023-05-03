@@ -20,8 +20,8 @@ function GalerieImages4Squares({ galerieName, artworkName }) {
   const [imgsUrls, setImgsUrls] = useState([]);
 
   const askedSize = {
-    side: "h",
-    size: 600,
+    side: "w",
+    size: 800,
   };
 
   useEffect(() => {

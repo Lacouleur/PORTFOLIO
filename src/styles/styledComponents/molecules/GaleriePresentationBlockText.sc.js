@@ -7,7 +7,7 @@ export const GaleriePresentationContainer = styled.div`
 `;
 export const GaleriePresentationTitle = styled.h2`
   font: ${({ theme }) => theme.fonts.artTitleBig};
-  margin: 0;
+  margin-bottom: 16px;
 `;
 
 export const GaleriePresentationTextBlock = styled.div`

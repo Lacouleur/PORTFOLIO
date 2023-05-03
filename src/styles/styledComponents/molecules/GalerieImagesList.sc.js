@@ -1,19 +1,58 @@
 import styled, { css } from "styled-components";
 
-export const GalerieImagesListContainer = styled.div``;
+export const GalerieImagesListContainer = styled.div`
+  margin-top: 16px;
+  padding-top: 32px;
+  border-top: 1px solid ${({ theme }) => theme.colors.font};
+`;
 
-export const GealerieSectionTitle = styled.h3`
+export const GalerieImagesListHeader = styled.div`
+  margin-bottom: 32px;
+`;
+
+export const GalerieSectionDescBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const GalerieSectionDesc = styled.p`
+  font: ${({ theme }) => theme.fonts.bodyMedium};
+  width: 49%;
+`;
+
+export const GalerieSectionTitle = styled.h3`
   font: ${({ theme }) => theme.fonts.titlesmall};
+  margin-bottom: 16px;
 `;
 
 export const ImagesListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  justify-content: space-between;
+`;
+const noExpandLast = ["cards"];
+
+export const ImageBox = styled.div`
+  // try to use img background//
+  display: block;
+  aspect-ratio: 16/9;
+  width: 49%;
+  height: auto;
+  margin-bottom: 2%;
+  &:last-child {
+    width: ${({ artworkName }) =>
+      noExpandLast.some((e) => e !== artworkName) && "100%"};
+  }
 `;
 
 export const Image = styled.img`
-  flex: 1; /* additionally, equal width */
-  padding: 1%;
-  max-width: 50%;
+  // try to use img background//
+  width: 100%;
+  border-radius: ${({ artworkName }) => (artworkName === "cards" ? "5px" : 0)};
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+  }
 `;

@@ -12,17 +12,9 @@ function IllustrationsGaleriePage() {
 
   return (
     <GaleriePageContainer id={galerieName}>
-      <GaleriePresentationBlockText
-        galerieName={galerieName}
-        isDescription={false}
-      />
+      <GaleriePresentationBlockText galerieName={galerieName} isDescription />
+
       <GaleriesContainer>
-        <GalerieImagesList
-          galerieName={galerieName}
-          artworkName="landscapes"
-          customName="Paysages / Landscapes"
-          nbOfImgs={3}
-        />
         <GalerieImagesList
           galerieName={galerieName}
           artworkName="cards"
@@ -31,19 +23,31 @@ function IllustrationsGaleriePage() {
         />
         <GalerieImagesList
           galerieName={galerieName}
-          artworkName="characters"
-          subCollection={[
-            { subName: "fox", imagesNumber: 3, type: "png" },
-            { subName: "rpg", imagesNumber: 3 },
-          ]}
-          customName="Paysages / Landscapes"
-        />
-        {/*  <GalerieImagesList
-          galerieName={galerieName}
           artworkName="landscapes"
           customName="Paysages / Landscapes"
+          nbOfImgs={7}
+        />
+        <GalerieImagesList
+          galerieName={galerieName}
+          artworkName="concepts"
+          customName="Concepts"
           nbOfImgs={3}
-        /> */}
+        />
+        <GalerieImagesList
+          galerieName={galerieName}
+          artworkName="characters"
+          subCollection={[
+            { subName: "fox", imagesNumber: 6, type: "png" },
+            { subName: "rpg", imagesNumber: 3 },
+          ]}
+          customName="Personnages / Characters & props"
+        />
+        <GalerieImagesList
+          galerieName={galerieName}
+          artworkName="personal"
+          customName="Personal work"
+          nbOfImgs={7}
+        />
       </GaleriesContainer>
     </GaleriePageContainer>
   );
