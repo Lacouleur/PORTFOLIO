@@ -14,17 +14,6 @@ import {
 import texts from "../../utils/texts/texts.json";
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
 
-const handleOrder = (customOrder, imgsUrls) => {
-  customOrder.map((target) => {
-    const targetItem = imgsUrls.find((i) => i.num === Number(target));
-    const shorterList = arr.filter((i) => i.num !== Number(target));
-    const newArr = [targetItem, ...shorterList];
-    console.log(newArr);
-
-    setArr(newArr);
-  });
-};
-
 function GalerieImagesList({
   galerieName,
   artworkName,
@@ -32,6 +21,8 @@ function GalerieImagesList({
   customName,
   nbOfImgs,
   customOrder,
+  nbPerRow,
+  noExpandLast,
 }) {
   const [imgsUrls, setImgsUrls] = useState([]);
   const askedSize = {
@@ -40,14 +31,15 @@ function GalerieImagesList({
   };
 
   useEffect(() => {
-    if (imgsUrls.length === nbOfImgs && imgsUrls !== customOrder) {
-      handleOrder([3, 1, 2], imgsUrls);
-    }
-  }, [imgsUrls.length === nbOfImgs]);
-
-  useEffect(() => {
     setImgsUrls(
-      dynamicUrls(askedSize, nbOfImgs, galerieName, artworkName, subCollection),
+      dynamicUrls({
+        askedSize,
+        nbOfImgs,
+        galerieName,
+        artworkName,
+        subCollection,
+        customOrder,
+      }),
     );
   }, []);
 
@@ -65,11 +57,15 @@ function GalerieImagesList({
         </GalerieSectionDescBox>
       </GalerieImagesListHeader>
 
-      <ImagesListContainer id="ImagesListContainer">
+      <ImagesListContainer>
         {imgsUrls &&
           imgsUrls.length > 0 &&
           imgsUrls.map((url) => (
-            <ImageBox artworkName={artworkName}>
+            <ImageBox
+              artworkName={artworkName}
+              nbPerRow={nbPerRow}
+              noExpandLast={noExpandLast}
+            >
               <Image key={url} src={url} artworkName={artworkName} />
             </ImageBox>
           ))}
@@ -82,6 +78,9 @@ GalerieImagesList.defaultProps = {
   customName: undefined,
   subCollection: undefined,
   nbOfImgs: undefined,
+  customOrder: undefined,
+  nbPerRow: undefined,
+  noExpandLast: false,
 };
 
 GalerieImagesList.propTypes = {
@@ -92,6 +91,9 @@ GalerieImagesList.propTypes = {
   subCollection: PropTypes.arrayOf(
     PropTypes.shape({ subName: PropTypes.string, nbOfImgs: PropTypes.number }),
   ),
+  customOrder: PropTypes.arrayOf(PropTypes.number),
+  nbPerRow: PropTypes.number,
+  noExpandLast: PropTypes.bool,
 };
 
 export default GalerieImagesList;

@@ -32,19 +32,23 @@ export const ImagesListContainer = styled.div`
   width: 100%;
   justify-content: space-between;
 `;
-const noExpandLast = ["cards"];
+
+export const expandLastMixin = css`
+  &:last-child {
+    //use neExpandLast to avoid expending last image of this cat
+    width: 100%;
+  }
+`;
 
 export const ImageBox = styled.div`
   // try to use img background//
   display: block;
   aspect-ratio: 16/9;
-  width: 49%;
+  width: ${({ nbPerRow }) => (nbPerRow ? `calc(98% / ${nbPerRow})` : "49%")};
   height: auto;
   margin-bottom: 2%;
-  &:last-child {
-    width: ${({ artworkName }) =>
-      noExpandLast.some((e) => e !== artworkName) && "100%"};
-  }
+
+  ${({ noExpandLast }) => noExpandLast !== true && expandLastMixin};
 `;
 
 export const Image = styled.img`

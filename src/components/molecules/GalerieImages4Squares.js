@@ -15,7 +15,7 @@ import {
 
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
 
-function GalerieImages4Squares({ galerieName, artworkName }) {
+function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const [imgHovered, setImgHovered] = useState(undefined);
   const [imgsUrls, setImgsUrls] = useState([]);
 
@@ -25,7 +25,15 @@ function GalerieImages4Squares({ galerieName, artworkName }) {
   };
 
   useEffect(() => {
-    setImgsUrls(dynamicUrls(askedSize, 4, galerieName, artworkName));
+    setImgsUrls(
+      dynamicUrls({
+        askedSize,
+        nbOfImgs: 4,
+        galerieName,
+        artworkName,
+        customOrder,
+      }),
+    );
   }, []);
 
   return (
@@ -66,13 +74,13 @@ function GalerieImages4Squares({ galerieName, artworkName }) {
 }
 
 GalerieImages4Squares.defaultProps = {
-  selectedIds: [1, 2, 3],
+  customOrder: undefined,
 };
 
 GalerieImages4Squares.propTypes = {
   galerieName: PropTypes.string.isRequired,
   artworkName: PropTypes.string.isRequired,
-  selectedIds: PropTypes.arrayOf(PropTypes.number),
+  customOrder: PropTypes.arrayOf(PropTypes.number),
 };
 
 export default GalerieImages4Squares;

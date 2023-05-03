@@ -20,7 +20,7 @@ export const PageContainer = styled.div`
   margin: auto;
   content: "";
   overflow: hidden;
-
+  max-width: 1500px;
   ${breakpoints("mobile", `${MobilePageContainer}`)};
 `;
 
