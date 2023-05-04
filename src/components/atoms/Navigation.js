@@ -10,17 +10,17 @@ import {
   NavText,
   NavButton,
   CrossIcon,
+  NavButtonBackground,
 } from "../../styles/styledComponents/molecules/mainNav.sc";
 import texts from "../../utils/texts/texts.json";
 import ArrowDownIcon from "../../styles/assets/icons/Arrow/Down.svg";
 import ArrowRightIcon from "../../styles/assets/icons/Arrow/Right.svg";
-import { setFixedNav, toggleIsFirstLoad } from "../../store/redux";
+import { setFixedNav, setLocation, toggleIsFirstLoad } from "../../store/redux";
 import { useScrollPosition } from "../../utils/customHooks/useScrollPosition";
 import { handleClickScroll } from "../../utils/helpers/navigationHelpers";
 
 function Navigation({ stylevariant, fixedVersion }) {
-  const location = useLocation().pathname;
-  const { isFirstLoad } = useSelector((state) => state.nav);
+  const { isFirstLoad, location } = useSelector((state) => state.nav);
   const dispatch = useDispatch();
   const navigationRef = useRef(null);
 
@@ -37,7 +37,9 @@ function Navigation({ stylevariant, fixedVersion }) {
         onClick={() => {
           dispatch(toggleIsFirstLoad(false));
           handleClickScroll("paintings");
+          dispatch(setLocation("paintings"));
         }}
+        galerieName="paintings"
         $firstload={!!isFirstLoad}
         location={location}
         stylevariant={stylevariant}
@@ -52,6 +54,7 @@ function Navigation({ stylevariant, fixedVersion }) {
             <CrossIcon
               src={location === "/paints" ? ArrowDownIcon : ArrowRightIcon}
             />
+            <NavButtonBackground location={location} galerieName="paintings" />
           </>
         )}
       </NavButton>
@@ -59,13 +62,13 @@ function Navigation({ stylevariant, fixedVersion }) {
         onClick={() => {
           dispatch(toggleIsFirstLoad(false));
           handleClickScroll("illustrations");
+          dispatch(setLocation("illustrations"));
         }}
         $firstLoad={isFirstLoad}
         location={location}
+        galerieName="illustrations"
         stylevariant={stylevariant}
         smooth
-        to="/#illustrations"
-        $last
       >
         {stylevariant && stylevariant === "galerie" && (
           <>
@@ -77,6 +80,10 @@ function Navigation({ stylevariant, fixedVersion }) {
               src={
                 location === "/illustrations" ? ArrowDownIcon : ArrowRightIcon
               }
+            />
+            <NavButtonBackground
+              location={location}
+              galerieName="illustrations"
             />
           </>
         )}

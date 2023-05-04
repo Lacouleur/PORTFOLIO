@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 const colorsList = {
   brightRed: "#FF5F55",
   brightSand: "#f2e4c4",
-  darkLake: "#2a4240",
+  darkLake: "#404040",
   dark80: "#2b302f",
   dark50: "#4e5151",
   white: "#EDF3EF",

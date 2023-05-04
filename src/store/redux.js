@@ -16,6 +16,7 @@ const navSlice = createSlice({
   initialState: {
     isFirstLoad: true,
     fixedNav: undefined,
+    location: "paintings",
   },
   reducers: {
     toggleIsFirstLoad: (state, action) =>
@@ -24,6 +25,11 @@ const navSlice = createSlice({
       (state = {
         ...state,
         fixedNav: action.payload,
+      }),
+    setLocation: (state, action) =>
+      (state = {
+        ...state,
+        location: action.payload,
       }),
   },
 });
@@ -46,6 +52,6 @@ export const store = configureStore({
 });
 
 export const { toggleIsDark } = mainSlice.actions;
-export const { toggleIsFirstLoad, setFixedNav, setPagesRefs } =
+export const { toggleIsFirstLoad, setFixedNav, setPagesRefs, setLocation } =
   navSlice.actions;
 export const { setShowName } = headerSlice.actions;

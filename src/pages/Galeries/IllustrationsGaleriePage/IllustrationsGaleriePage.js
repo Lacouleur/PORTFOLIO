@@ -19,7 +19,7 @@ function IllustrationsGaleriePage() {
           galerieName={galerieName}
           artworkName="cards"
           customName="cartes / cards concept"
-          nbPerRow={3}
+          nbPerRow={4}
           nbOfImgs={9}
           customOrder={[9]}
           noExpandLast
@@ -30,7 +30,8 @@ function IllustrationsGaleriePage() {
           customName="Paysages / Landscapes"
           nbOfImgs={7}
           customOrder={[3, 4, 5, 6]}
-          nbPerRow={1}
+          nbPerRow={2}
+          noExpandLast
         />
         <GalerieImagesList
           galerieName={galerieName}
@@ -47,12 +48,16 @@ function IllustrationsGaleriePage() {
             { subName: "rpg", imagesNumber: 3 },
           ]}
           customName="Personnages / Characters & props"
+          nbPerRow={3}
         />
         <GalerieImagesList
           galerieName={galerieName}
           artworkName="personal"
           customName="Personal work"
           nbOfImgs={6}
+          nbPerRow={3}
+          noExpandLast
+          customOrder={[1, 5, 2, 3, 6, 4]}
         />
       </GaleriesContainer>
     </GaleriePageContainer>

@@ -44,6 +44,7 @@ const HomeNavTextMixin = css`
 `;
 
 const GalerieNavTextMixin = css`
+  z-index: 5;
   font: ${({ theme }) => theme.fonts.titleMedium};
   color: ${({ theme }) => theme.colors.font};
   text-align: start;
@@ -58,6 +59,7 @@ export const NavText = styled.p`
 `;
 
 const HomeNavButtonMixin = css`
+  z-index: 5;
   height: 50%;
   display: flex;
   flex-direction: column;
@@ -79,18 +81,6 @@ const HomeNavButtonMixin = css`
   }
 `;
 
-function blinkingEffect() {
-  return keyframes`
-  50% {
-    opacity: 0.5;
-  }
-`;
-}
-
-const mixinAnim = css`
-  animation: ${blinkingEffect} 0.8s linear;
-`;
-
 const GalerieNavButtonMixin = css`
   height: 74px;
   display: flex;
@@ -101,13 +91,9 @@ const GalerieNavButtonMixin = css`
   text-decoration: none;
   border: none;
   padding-left: 16px;
-  background-color: ${({ location, to, theme }) =>
-    location === to ? theme.colors.accent : "transparent"};
   border-bottom: solid 1px ${({ theme }) => theme.colors.accent};
-  opacity: ${({ location, to }) => (location === to ? "1" : "0.6")};
-
-  ${({ location, to, firstLoad }) =>
-    location === to && firstLoad === true && mixinAnim};
+  opacity: ${({ location, galerieName }) =>
+    location === galerieName ? "1" : "0.6"};
 
   &:hover {
     opacity: 1;
@@ -121,7 +107,61 @@ export const NavButton = styled.div`
   ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavButtonMixin};
 `;
 
+function AnimRightToLeft() {
+  return keyframes`
+  0% {
+            left:0;
+            right: 100%;
+            width: 0;
+  }
+  100% {
+            left:0;
+            right: 0;
+  }
+`;
+}
+
+function AnimLeftToRight() {
+  return keyframes`
+  0% {
+            left:100%;
+            right: 0;
+            width: 0;
+  }
+  100% {
+            left:0;
+            right: 0;
+  }
+`;
+}
+
+const mixinAnimRightToLeft = css`
+  animation: ${AnimRightToLeft} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+`;
+
+const mixinAnimLeftToRight = css`
+  animation: ${AnimLeftToRight} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+`;
+
+export const NavButtonBackground = styled.div`
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  width: ${({ location, galerieName }) =>
+    location === galerieName ? "100%" : "0%"};
+  height: 100%;
+  background-color: ${({ location, galerieName, theme }) =>
+    location === galerieName ? theme.colors.accent : "transparent"};
+  ${({ location, galerieName }) => {
+    if (location === galerieName && galerieName === "paintings")
+      return mixinAnimLeftToRight;
+    if (location === galerieName && galerieName === "illustrations")
+      return mixinAnimRightToLeft;
+  }};
+`;
+
 export const CrossIcon = styled(SVG)`
+  z-index: 5;
   position: absolute;
   right: 5%;
   transform: translate(0, -50%);
