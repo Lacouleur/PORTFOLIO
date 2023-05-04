@@ -10,16 +10,10 @@ export const TitleContainer = styled.div`
   align-items: center;
 `;
 
-export const SubTitleBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: 16px;
-  height: 100%;
-`;
-
 export const SubTitle = styled.h2`
   font: ${({ theme }) => theme.fonts.labelSmall};
-  line-height: 9px;
+  margin-top: 35px;
+  margin-left: 16px;
 `;
 
 export const TextBody = styled.p`

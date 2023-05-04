@@ -4,10 +4,12 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const mainSlice = createSlice({
   name: "main",
-  initialState: { isDark: false },
+  initialState: { isDark: false, isFullView: true },
   reducers: {
     toggleIsDark: (state, action) =>
       (state = { ...state, isDark: !state.isDark }),
+    toggleFullView: (state, action) =>
+      (state = { ...state, isFullView: !state.isFullView }),
   },
 });
 
@@ -51,7 +53,7 @@ export const store = configureStore({
   },
 });
 
-export const { toggleIsDark } = mainSlice.actions;
+export const { toggleIsDark, toggleFullView } = mainSlice.actions;
 export const { toggleIsFirstLoad, setFixedNav, setPagesRefs, setLocation } =
   navSlice.actions;
 export const { setShowName } = headerSlice.actions;

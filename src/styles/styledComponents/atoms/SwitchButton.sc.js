@@ -43,12 +43,9 @@ export const SwitchLabel = styled.label`
     content: "";
     display: block;
     border-radius: 50%;
-    transform: translateY(-14%);
     background: ${({ theme }) => theme.colors.font};
-    margin-top: 4px;
     width: 21px;
     height: 21px;
-    margin-left: 1px;
     transition: 0.2s;
   }
 
@@ -69,7 +66,6 @@ export const Switch = styled.input`
       display: block;
       border-radius: 50%;
       background: ${({ theme }) => theme.colors.font};
-      margin-top: 4px;
       width: 21px;
       height: 21px;
       margin-left: 25px;

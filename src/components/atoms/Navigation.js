@@ -40,7 +40,6 @@ function Navigation({ stylevariant, fixedVersion }) {
           dispatch(setLocation("paintings"));
         }}
         galerieName="paintings"
-        $firstload={!!isFirstLoad}
         location={location}
         stylevariant={stylevariant}
         smooth
@@ -54,7 +53,11 @@ function Navigation({ stylevariant, fixedVersion }) {
             <CrossIcon
               src={location === "/paints" ? ArrowDownIcon : ArrowRightIcon}
             />
-            <NavButtonBackground location={location} galerieName="paintings" />
+            <NavButtonBackground
+              $firstload={!!isFirstLoad}
+              location={location}
+              galerieName="paintings"
+            />
           </>
         )}
       </NavButton>
@@ -82,6 +85,7 @@ function Navigation({ stylevariant, fixedVersion }) {
               }
             />
             <NavButtonBackground
+              $firstload={!!isFirstLoad}
               location={location}
               galerieName="illustrations"
             />

@@ -20,10 +20,7 @@ function Home() {
     <HomeSection>
       <TitleContainer ref={titleRef}>
         <Title>Damien Voindrot</Title>
-        <SubTitleBox>
-          <SubTitle>Artiste Visuel</SubTitle>
-          <SubTitle>Visual Artist</SubTitle>
-        </SubTitleBox>
+        <SubTitle>Artiste Visuel / Visual Artist</SubTitle>
       </TitleContainer>
     </HomeSection>
   );

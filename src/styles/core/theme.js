@@ -33,6 +33,8 @@ const themeLight = {
     font: darkLake,
     fontDimmed: dark50,
     accent: brightRed,
+    dark: dark80,
+    white: brightSand,
   },
   fonts: {
     ...fontSizesList,
@@ -45,6 +47,8 @@ const themeDark = {
     font: brightSand,
     fontDimmed: white50,
     accent: brightRed,
+    dark: dark80,
+    white: brightSand,
   },
   fonts: {
     ...fontSizesList,

@@ -152,10 +152,14 @@ export const NavButtonBackground = styled.div`
   height: 100%;
   background-color: ${({ location, galerieName, theme }) =>
     location === galerieName ? theme.colors.accent : "transparent"};
-  ${({ location, galerieName }) => {
-    if (location === galerieName && galerieName === "paintings")
+  ${({ location, galerieName, $firstload }) => {
+    if (location === galerieName && galerieName === "paintings" && !$firstload)
       return mixinAnimLeftToRight;
-    if (location === galerieName && galerieName === "illustrations")
+    if (
+      location === galerieName &&
+      galerieName === "illustrations" &&
+      !$firstload
+    )
       return mixinAnimRightToLeft;
   }};
 `;

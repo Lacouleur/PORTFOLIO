@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 import {
   ArtworkAboutBox,
   ArtworkAboutText,
@@ -14,10 +15,12 @@ import {
 } from "../../styles/styledComponents/molecules/GalerieImages4Squares.sc";
 
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
+import { toggleFullView } from "../../store/redux";
 
 function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const [imgHovered, setImgHovered] = useState(undefined);
   const [imgsUrls, setImgsUrls] = useState([]);
+  const dispatch = useDispatch();
 
   const askedSize = {
     side: "w",
@@ -37,7 +40,9 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   }, []);
 
   return (
-    <GalerieImages4SquaresContainer>
+    <GalerieImages4SquaresContainer
+      onClick={() => dispatch(toggleFullView(true))}
+    >
       <Descriptionbox>
         <ArtworkTitleBox>
           <ArtworkTitleText>{artworkName} maze</ArtworkTitleText>
