@@ -44,8 +44,8 @@ export const SwitchLabel = styled.label`
     display: block;
     border-radius: 50%;
     background: ${({ theme }) => theme.colors.font};
-    width: 21px;
-    height: 21px;
+    width: 22px;
+    height: 22px;
     transition: 0.2s;
   }
 

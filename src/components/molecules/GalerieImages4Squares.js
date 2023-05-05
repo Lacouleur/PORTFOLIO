@@ -15,28 +15,26 @@ import {
 } from "../../styles/styledComponents/molecules/GalerieImages4Squares.sc";
 
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
-import {
-  toggleFullView,
-  addItemToPaintingsImagesList,
-} from "../../store/redux";
+import { toggleFullView, addItemToImagesList } from "../../store/redux";
 
 function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const [imgHovered, setImgHovered] = useState(undefined);
   const [lastImgHovered, setLastImgHovered] = useState(undefined);
   const [imgsUrls, setImgsUrls] = useState([]);
   const dispatch = useDispatch();
-  const { paintingsImageList } = useSelector((state) => state.main);
 
   const askedSize = {
     side: "w",
     size: 800,
   };
 
+  const { paintingsImagesList } = useSelector((state) => state.main);
+
   useEffect(() => {
-    if (paintingsImageList) {
+    if (paintingsImagesList) {
       imgsUrls.map((newItem) => {
-        if (paintingsImageList.indexOf(newItem) === -1) {
-          dispatch(addItemToPaintingsImagesList(newItem));
+        if (paintingsImagesList.indexOf(newItem) === -1) {
+          dispatch(addItemToImagesList({ galerieName, newItem }));
         }
       });
     }
@@ -60,7 +58,8 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
         dispatch(
           toggleFullView({
             toogle: true,
-            url: imgsUrls[0],
+            url: imgsUrls[imgHovered - 1],
+            galerieName,
           }),
         );
       }}

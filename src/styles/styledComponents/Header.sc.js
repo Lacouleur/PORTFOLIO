@@ -13,6 +13,7 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
+
   z-index: 10;
 `;
 

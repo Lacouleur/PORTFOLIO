@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
+import BackdropFilter from "react-backdrop-filter";
 
 export const FullViewContainer = styled.div`
   position: fixed;
@@ -38,10 +39,12 @@ export const FullPageImage = styled.img`
   left: 50%;
   bottom: 50%;
   max-height: 90vh;
+  max-width: 90%;
   cursor: pointer;
+  box-shadow: 0px 0px 20px 2px ${({ theme }) => theme.colors.dark};
 `;
 
-export const FullViewBackground = styled.div`
+export const FullViewBackground = styled(BackdropFilter)`
   z-index: 100;
   top: 0;
   background-color: ${({ theme }) => theme.colors.dark};

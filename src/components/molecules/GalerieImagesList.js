@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
 import {
   GalerieImagesListContainer,
   GalerieImagesListHeader,
@@ -13,6 +14,7 @@ import {
 } from "../../styles/styledComponents/molecules/GalerieImagesList.sc";
 import texts from "../../utils/texts/texts.json";
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
+import { addItemToImagesList, toggleFullView } from "../../store/redux";
 
 function GalerieImagesList({
   galerieName,
@@ -25,10 +27,23 @@ function GalerieImagesList({
   noExpandLast,
 }) {
   const [imgsUrls, setImgsUrls] = useState([]);
+  const dispatch = useDispatch();
   const askedSize = {
     side: "h",
     size: 800,
   };
+
+  const { illustrationsImagesList } = useSelector((state) => state.main);
+
+  useEffect(() => {
+    if (illustrationsImagesList) {
+      imgsUrls.map((newItem) => {
+        if (illustrationsImagesList.indexOf(newItem) === -1) {
+          dispatch(addItemToImagesList({ galerieName, newItem }));
+        }
+      });
+    }
+  }, [imgsUrls]);
 
   useEffect(() => {
     setImgsUrls(
@@ -62,6 +77,15 @@ function GalerieImagesList({
           imgsUrls.length > 0 &&
           imgsUrls.map((url) => (
             <ImageBox
+              onClick={() => {
+                dispatch(
+                  toggleFullView({
+                    toogle: true,
+                    url: url,
+                    galerieName,
+                  }),
+                );
+              }}
               artworkName={artworkName}
               nbPerRow={nbPerRow}
               noExpandLast={noExpandLast}
