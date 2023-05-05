@@ -11,7 +11,7 @@ function PaintingsGaleriePage() {
 
   return (
     <GaleriePageContainer id={galerieName}>
-      <GaleriePresentationBlockText galerieName={galerieName} />
+      <GaleriePresentationBlockText galerieName={galerieName} foldable />
       <GaleriesContainer>
         <GalerieImages4Squares
           galerieName={galerieName}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
 import {
   ArtworkAboutBox,
   ArtworkAboutText,
@@ -15,17 +15,31 @@ import {
 } from "../../styles/styledComponents/molecules/GalerieImages4Squares.sc";
 
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
-import { toggleFullView } from "../../store/redux";
+import {
+  toggleFullView,
+  addItemToPaintingsImagesList,
+} from "../../store/redux";
 
 function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const [imgHovered, setImgHovered] = useState(undefined);
   const [imgsUrls, setImgsUrls] = useState([]);
   const dispatch = useDispatch();
+  const { paintingsImageList } = useSelector((state) => state.main);
 
   const askedSize = {
     side: "w",
     size: 800,
   };
+
+  useEffect(() => {
+    if (paintingsImageList) {
+      imgsUrls.map((newItem) => {
+        if (paintingsImageList.indexOf(newItem) === -1) {
+          dispatch(addItemToPaintingsImagesList(newItem));
+        }
+      });
+    }
+  }, [imgsUrls]);
 
   useEffect(() => {
     setImgsUrls(
@@ -41,7 +55,14 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
 
   return (
     <GalerieImages4SquaresContainer
-      onClick={() => dispatch(toggleFullView(true))}
+      onClick={() => {
+        dispatch(
+          toggleFullView({
+            toogle: true,
+            url: imgsUrls[0],
+          }),
+        );
+      }}
     >
       <Descriptionbox>
         <ArtworkTitleBox>

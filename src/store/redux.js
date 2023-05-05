@@ -2,14 +2,38 @@
 /* eslint-disable no-return-assign */
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
+function findIndex(list, url) {
+  let id = 0;
+  list?.find((img, index) => {
+    if (img === url) {
+      id = index;
+    }
+  });
+  return id;
+}
 const mainSlice = createSlice({
   name: "main",
-  initialState: { isDark: false, isFullView: true },
+  initialState: {
+    isDark: false,
+    isFullView: { toogle: false, url: "", imgIndex: 0 },
+    paintingsImageList: [],
+  },
   reducers: {
     toggleIsDark: (state, action) =>
       (state = { ...state, isDark: !state.isDark }),
-    toggleFullView: (state, action) =>
-      (state = { ...state, isFullView: !state.isFullView }),
+    toggleFullView: (state, action) => {
+      const { toogle, url } = action.payload;
+      const imgIndex = findIndex(state.paintingsImageList, url);
+      return (state = {
+        ...state,
+        isFullView: { toogle, url, imgIndex },
+      });
+    },
+    addItemToPaintingsImagesList: (state, action) =>
+      (state = {
+        ...state,
+        paintingsImageList: [...state.paintingsImageList, action.payload],
+      }),
   },
 });
 
@@ -53,7 +77,8 @@ export const store = configureStore({
   },
 });
 
-export const { toggleIsDark, toggleFullView } = mainSlice.actions;
+export const { toggleIsDark, toggleFullView, addItemToPaintingsImagesList } =
+  mainSlice.actions;
 export const { toggleIsFirstLoad, setFixedNav, setPagesRefs, setLocation } =
   navSlice.actions;
 export const { setShowName } = headerSlice.actions;

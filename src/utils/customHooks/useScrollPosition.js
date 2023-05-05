@@ -12,10 +12,16 @@ export function useScrollPosition(
   const isSticky = () => {
     const { scrollY: scrollTop } = window;
 
-    if (scrollTop >= navBarTop - positionShift) {
-      dispatch(setter(true));
-    } else {
+    if (scrollTop >= navBarTop + positionShift) {
+      if (dispatch) {
+        dispatch(setter(true));
+      } else {
+        setter(true);
+      }
+    } else if (dispatch) {
       dispatch(setter(false));
+    } else {
+      setter(false);
     }
   };
 

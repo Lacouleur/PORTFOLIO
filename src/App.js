@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     const body = document.getElementById("body");
-    if (isFullView) {
+    if (isFullView.toogle) {
       body.setAttribute("style", "overflow: hidden;");
     } else {
       body.setAttribute("style", "overflow: visible;");
@@ -30,16 +30,12 @@ function App() {
   return (
     <Theme isDark={isDark}>
       <SiteContainer position="relative">
-        {isFullView && <FullView />}
-
+        {isFullView.toogle && <FullView />}
         <PageContainer id="home">
-          {/* {page} */}
-
           <Header />
           <Home />
           {fixedNav && <Navigation stylevariant="galerie" fixedVersion />}
           <Navigation stylevariant="galerie" />
-
           <PaintingsGaleriePage />
           <IllustrationsGaleriePage />
         </PageContainer>

@@ -1,7 +1,15 @@
 import styled, { css } from "styled-components";
 import breakpoints from "../core/breakpoints";
 
-export const GaleriePageContainer = styled.div``;
+const GaleriePageContainerIllustrationsMixin = css`
+  border-top: 3px solid ${({ theme }) => theme.colors.accent};
+  margin-top: 64px;
+`;
+
+export const GaleriePageContainer = styled.div`
+  ${({ id }) =>
+    id === "illustrations" && GaleriePageContainerIllustrationsMixin}
+`;
 
 const MobileGaleriesContainer = css`
   margin-top: 32px;

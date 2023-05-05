@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
+import { useDispatch } from "react-redux";
 import {
   GaleriePageContainer,
   GaleriesContainer,
 } from "../../../styles/styledComponents/GaleriesPages.sc";
 import GaleriePresentationBlockText from "../../../components/molecules/GaleriePresentationBlockText";
 import GalerieImagesList from "../../../components/molecules/GalerieImagesList";
+import { useScrollPosition } from "../../../utils/customHooks/useScrollPosition";
+import { setLocation } from "../../../store/redux";
 
 function IllustrationsGaleriePage() {
+  const dispatch = useDispatch();
   const galerieName = "illustrations";
+  const [isIllustrations, setIsIllustration] = useState(false);
+
+  const illustrationsGalerieRef = useRef(null);
+
+  useEffect(() => {
+    if (isIllustrations) {
+      dispatch(setLocation("illustrations"));
+    } else {
+      dispatch(setLocation("paintings"));
+    }
+  }, [isIllustrations]);
+
+  useScrollPosition(
+    illustrationsGalerieRef,
+    undefined,
+    setIsIllustration,
+    -160,
+  );
 
   return (
-    <GaleriePageContainer id={galerieName}>
+    <GaleriePageContainer id={galerieName} ref={illustrationsGalerieRef}>
       <GaleriePresentationBlockText galerieName={galerieName} isDescription />
 
       <GaleriesContainer>

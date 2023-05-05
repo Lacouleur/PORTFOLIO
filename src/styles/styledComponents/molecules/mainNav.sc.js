@@ -20,6 +20,7 @@ const FixedNavMixin = css`
   display: flex;
   flex-direction: row;
   width: 95%;
+  max-width: 1500px;
   justify-content: space-between;
   z-index: 10;
   background-color: ${({ theme }) => theme.colors.background};
@@ -34,15 +35,6 @@ export const NavContainer = styled.div`
   ${({ stylevariant }) => stylevariant === "fixed" && FixedNavMixin};
 `;
 
-const HomeNavTextMixin = css`
-  font: ${({ theme }) => theme.fonts.titleBig};
-  color: ${({ theme }) => theme.colors.font};
-  font-size: 3.5em;
-  margin: 12px;
-  text-align: start;
-  text-transform: capitalize;
-`;
-
 const GalerieNavTextMixin = css`
   z-index: 5;
   font: ${({ theme }) => theme.fonts.titleMedium};
@@ -54,31 +46,7 @@ const GalerieNavTextMixin = css`
 `;
 
 export const NavText = styled.p`
-  ${({ stylevariant }) => stylevariant === "home" && HomeNavTextMixin};
   ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavTextMixin};
-`;
-
-const HomeNavButtonMixin = css`
-  z-index: 5;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-decoration: none;
-  border: none;
-  background-color: transparent;
-  border-top: solid 1px ${({ theme }) => theme.colors.font};
-  border-bottom: ${({ $last, theme }) =>
-    $last ? `solid 1px ${theme.colors.font}` : "none"};
-  transition: background-color 0.2s ease;
-  max-height: 307px;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.accent};
-  }
-  &:hover ${NavText} {
-    color: ${({ theme }) => theme.colors.background};
-  }
 `;
 
 const GalerieNavButtonMixin = css`
@@ -94,6 +62,8 @@ const GalerieNavButtonMixin = css`
   border-bottom: solid 1px ${({ theme }) => theme.colors.accent};
   opacity: ${({ location, galerieName }) =>
     location === galerieName ? "1" : "0.6"};
+  cursor: pointer;
+  transition: opacity 400ms ease;
 
   &:hover {
     opacity: 1;
@@ -103,7 +73,6 @@ const GalerieNavButtonMixin = css`
 `;
 
 export const NavButton = styled.div`
-  ${({ stylevariant }) => stylevariant === "home" && HomeNavButtonMixin};
   ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavButtonMixin};
 `;
 

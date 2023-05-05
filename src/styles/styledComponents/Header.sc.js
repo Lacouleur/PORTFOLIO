@@ -7,6 +7,7 @@ export const HeaderContainer = styled.div`
   top: 0;
   height: 48px;
   width: 95%;
+  max-width: 1500px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

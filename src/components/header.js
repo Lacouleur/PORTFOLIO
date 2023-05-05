@@ -19,7 +19,7 @@ import { handleClickScroll } from "../utils/helpers/navigationHelpers";
 function Header() {
   const dispatch = useDispatch();
   const { isDark } = useSelector((state) => state.main);
-  const isHome = useLocation().pathname === "/";
+
   const { showName } = useSelector((state) => state.header);
 
   const shouldRender = useDelayUnmount(showName, 200);
@@ -35,7 +35,7 @@ function Header() {
           componentId="switch-dark-light-theme"
         />
 
-        <SocialIconsBox isHome={isHome}>
+        <SocialIconsBox>
           <SocialIcon
             src={artStationIcon}
             onClick={() =>

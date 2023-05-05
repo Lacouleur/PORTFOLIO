@@ -57,6 +57,5 @@ export const Image = styled.img`
   border-radius: ${({ artworkName }) => (artworkName === "cards" ? "5px" : 0)};
   &:hover {
     cursor: pointer;
-    transform: scale(1.03);
   }
 `;

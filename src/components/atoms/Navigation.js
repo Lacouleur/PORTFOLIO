@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-expressions */
-import React, { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -24,7 +23,7 @@ function Navigation({ stylevariant, fixedVersion }) {
   const dispatch = useDispatch();
   const navigationRef = useRef(null);
 
-  useScrollPosition(navigationRef, dispatch, setFixedNav, 48, fixedVersion);
+  useScrollPosition(navigationRef, dispatch, setFixedNav, -48, fixedVersion);
 
   return (
     <NavContainer
@@ -35,9 +34,11 @@ function Navigation({ stylevariant, fixedVersion }) {
     >
       <NavButton
         onClick={() => {
+          if (location !== "paintings") {
+            handleClickScroll("paintings");
+            dispatch(setLocation("paintings"));
+          }
           dispatch(toggleIsFirstLoad(false));
-          handleClickScroll("paintings");
-          dispatch(setLocation("paintings"));
         }}
         galerieName="paintings"
         location={location}
@@ -63,9 +64,11 @@ function Navigation({ stylevariant, fixedVersion }) {
       </NavButton>
       <NavButton
         onClick={() => {
+          if (location !== "illustrations") {
+            handleClickScroll("illustrations");
+            dispatch(setLocation("illustrations"));
+          }
           dispatch(toggleIsFirstLoad(false));
-          handleClickScroll("illustrations");
-          dispatch(setLocation("illustrations"));
         }}
         $firstLoad={isFirstLoad}
         location={location}

@@ -7,8 +7,6 @@ export const FullViewContainer = styled.div`
   height: 100vh;
   overflow: hidden;
   z-index: 100;
-  background-color: ${({ theme }) => theme.colors.dark};
-  opacity: 0.8;
 `;
 
 export const Close = styled(SVG)`
@@ -20,15 +18,59 @@ export const Close = styled(SVG)`
   width: 24px;
   opacity: 0.8;
   transition: transform 100ms ease;
+  cursor: pointer;
 
   & path {
     fill: ${({ theme }) => theme.colors.white};
-
-    /*     stroke: ${({ theme, mail }) =>
-      mail ? theme.colors.font : "none"}; */
   }
   &:hover {
     opacity: 1;
     transform: rotate(0.25turn) scale(2);
+  }
+`;
+
+export const FullPageImage = styled.img`
+  position: absolute;
+  z-index: 104;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 50%;
+  left: 50%;
+  bottom: 50%;
+  max-height: 90vh;
+  cursor: pointer;
+`;
+
+export const FullViewBackground = styled.div`
+  z-index: 100;
+  top: 0;
+  background-color: ${({ theme }) => theme.colors.dark};
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+`;
+
+const arrowRight = css`
+  right: 32px;
+`;
+const arrowLeft = css`
+  left: 32px;
+`;
+export const Arrow = styled(SVG)`
+  position: absolute;
+  z-index: 105;
+  transform: scale(3);
+  top: 50%;
+  opacity: 0.8;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(3.1);
+  }
+
+  ${({ direction }) => (direction === "right" ? arrowRight : arrowLeft)};
+  & path {
+    fill: ${({ theme }) => theme.colors.white};
   }
 `;
