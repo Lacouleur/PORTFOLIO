@@ -22,6 +22,7 @@ import {
 
 function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const [imgHovered, setImgHovered] = useState(undefined);
+  const [lastImgHovered, setLastImgHovered] = useState(undefined);
   const [imgsUrls, setImgsUrls] = useState([]);
   const dispatch = useDispatch();
   const { paintingsImageList } = useSelector((state) => state.main);
@@ -82,16 +83,41 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
         </ArtworkAboutBox>
       </Descriptionbox>
       <ImgBox
-        onMouseEnter={() => setImgHovered(true)}
-        onMouseLeave={() => setImgHovered(false)}
+        onMouseLeave={() => {
+          setLastImgHovered(imgHovered);
+          setImgHovered(undefined);
+        }}
       >
         {imgsUrls && (
           <>
-            <SquareImg imgHovered={imgHovered} id="1" src={imgsUrls[0]} />
-            <EmptyBlock id="empty" />
-            <SquareImg id="2" src={imgsUrls[1]} />
-            <SquareImg id="3" src={imgsUrls[2]} />
-            <SquareImg id="4" src={imgsUrls[3]} />
+            <SquareImg
+              onMouseEnter={() => setImgHovered(1)}
+              imgHovered={imgHovered}
+              lastImgHovered={lastImgHovered}
+              id={1}
+              src={imgsUrls[0]}
+            />
+            <SquareImg
+              onMouseEnter={() => setImgHovered(2)}
+              imgHovered={imgHovered}
+              lastImgHovered={lastImgHovered}
+              id={2}
+              src={imgsUrls[1]}
+            />
+            <SquareImg
+              onMouseEnter={() => setImgHovered(3)}
+              imgHovered={imgHovered}
+              lastImgHovered={lastImgHovered}
+              id={3}
+              src={imgsUrls[2]}
+            />
+            <SquareImg
+              onMouseEnter={() => setImgHovered(4)}
+              imgHovered={imgHovered}
+              lastImgHovered={lastImgHovered}
+              id={4}
+              src={imgsUrls[3]}
+            />
           </>
         )}
       </ImgBox>

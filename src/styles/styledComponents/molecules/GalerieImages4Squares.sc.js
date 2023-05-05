@@ -1,8 +1,14 @@
 import styled, { css } from "styled-components";
 import breakpoints from "../../core/breakpoints";
 import {
+  ScaleDownBottomLeftAnimation,
+  ScaleDownBottomRightAnimation,
   ScaleDownTopLeftAnimation,
+  ScaleDownTopRightAnimation,
+  ScaleUpBottomLeftAnimation,
+  ScaleUpBottomRightAnimation,
   ScaleUpTopLeftAnimation,
+  ScaleUpTopRightAnimation,
   mountAnimation,
 } from "../atoms/mountUnmountAnim.sc";
 
@@ -48,23 +54,13 @@ export const GalerieImages4SquaresContainer = styled.div`
   ${breakpoints("mobile", `${MobileGalerieImages4SquaresContainer}`)};
 `;
 
-const regularViewMixin = css`
-  z-index: 1;
-  top: 0;
-  position: absolute;
-  ${({ imgHovered }) => {
-    if (imgHovered !== undefined) return ScaleDownTopLeftAnimation;
-  }}
-`;
-
 const zoomFullMixin = css`
   width: 100%;
   position: absolute;
-  z-index: 2;
   ${ScaleUpTopLeftAnimation};
 `;
 
-const hoverZoomMixin = css`
+const hoverZoomSelectorMixin = css`
   ${({ imgHovered }) => {
     if (!imgHovered) {
       return regularViewMixin;
@@ -76,16 +72,54 @@ const hoverZoomMixin = css`
 `;
 
 const dispatchCard = css`
-  ${({ id }) => {
-    if (id === "2") {
-      return "top: 0; right: 0;";
+  ${({ id, imgHovered, lastImgHovered }) => {
+    if (id === 1) {
+      if (id !== imgHovered && lastImgHovered !== id) {
+        return "top: 0; left: 0;";
+      }
+      if (id === imgHovered) {
+        return ScaleUpTopLeftAnimation;
+      }
+      if (id === lastImgHovered) {
+        return ScaleDownTopLeftAnimation;
+      }
     }
-    if (id === "3") {
-      return "bottom: 0; left: 0;";
+    if (id === 2) {
+      if (id !== imgHovered && lastImgHovered !== id) {
+        return "top: 0; right: 0;";
+      }
+      if (id === imgHovered) {
+        return ScaleUpTopRightAnimation;
+      }
+      if (id === lastImgHovered) {
+        return ScaleDownTopRightAnimation;
+      }
     }
-    if (id === "4") {
-      return "bottom: 0; right: 0;";
+    if (id === 3) {
+      if (id !== imgHovered && lastImgHovered !== id) {
+        return "bottom: 0; left: 0;";
+      }
+      if (id === imgHovered) {
+        return ScaleUpBottomLeftAnimation;
+      }
+      if (id === lastImgHovered) {
+        return ScaleDownBottomLeftAnimation;
+      }
     }
+    if (id === 4) {
+      if (id !== imgHovered && lastImgHovered !== id) {
+        return "bottom: 0; right: 0;";
+      }
+      if (id === imgHovered) {
+        return ScaleUpBottomRightAnimation;
+      }
+      if (id === lastImgHovered) {
+        return ScaleDownBottomRightAnimation;
+      }
+    }
+    /*     } else {
+      return hoverZoomSelectorMixin;
+    } */
   }};
 `;
 
@@ -94,14 +128,8 @@ export const SquareImg = styled.img`
   width: 49%;
   max-height: 100%;
   position: absolute;
-  ${({ id }) => id === "1" && hoverZoomMixin};
+  ${({ id, imgHovered }) => id === imgHovered && zoomFullMixin};
   ${dispatchCard};
-`;
-
-export const EmptyBlock = styled.div`
-  aspect-ratio: 1 / 1;
-  max-height: 100%;
-  align-self: center;
 `;
 
 export const ImgBox = styled.div`
