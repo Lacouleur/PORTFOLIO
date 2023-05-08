@@ -37,7 +37,7 @@ export const SocialIconsBox = styled.div`
 export const SocialIcon = styled(SVG)`
   align-self: center;
   transition: margin-right 400ms ease;
-  margin-right: ${({ selector }) => (selector ? "2px" : "10px")};
+  margin-right: ${({ $selector }) => ($selector ? "2px" : "10px")};
   & path {
     fill: ${({ theme, mail }) => (mail ? "none" : theme.colors.font)};
     stroke: ${({ theme, mail }) => (mail ? theme.colors.font : "none")};

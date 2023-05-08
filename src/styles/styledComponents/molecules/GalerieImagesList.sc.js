@@ -30,35 +30,40 @@ export const GalerieSectionTitle = styled.h3`
 export const ImagesListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
   width: 100%;
-  justify-content: space-between;
 `;
 
 export const expandLastMixin = css`
   &:last-child {
     //use neExpandLast to avoid expending last image of this cat
-    width: 100%;
+    flex: 0 100%;
   }
 `;
-
-export const ImageBox = styled.div`
-  // try to use img background//
-  display: block;
-  width: ${({ nbPerRow }) => (nbPerRow ? `calc(99.5% / ${nbPerRow})` : "49%")};
-  height: auto;
-  margin-bottom: 0.5%;
-  padding: 1%;
-  background-color: ${({ theme }) => theme.colors.backgroundDimmed};
-  border-radius: 5px;
-  ${({ noExpandLast }) => noExpandLast !== true && expandLastMixin};
-`;
-
 export const Image = styled.img`
   // try to use img background//
   width: 100%;
   border-radius: ${({ artworkName }) => (artworkName === "cards" ? "5px" : 0)};
+`;
+
+export const ImageBox = styled.div`
+  display: block;
+  flex: 0
+    ${({ nbPerRow }) =>
+      nbPerRow ? `calc(99% / ${nbPerRow})` : `calc(99% / 2)`};
+  height: auto;
+  margin: ${({ nbPerRow }) =>
+    nbPerRow ? `calc((1% / ${nbPerRow}) / 2)` : `calc((1% / 2) / 2)`};
+  padding: 0.5%;
+  background-color: ${({ theme }) => theme.colors.backgroundDimmed};
+  border-radius: 5px;
+  ${({ noExpandLast }) => noExpandLast !== true && expandLastMixin};
   &:hover {
-    cursor: pointer;
-    transform: scale(0.99);
+    background-color: ${({ theme }) => "#c1b6ac"};
+    & ${Image} {
+      cursor: pointer;
+      transform: scale(0.99);
+    }
   }
 `;

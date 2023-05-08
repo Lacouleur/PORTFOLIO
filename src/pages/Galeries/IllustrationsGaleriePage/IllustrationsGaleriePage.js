@@ -84,8 +84,7 @@ function IllustrationsGaleriePage() {
           customName="Personal work"
           nbOfImgs={6}
           nbPerRow={3}
-          noExpandLast
-          customOrder={[1, 5, 2, 3, 6, 4]}
+          customOrder={[1, 5, 2, 3, 4, 6]}
         />
       </GaleriesContainer>
     </GaleriePageContainer>

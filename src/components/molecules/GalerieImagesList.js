@@ -7,7 +7,6 @@ import {
   GalerieSectionDesc,
   GalerieSectionDescBox,
   GalerieSectionTitle,
-  GealerieSectionTitle,
   Image,
   ImageBox,
   ImagesListContainer,

@@ -52,7 +52,7 @@ function Header() {
             }
           />
           <Selector onClick={() => setIsInstaSelector(!isInstaSelector)}>
-            <SocialIcon selector={isInstaSelector} src={InstaIcon} />
+            <SocialIcon $selector={isInstaSelector} src={InstaIcon} />
             {renderExpend && (
               <SelectorContainer expend={!!isInstaSelector}>
                 <SelectorText>Peintures</SelectorText>
