@@ -9,7 +9,6 @@ import {
   ScaleUpBottomRightAnimation,
   ScaleUpTopLeftAnimation,
   ScaleUpTopRightAnimation,
-  mountAnimation,
 } from "../atoms/mountUnmountAnim.sc";
 
 export const MobileGalerieImages4SquaresContainer = css`
@@ -48,7 +47,7 @@ export const GalerieImages4SquaresContainer = styled.div`
 
   &:hover {
     border: ${({ theme }) => `2px solid ${theme.colors.accent}`};
-    background-color: ${({ theme }) => `${theme.colors.font}30`};
+    background-color: ${({ theme }) => theme.colors.backgroundDimmed};
     cursor: pointer;
   }
   ${breakpoints("mobile", `${MobileGalerieImages4SquaresContainer}`)};
@@ -58,17 +57,6 @@ const zoomFullMixin = css`
   width: 100%;
   position: absolute;
   ${ScaleUpTopLeftAnimation};
-`;
-
-const hoverZoomSelectorMixin = css`
-  ${({ imgHovered }) => {
-    if (!imgHovered) {
-      return regularViewMixin;
-    }
-    if (imgHovered) {
-      return zoomFullMixin;
-    }
-  }};
 `;
 
 const dispatchCard = css`

@@ -60,7 +60,8 @@ export const ImageBox = styled.div`
   border-radius: 5px;
   ${({ noExpandLast }) => noExpandLast !== true && expandLastMixin};
   &:hover {
-    background-color: ${({ theme }) => "#c1b6ac"};
+    background-color: #c1b6ac;
+
     & ${Image} {
       cursor: pointer;
       transform: scale(0.99);
