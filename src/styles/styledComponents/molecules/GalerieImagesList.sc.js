@@ -67,4 +67,14 @@ export const ImageBox = styled.div`
       transform: scale(0.99);
     }
   }
+
+  // MOBILE
+  @media (max-width: 800px) {
+    flex: 0 100%;
+    padding: 0;
+    margin-bottom: 8px;
+    background-color: transparent;
+    border-radius: 5px;
+    ${({ noExpandLast }) => noExpandLast !== true && expandLastMixin};
+  }
 `;

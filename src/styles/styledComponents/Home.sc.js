@@ -1,5 +1,4 @@
-import styled, { css } from "styled-components";
-import breakpoints from "../core/breakpoints";
+import styled from "styled-components";
 
 export const HomepageContainer = styled.div`
   position: relative;
@@ -20,10 +19,6 @@ export const HomeSection = styled.div`
   margin: 64px 0 32px 0;
 `;
 
-const MobileHomeTextBox = css`
-  display: none;
-`;
-
 export const HomeTextBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -35,5 +30,8 @@ export const HomeTextBox = styled.div`
   min-width: 800px;
   max-height: 180px;
 
-  ${breakpoints("mobile", `${MobileHomeTextBox}`)};
+  // MOBILE
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;

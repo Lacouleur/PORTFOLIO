@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import breakpoints from "../../core/breakpoints";
 import {
   ScaleDownBottomLeftAnimation,
   ScaleDownBottomRightAnimation,
@@ -9,28 +8,7 @@ import {
   ScaleUpBottomRightAnimation,
   ScaleUpTopLeftAnimation,
   ScaleUpTopRightAnimation,
-} from "../atoms/mountUnmountAnim.sc";
-
-export const MobileGalerieImages4SquaresContainer = css`
-  border: ${({ theme }) => `1px solid ${theme.colors.font}`};
-  border-radius: 5px;
-  padding: 8px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  position: relative;
-  margin-bottom: 24px;
-  aspect-ratio: 1/1;
-  background-color: transparent;
-  transition: background-color 400ms ease;
-
-  &:hover {
-    border: ${({ theme }) => `2px solid ${theme.colors.accent}`};
-    background-color: ${({ theme }) => `${theme.colors.font}30`};
-    cursor: pointer;
-  }
-`;
+} from "../atoms/Animations.sc";
 
 export const GalerieImages4SquaresContainer = styled.div`
   border: ${({ theme }) => `1px solid ${theme.colors.font}`};
@@ -50,7 +28,13 @@ export const GalerieImages4SquaresContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.backgroundDimmed};
     cursor: pointer;
   }
-  ${breakpoints("mobile", `${MobileGalerieImages4SquaresContainer}`)};
+
+  // MOBILE
+  @media (max-width: 800px) {
+    width: 100%;
+    flex-direction: column;
+    aspect-ratio: 1 / 1;
+  }
 `;
 
 const zoomFullMixin = css`
@@ -105,9 +89,6 @@ const dispatchCard = css`
         return ScaleDownBottomRightAnimation;
       }
     }
-    /*     } else {
-      return hoverZoomSelectorMixin;
-    } */
   }};
 `;
 
@@ -125,6 +106,11 @@ export const ImgBox = styled.div`
   width: 70%;
   height: 100%;
   position: relative;
+
+  // MOBILE
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const Descriptionbox = styled.div`
@@ -134,23 +120,46 @@ export const Descriptionbox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  // MOBILE
+  @media (max-width: 800px) {
+    width: 100%;
+    margin-bottom: 8px;
+  }
 `;
 
 export const ArtworkTitleBox = styled.div`
   display: flex;
   flex-direction: column;
   hyphens: auto;
+
+  // MOBILE
+  @media (max-width: 800px) {
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 16px;
+  }
 `;
 
 export const ArtworkTitleText = styled.p`
   font: ${({ theme }) => theme.fonts.artTitleMedium};
   text-transform: capitalize;
   white-space: break-spaces;
-  hyphens: auto;
+
+  // MOBILE
+  @media (max-width: 800px) {
+    margin-right: 16px;
+  }
 `;
+
 export const ArtworkTitleSize = styled.p`
   font: ${({ theme }) => theme.fonts.labelSmall};
   color: ${({ theme }) => theme.colors.fontDimmed};
+
+  // MOBILE
+  @media (max-width: 800px) {
+    margin-bottom: 2px;
+  }
 `;
 
 export const ArtworkAboutBox = styled.div`
@@ -158,6 +167,11 @@ export const ArtworkAboutBox = styled.div`
   flex-direction: column;
   align-items: flex-end;
   hyphens: auto;
+
+  // MOBILE
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 export const ArtworkAboutText = styled.p`
   font: ${({ theme }) => theme.fonts.labelSmall};

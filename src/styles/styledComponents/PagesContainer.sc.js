@@ -1,14 +1,4 @@
 import styled, { css } from "styled-components";
-import breakpoints from "../core/breakpoints";
-
-export const MobilePageContainer = css`
-  position: relative;
-  max-width: 800px;
-  min-width: 150px;
-  color: ${(props) => props.theme.colors.font};
-  content: "";
-  overflow: hidden;
-`;
 
 export const PageContainer = styled.div`
   position: relative;
@@ -22,11 +12,20 @@ export const PageContainer = styled.div`
   overflow: hidden;
   max-width: 1500px;
 
+  // MOBILE
+  @media (max-width: 800px) {
+    position: relative;
+    max-width: 800px;
+    min-width: 150px;
+    color: ${(props) => props.theme.colors.font};
+    content: "";
+    overflow: hidden;
+  }
+
   & * {
     transition: background-color 500ms ease, color 500ms ease, fill 500ms ease,
       stroke 500ms ease;
   }
-  ${breakpoints("mobile", `${MobilePageContainer}`)};
 `;
 
 export const SiteContainer = styled.div`

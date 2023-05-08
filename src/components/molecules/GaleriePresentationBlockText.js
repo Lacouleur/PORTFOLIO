@@ -16,7 +16,7 @@ function GaleriePresentationBlockText({
   isDescription,
   foldable,
 }) {
-  const [expended, setExepnded] = useState(false);
+  const [expended, setExepended] = useState(false);
 
   return (
     <GaleriePresentationContainer>
@@ -25,27 +25,27 @@ function GaleriePresentationBlockText({
       </GaleriePresentationTitle>
       {isDescription && (
         <GaleriePrezTextBlock expended={foldable ? expended : false}>
-          <GalerieTextBox>
-            <GaleriePrezTextBody>
+          <GalerieTextBox expended={foldable ? expended : false}>
+            <GaleriePrezTextBody expended={foldable ? expended : false}>
               {texts[galerieName].fr.prez}
             </GaleriePrezTextBody>
             {foldable && (
               <GaleriePrezAboutWraperBox
                 id="galeriePrezTextBody"
-                onClick={() => setExepnded(!expended)}
+                onClick={() => setExepended(!expended)}
               >
                 {expended ? "voir moins " : "lire la suite"}
               </GaleriePrezAboutWraperBox>
             )}
           </GalerieTextBox>
-          <GalerieTextBox>
-            <GaleriePrezTextBody>
+          <GalerieTextBox expended={foldable ? expended : false}>
+            <GaleriePrezTextBody expended={foldable ? expended : false}>
               {texts[galerieName].en.prez}
             </GaleriePrezTextBody>
             {foldable && (
               <GaleriePrezAboutWraperBox
                 id="galeriePrezTextBody"
-                onClick={() => setExepnded(!expended)}
+                onClick={() => setExepended(!expended)}
               >
                 {expended ? "fold" : "read more"}
               </GaleriePrezAboutWraperBox>

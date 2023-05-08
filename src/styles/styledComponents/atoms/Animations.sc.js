@@ -195,3 +195,39 @@ export const expendFromLeftAnimation = css`
 export const foldFromRightAnimation = css`
   animation: ${foldFromRight} 0.4s;
 `;
+
+function AnimRightToLeft() {
+  return keyframes`
+  0% {
+            left:0;
+            right: 100%;
+            width: 0;
+  }
+  100% {
+            left:0;
+            right: 0;
+  }
+`;
+}
+
+function AnimLeftToRight() {
+  return keyframes`
+  0% {
+            left:100%;
+            right: 0;
+            width: 0;
+  }
+  100% {
+            left:0;
+            right: 0;
+  }
+`;
+}
+
+export const mixinAnimRightToLeft = css`
+  animation: ${AnimRightToLeft} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+`;
+
+export const mixinAnimLeftToRight = css`
+  animation: ${AnimLeftToRight} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+`;

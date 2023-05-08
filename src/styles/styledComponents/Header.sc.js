@@ -5,7 +5,7 @@ import {
   foldFromRightAnimation,
   mountAnimation,
   unMountAnimation,
-} from "./atoms/mountUnmountAnim.sc";
+} from "./atoms/Animations.sc";
 
 export const HeaderContainer = styled.div`
   position: fixed;

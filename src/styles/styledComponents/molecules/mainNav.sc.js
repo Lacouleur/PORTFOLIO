@@ -1,5 +1,9 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
+import {
+  mixinAnimLeftToRight,
+  mixinAnimRightToLeft,
+} from "../atoms/Animations.sc";
 
 const HomeNavMixin = css`
   padding-right: 32px;
@@ -43,10 +47,25 @@ const GalerieNavTextMixin = css`
   align-self: center;
   margin-right: 12px;
   text-transform: capitalize;
+
+  // MOBILE
+  @media (max-width: 800px) {
+    font-size: 16px;
+    margin: auto;
+  }
 `;
 
 export const NavText = styled.p`
   ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavTextMixin};
+`;
+
+export const SpanNav = styled.span`
+  display: inline;
+  // MOBILE
+  @media (max-width: 800px) {
+    display: block;
+    text-align: center;
+  }
 `;
 
 const GalerieNavButtonMixin = css`
@@ -68,48 +87,15 @@ const GalerieNavButtonMixin = css`
   &:hover {
     opacity: 1;
   }
-  &:hover ${NavText} {
+
+  // MOBILE
+  @media (max-width: 800px) {
+    padding-left: 0%;
   }
 `;
 
 export const NavButton = styled.div`
   ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavButtonMixin};
-`;
-
-function AnimRightToLeft() {
-  return keyframes`
-  0% {
-            left:0;
-            right: 100%;
-            width: 0;
-  }
-  100% {
-            left:0;
-            right: 0;
-  }
-`;
-}
-
-function AnimLeftToRight() {
-  return keyframes`
-  0% {
-            left:100%;
-            right: 0;
-            width: 0;
-  }
-  100% {
-            left:0;
-            right: 0;
-  }
-`;
-}
-
-const mixinAnimRightToLeft = css`
-  animation: ${AnimRightToLeft} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-`;
-
-const mixinAnimLeftToRight = css`
-  animation: ${AnimLeftToRight} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 `;
 
 export const NavButtonBackground = styled.div`
@@ -121,6 +107,8 @@ export const NavButtonBackground = styled.div`
   height: 100%;
   background-color: ${({ location, galerieName, theme }) =>
     location === galerieName ? theme.colors.accent : "transparent"};
+
+  // ANIM
   ${({ location, galerieName, $firstload }) => {
     if (location === galerieName && galerieName === "paintings" && !$firstload)
       return mixinAnimLeftToRight;
@@ -150,5 +138,10 @@ export const CrossIcon = styled(SVG)`
       fill: ${({ theme, mail }) => (mail ? "none" : theme.colors.accent)};
       stroke: ${({ theme, mail }) => (mail ? theme.colors.accent : "none")};
     }
+  }
+
+  // MOBILE
+  @media (max-width: 800px) {
+    display: none;
   }
 `;

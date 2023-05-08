@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import breakpoints from "../../core/breakpoints";
 
 const homepageSwitchBoxMixin = css`
   position: relative;
@@ -15,7 +14,12 @@ export const SwitchBox = styled.label`
 
 const homepageSwitchLabelMixin = css`
   bottom: 16px;
-  ${breakpoints("mobile", `bottom: 0px;`)};
+
+  // MOBILE
+  @media (max-width: 800px) {
+    bottom: 0px;
+  }
+
   &::after {
     margin-top: 3px;
     width: 22px;

@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import breakpoints from "../core/breakpoints";
 
 const GaleriePageContainerIllustrationsMixin = css`
   border-top: 3px solid ${({ theme }) => theme.colors.accent};
@@ -11,12 +10,6 @@ export const GaleriePageContainer = styled.div`
     id === "illustrations" && GaleriePageContainerIllustrationsMixin}
 `;
 
-const MobileGaleriesContainer = css`
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-`;
-
 export const GaleriesContainer = styled.div`
   margin-top: 32px;
   display: flex;
@@ -24,5 +17,11 @@ export const GaleriesContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  ${breakpoints("mobile", `${MobileGaleriesContainer}`)};
+
+  // MOBILE
+  @media (max-width: 800px) {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+  }
 `;

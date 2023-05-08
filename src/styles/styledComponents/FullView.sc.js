@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
-import { mountAnimation, unMountAnimation } from "./atoms/mountUnmountAnim.sc";
+import { mountAnimation, unMountAnimation } from "./atoms/Animations.sc";
 
 export const FullViewContainer = styled.div`
   position: fixed;

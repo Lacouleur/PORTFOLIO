@@ -10,6 +10,7 @@ import {
   NavButton,
   CrossIcon,
   NavButtonBackground,
+  SpanNav,
 } from "../../styles/styledComponents/molecules/mainNav.sc";
 import texts from "../../utils/texts/texts.json";
 import ArrowDownIcon from "../../styles/assets/icons/Arrow/Down.svg";
@@ -48,7 +49,8 @@ function Navigation({ stylevariant, fixedVersion }) {
         {stylevariant && stylevariant === "galerie" && (
           <>
             <NavText stylevariant={stylevariant}>
-              {texts.mainPage.fr.nav.paintings} -{" "}
+              {texts.mainPage.fr.nav.paintings}
+              <SpanNav>&nbsp;-&nbsp;</SpanNav>
               {texts.mainPage.en.nav.paintings}
             </NavText>
             <CrossIcon
@@ -79,7 +81,8 @@ function Navigation({ stylevariant, fixedVersion }) {
         {stylevariant && stylevariant === "galerie" && (
           <>
             <NavText stylevariant={stylevariant}>
-              {texts.mainPage.fr.nav.illustrations} -{" "}
+              {texts.mainPage.fr.nav.illustrations}
+              <SpanNav>&nbsp;-&nbsp;</SpanNav>
               {texts.mainPage.en.nav.illustrations}
             </NavText>
             <CrossIcon

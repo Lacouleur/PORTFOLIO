@@ -1,11 +1,19 @@
 import styled, { css, keyframes } from "styled-components";
 import SVG from "react-inlinesvg";
-import breakpoints from "../../core/breakpoints";
 
 export const GaleriePresentationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin-top: 32px;
+
+  // MOBILE
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
+
 export const GaleriePresentationTitle = styled.h2`
   font: ${({ theme }) => theme.fonts.titleMedium};
   margin-bottom: 16px;
@@ -15,13 +23,52 @@ export const GaleriePrezTextBlock = styled.div`
   display: flex;
   justify-content: space-between;
   transition: max-height 500ms;
-  max-height: ${({ expended }) => (expended ? "400px" : "100px")};
+  max-height: ${({ expended }) => (expended ? "400px" : "80px")};
+
+  // MOBILE
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: space-between;
+    width: max-content;
+    min-height: 100%;
+    width: 100%;
+    max-height: 100%;
+  }
+`;
+
+// MOBILE GALERIE TEXT BOX
+export const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const GalerieTextBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  overflow: hidden;
+  justify-content: space-between;
+
+  // MOBILE
+  @media (max-width: 800px) {
+    width: 100%;
+    transition: max-height 500ms;
+    max-height: ${({ expended }) => (expended ? "400px" : "73px")};
+    margin-top: 16px;
+  }
 `;
 
 export const GaleriePrezTextBody = styled.p`
   white-space: pre-wrap;
   overflow: hidden;
   font: ${({ theme }) => theme.fonts.bodyMedium};
+
+  // MOBILE
+  @media (max-width: 800px) {
+    overflow: ${({ expended }) => (expended ? "scroll" : "hidden")};
+    font-size: 14px;
+  }
 `;
 
 export const GaleriePrezAboutWraperBox = styled.div`
@@ -43,11 +90,3 @@ export const GaleriePrezAboutWraperBox = styled.div`
 export const GaleriePrezAbouttext = styled.div``;
 
 export const GaleriePrezAboutArrow = styled(SVG)``;
-
-export const GalerieTextBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 49%;
-  overflow: hidden;
-  justify-content: space-between;
-`;
