@@ -52,6 +52,7 @@ const mainSlice = createSlice({
               ? paintingsImagesList[move]
               : illustrationsImagesList[move],
           imgIndex: move,
+          galerieName,
         },
       });
     },

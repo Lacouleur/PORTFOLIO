@@ -31,7 +31,7 @@ export const GaleriePrezAboutWraperBox = styled.div`
   text-align: center;
   border-radius: 5px;
   font: ${({ theme }) => theme.fonts.labelLink};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.background};
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.fontDimmed};
   transition: background-color 500ms ease;

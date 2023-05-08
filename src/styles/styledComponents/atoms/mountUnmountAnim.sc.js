@@ -170,3 +170,28 @@ export const ScaleDownBottomRightAnimation = css`
   right: 0;
   animation: ${ScaleDownBottomRight} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 `;
+
+const expendFromLeft = keyframes`
+  0% {
+            width: 0;
+  }
+  100% {
+            width: 100px;
+  }
+`;
+
+const foldFromRight = keyframes`
+  0% {
+            width: 100px;
+  }
+  100% {
+            width: 0;
+  }
+`;
+
+export const expendFromLeftAnimation = css`
+  animation: ${expendFromLeft} 0.4s;
+`;
+export const foldFromRightAnimation = css`
+  animation: ${foldFromRight} 0.4s;
+`;

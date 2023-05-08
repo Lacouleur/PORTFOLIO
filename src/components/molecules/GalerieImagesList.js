@@ -25,6 +25,7 @@ function GalerieImagesList({
   customOrder,
   nbPerRow,
   noExpandLast,
+  noHeader,
 }) {
   const [imgsUrls, setImgsUrls] = useState([]);
   const dispatch = useDispatch();
@@ -59,17 +60,19 @@ function GalerieImagesList({
   }, []);
 
   return (
-    <GalerieImagesListContainer>
+    <GalerieImagesListContainer noHeader={noHeader}>
       <GalerieImagesListHeader>
         <GalerieSectionTitle>{customName || artworkName}</GalerieSectionTitle>
-        <GalerieSectionDescBox>
-          <GalerieSectionDesc>
-            {texts[galerieName].fr.collections[artworkName]}
-          </GalerieSectionDesc>
-          <GalerieSectionDesc>
-            {texts[galerieName].en.collections[artworkName]}
-          </GalerieSectionDesc>
-        </GalerieSectionDescBox>
+        {!subCollection && (
+          <GalerieSectionDescBox>
+            <GalerieSectionDesc>
+              {texts[galerieName].fr.collections[artworkName]}
+            </GalerieSectionDesc>
+            <GalerieSectionDesc>
+              {texts[galerieName].en.collections[artworkName]}
+            </GalerieSectionDesc>
+          </GalerieSectionDescBox>
+        )}
       </GalerieImagesListHeader>
 
       <ImagesListContainer>
@@ -105,6 +108,7 @@ GalerieImagesList.defaultProps = {
   customOrder: undefined,
   nbPerRow: undefined,
   noExpandLast: false,
+  noHeader: false,
 };
 
 GalerieImagesList.propTypes = {
@@ -118,6 +122,7 @@ GalerieImagesList.propTypes = {
   customOrder: PropTypes.arrayOf(PropTypes.number),
   nbPerRow: PropTypes.number,
   noExpandLast: PropTypes.bool,
+  noHeader: PropTypes.bool,
 };
 
 export default GalerieImagesList;

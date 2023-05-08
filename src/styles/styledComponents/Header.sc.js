@@ -1,6 +1,11 @@
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
-import { mountAnimation, unMountAnimation } from "./atoms/mountUnmountAnim.sc";
+import {
+  expendFromLeftAnimation,
+  foldFromRightAnimation,
+  mountAnimation,
+  unMountAnimation,
+} from "./atoms/mountUnmountAnim.sc";
 
 export const HeaderContainer = styled.div`
   position: fixed;
@@ -13,7 +18,6 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
-
   z-index: 10;
 `;
 
@@ -27,10 +31,13 @@ export const HeaderLeftContainer = styled.div`
 
 export const SocialIconsBox = styled.div`
   margin-left: 32px;
+  display: flex;
 `;
 
 export const SocialIcon = styled(SVG)`
-  margin-right: 10px;
+  align-self: center;
+  transition: margin-right 400ms ease;
+  margin-right: ${({ selector }) => (selector ? "2px" : "10px")};
   & path {
     fill: ${({ theme, mail }) => (mail ? "none" : theme.colors.font)};
     stroke: ${({ theme, mail }) => (mail ? theme.colors.font : "none")};
@@ -52,4 +59,39 @@ export const HeaderName = styled.div`
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
   }
+`;
+
+export const Selector = styled.div`
+  display: flex;
+`;
+
+export const SelectorSeparator = styled.div`
+  height: 1px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.background};
+`;
+
+export const SelectorText = styled.span`
+  height: 20px;
+  line-height: 8px;
+  padding-left: 4px;
+  font: ${({ theme }) => theme.fonts.bodyMedium};
+  outline-offset: -6px;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.accent};
+  }
+`;
+
+export const SelectorContainer = styled.div`
+  cursor: pointer;
+  margin-right: 8px;
+  width: 100px;
+  background-color: ${({ theme }) => theme.colors.backgroundDimmed};
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  ${({ expend }) =>
+    expend === true ? expendFromLeftAnimation : foldFromRightAnimation};
 `;

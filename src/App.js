@@ -13,10 +13,12 @@ import IllustrationsGaleriePage from "./pages/Galeries/IllustrationsGaleriePage/
 import Header from "./components/header";
 import Navigation from "./components/atoms/Navigation";
 import FullView from "./pages/FullView/FullView";
+import useDelayUnmount from "./utils/customHooks/useDelayUnmount";
 
 function App() {
   const { isDark, isFullView } = useSelector((state) => state.main);
   const { fixedNav } = useSelector((state) => state.nav);
+  const shouldRender = useDelayUnmount(isFullView.toogle, 400);
 
   useEffect(() => {
     const body = document.getElementById("body");
@@ -30,7 +32,7 @@ function App() {
   return (
     <Theme isDark={isDark}>
       <SiteContainer position="relative">
-        {isFullView.toogle && <FullView />}
+        {shouldRender && <FullView fade={isFullView.toogle ? "in" : "out"} />}
         <PageContainer id="home">
           <Header />
           <Home />

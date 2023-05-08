@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
-import BackdropFilter from "react-backdrop-filter";
+import { mountAnimation, unMountAnimation } from "./atoms/mountUnmountAnim.sc";
 
 export const FullViewContainer = styled.div`
   position: fixed;
@@ -8,6 +8,8 @@ export const FullViewContainer = styled.div`
   height: 100vh;
   overflow: hidden;
   z-index: 100;
+  backdrop-filter: blur(5px);
+  ${({ fade }) => (fade === "in" ? mountAnimation : unMountAnimation)};
 `;
 
 export const Close = styled(SVG)`
@@ -41,16 +43,16 @@ export const FullPageImage = styled.img`
   max-height: 90vh;
   max-width: 90%;
   cursor: pointer;
-  box-shadow: 0px 0px 20px 2px ${({ theme }) => theme.colors.dark};
 `;
 
-export const FullViewBackground = styled(BackdropFilter)`
+export const FullViewBackground = styled.div`
   z-index: 100;
   top: 0;
   background-color: ${({ theme }) => theme.colors.dark};
   width: 100%;
   height: 100%;
   opacity: 0.8;
+  backdrop-filter: blur(10px);
 `;
 
 const arrowRight = css`

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import artStationIcon from "../styles/assets/icons/Social/Artstation.svg";
@@ -10,6 +10,12 @@ import {
   SocialIcon,
   SocialIconsBox,
   HeaderLeftContainer,
+  SelectorContainer,
+  Selector,
+  SelectorBox,
+  SelectorText,
+  SelectorIcon,
+  SelectorSeparator,
 } from "../styles/styledComponents/Header.sc";
 import SwitchButton from "./atoms/SwitchButton";
 import { toggleIsDark } from "../store/redux";
@@ -19,10 +25,11 @@ import { handleClickScroll } from "../utils/helpers/navigationHelpers";
 function Header() {
   const dispatch = useDispatch();
   const { isDark } = useSelector((state) => state.main);
-
+  const [isInstaSelector, setIsInstaSelector] = useState(false);
   const { showName } = useSelector((state) => state.header);
 
   const shouldRender = useDelayUnmount(showName, 200);
+  const renderExpend = useDelayUnmount(isInstaSelector, 200);
 
   return (
     <HeaderContainer>
@@ -44,14 +51,17 @@ function Header() {
                 .focus()
             }
           />
-          <SocialIcon
-            src={InstaIcon}
-            onClick={() =>
-              window
-                .open("https://www.instagram.com/damien_voindrot.art", "_blank")
-                .focus()
-            }
-          />
+          <Selector onClick={() => setIsInstaSelector(!isInstaSelector)}>
+            <SocialIcon selector={isInstaSelector} src={InstaIcon} />
+            {renderExpend && (
+              <SelectorContainer expend={!!isInstaSelector}>
+                <SelectorText>Peintures</SelectorText>
+                <SelectorSeparator />
+                <SelectorText last>Illustrations</SelectorText>
+              </SelectorContainer>
+            )}
+          </Selector>
+
           <SocialIcon
             mail="true"
             src={mailToIcon}
@@ -74,6 +84,15 @@ function Header() {
     </HeaderContainer>
   );
 }
+
+/* onClick={() =>
+  window
+    .open(
+      "https://www.instagram.com/damien_voindrot.art",
+      "_blank",
+    )
+    .focus()
+} */
 
 /* Header.defaultProps = {
   position: undefined,

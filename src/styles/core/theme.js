@@ -8,8 +8,8 @@ const colorsList = {
   darkLake: "#404040",
   dark80: "#2b302f",
   dark50: "#4e5151",
-  white: "#EDF3EF",
   white50: "#f2e4c490",
+  warmGrey70: "#c1b6ac70",
 };
 
 const fontSizesList = {
@@ -24,7 +24,7 @@ const fontSizesList = {
   labelLink: "italic 500 16px 'DM Sans', sans-serif",
 };
 
-const { brightRed, brightSand, darkLake, dark80, dark50, white, white50 } =
+const { brightRed, brightSand, darkLake, dark80, dark50, warmGrey70, white50 } =
   colorsList;
 
 const themeLight = {
@@ -35,6 +35,7 @@ const themeLight = {
     accent: brightRed,
     dark: dark80,
     white: brightSand,
+    backgroundDimmed: warmGrey70,
   },
   fonts: {
     ...fontSizesList,
@@ -49,6 +50,7 @@ const themeDark = {
     accent: brightRed,
     dark: dark80,
     white: brightSand,
+    backgroundDimmed: warmGrey70,
   },
   fonts: {
     ...fontSizesList,

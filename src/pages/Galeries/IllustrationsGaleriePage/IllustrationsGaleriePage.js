@@ -65,12 +65,18 @@ function IllustrationsGaleriePage() {
         <GalerieImagesList
           galerieName={galerieName}
           artworkName="characters"
-          subCollection={[
-            { subName: "fox", imagesNumber: 6, type: "png" },
-            { subName: "rpg", imagesNumber: 3 },
-          ]}
-          customName="Personnages / Characters & props"
+          subCollection={[{ subName: "fox", imagesNumber: 6, type: "png" }]}
+          customName="Personnages concepts/ Characters concepts"
           nbPerRow={3}
+          noExpandLast
+        />
+        <GalerieImagesList
+          galerieName={galerieName}
+          artworkName="characters"
+          subCollection={[{ subName: "rpg", imagesNumber: 3 }]}
+          customName="Personnages & objets / Characters & props"
+          nbPerRow={2}
+          noHeader
         />
         <GalerieImagesList
           galerieName={galerieName}

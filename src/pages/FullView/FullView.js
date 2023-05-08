@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
 import {
   Arrow,
   Close,
@@ -13,11 +14,12 @@ import arrowLeft from "../../styles/assets/icons/Arrow/Left.svg";
 
 import { changeFullViewImg, toggleFullView } from "../../store/redux";
 
-function FullView() {
+function FullView({ fade }) {
   const { isFullView } = useSelector((state) => state.main);
   const dispatch = useDispatch();
+
   return (
-    <FullViewContainer>
+    <FullViewContainer fade={fade}>
       <Close
         width={128}
         src={closeIcon}
@@ -39,19 +41,22 @@ function FullView() {
         src={isFullView.url}
         onClick={() => dispatch(changeFullViewImg("next"))}
       />
-      <FullViewBackground filter="blur(10px) sepia(50%)" />
-      <p>toto</p>
+      <FullViewBackground
+        filter="blur(10px) sepia(50%)"
+        onClick={() =>
+          dispatch(toggleFullView({ toogle: false, url: "", galerieName: "" }))
+        }
+      />
     </FullViewContainer>
   );
 }
 
 /* FullView.defaultProps = {
   position: undefined,
-};
+}; */
 
 FullView.propTypes = {
-  position: PropTypes.string,
+  fade: PropTypes.string.isRequired,
 };
- */
 
 export default FullView;
