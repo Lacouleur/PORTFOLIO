@@ -19,7 +19,7 @@ export const GaleriesContainer = styled.div`
   width: 100%;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     margin-top: 32px;
     display: flex;
     flex-direction: column;

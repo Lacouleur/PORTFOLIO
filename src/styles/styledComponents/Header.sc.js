@@ -19,6 +19,16 @@ export const HeaderContainer = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
   z-index: 10;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    height: ${({ $selector }) => $selector && "90px"};
+    align-items: flex-start;
+    z-index: 15;
+    transition: height 400ms ease;
+    border-bottom: ${({ $selector, theme }) =>
+      $selector ? `2px solid ${theme.colors.accent}` : ""};
+  }
 `;
 
 export const HeaderLeftContainer = styled.div`
@@ -49,6 +59,11 @@ export const SocialIcon = styled(SVG)`
       stroke: ${({ theme, mail }) => (mail ? theme.colors.accent : "none")};
     }
   }
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    margin-right: 8px;
+  }
 `;
 
 export const HeaderName = styled.div`
@@ -63,6 +78,11 @@ export const HeaderName = styled.div`
 
 export const Selector = styled.div`
   display: flex;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    position: relative;
+  }
 `;
 
 export const SelectorSeparator = styled.div`
@@ -94,4 +114,10 @@ export const SelectorContainer = styled.div`
   overflow: hidden;
   ${({ expend }) =>
     expend === true ? expendFromLeftAnimation : foldFromRightAnimation};
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    position: absolute;
+    top: 30px;
+  }
 `;

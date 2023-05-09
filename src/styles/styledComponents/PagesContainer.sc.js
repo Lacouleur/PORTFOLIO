@@ -12,19 +12,19 @@ export const PageContainer = styled.div`
   overflow: hidden;
   max-width: 1500px;
 
+  & * {
+    transition: background-color 500ms ease, color 500ms ease, fill 500ms ease,
+      stroke 500ms ease;
+  }
+
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     position: relative;
     max-width: 800px;
     min-width: 150px;
     color: ${(props) => props.theme.colors.font};
     content: "";
     overflow: hidden;
-  }
-
-  & * {
-    transition: background-color 500ms ease, color 500ms ease, fill 500ms ease,
-      stroke 500ms ease;
   }
 `;
 

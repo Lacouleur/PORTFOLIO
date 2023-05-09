@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 import artStationIcon from "../styles/assets/icons/Social/Artstation.svg";
 import InstaIcon from "../styles/assets/icons/Social/Instagram.svg";
 import mailToIcon from "../styles/assets/icons/Social/Mail.svg";
@@ -12,27 +11,29 @@ import {
   HeaderLeftContainer,
   SelectorContainer,
   Selector,
-  SelectorBox,
   SelectorText,
-  SelectorIcon,
   SelectorSeparator,
 } from "../styles/styledComponents/Header.sc";
 import SwitchButton from "./atoms/SwitchButton";
 import { toggleIsDark } from "../store/redux";
 import useDelayUnmount from "../utils/customHooks/useDelayUnmount";
 import { handleClickScroll } from "../utils/helpers/navigationHelpers";
+import useClickOutside from "../utils/customHooks/useClickOutside";
 
 function Header() {
   const dispatch = useDispatch();
   const { isDark } = useSelector((state) => state.main);
   const [isInstaSelector, setIsInstaSelector] = useState(false);
   const { showName } = useSelector((state) => state.header);
+  const headerRef = useRef();
 
   const shouldRender = useDelayUnmount(showName, 200);
   const renderExpend = useDelayUnmount(isInstaSelector, 200);
 
+  useClickOutside(headerRef, () => setIsInstaSelector(false));
+
   return (
-    <HeaderContainer>
+    <HeaderContainer $selector={isInstaSelector} ref={headerRef}>
       <HeaderLeftContainer>
         <SwitchButton
           action={() => {

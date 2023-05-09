@@ -5,7 +5,7 @@ export const Title = styled.h1`
   margin: 16px 0;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     font-size: 40px;
     margin: 0;
   }
@@ -16,7 +16,7 @@ export const TitleContainer = styled.div`
   align-items: center;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     display: block;
   }
 `;
@@ -27,7 +27,7 @@ export const SubTitle = styled.h2`
   margin-left: 16px;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     margin: 0;
   }
 `;

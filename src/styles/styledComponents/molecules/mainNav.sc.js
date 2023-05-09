@@ -49,8 +49,8 @@ const GalerieNavTextMixin = css`
   text-transform: capitalize;
 
   // MOBILE
-  @media (max-width: 800px) {
-    font-size: 16px;
+  @media (max-width: 800px) or (max-height: 500px) {
+    font-size: 0.5em;
     margin: auto;
   }
 `;
@@ -62,9 +62,9 @@ export const NavText = styled.p`
 export const SpanNav = styled.span`
   display: inline;
   // MOBILE
-  @media (max-width: 800px) {
-    display: block;
+  @media (max-width: 800px) or (max-height: 500px) {
     text-align: center;
+    line-height: 2px;
   }
 `;
 
@@ -89,8 +89,9 @@ const GalerieNavButtonMixin = css`
   }
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     padding-left: 0%;
+    height: 40px;
   }
 `;
 
@@ -141,7 +142,7 @@ export const CrossIcon = styled(SVG)`
   }
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     display: none;
   }
 `;

@@ -30,7 +30,7 @@ export const GalerieImages4SquaresContainer = styled.div`
   }
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     width: 100%;
     flex-direction: column;
     aspect-ratio: 1 / 1;
@@ -108,7 +108,7 @@ export const ImgBox = styled.div`
   position: relative;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     width: 100%;
   }
 `;
@@ -122,7 +122,7 @@ export const Descriptionbox = styled.div`
   justify-content: space-between;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     width: 100%;
     margin-bottom: 8px;
   }
@@ -134,7 +134,7 @@ export const ArtworkTitleBox = styled.div`
   hyphens: auto;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     flex-direction: row;
     align-items: flex-end;
     margin-bottom: 16px;
@@ -147,7 +147,7 @@ export const ArtworkTitleText = styled.p`
   white-space: break-spaces;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     margin-right: 16px;
   }
 `;
@@ -157,7 +157,7 @@ export const ArtworkTitleSize = styled.p`
   color: ${({ theme }) => theme.colors.fontDimmed};
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     margin-bottom: 2px;
   }
 `;
@@ -169,7 +169,7 @@ export const ArtworkAboutBox = styled.div`
   hyphens: auto;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     display: none;
   }
 `;

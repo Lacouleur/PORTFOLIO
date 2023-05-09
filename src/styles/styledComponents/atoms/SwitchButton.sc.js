@@ -10,13 +10,18 @@ export const SwitchBox = styled.label`
   cursor: pointer;
 
   ${(props) => props.stylevariant === "homeSwitch" && homepageSwitchBoxMixin}
+
+  // MOBILE
+    @media (max-width: 800px) or (max-height: 500px) {
+    margin: 16px 16px 0 0;
+  }
 `;
 
 const homepageSwitchLabelMixin = css`
   bottom: 16px;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     bottom: 0px;
   }
 

@@ -20,9 +20,15 @@ const mainSlice = createSlice({
     isFullView: { toogle: false, url: "", imgIndex: 0, galerieName: "" },
     paintingsImagesList: [],
     illustrationsImagesList: [],
+    device: "desktop",
   },
   reducers: {
     toggleIsDark: (state) => (state = { ...state, isDark: !state.isDark }),
+    setDevice: (state, action) =>
+      (state = {
+        ...state,
+        device: action.payload,
+      }),
     toggleFullView: (state, action) => {
       const { toogle, url, galerieName } = action.payload;
       const imgIndex = findIndex(state.paintingsImagesList, url);
@@ -119,6 +125,7 @@ export const {
   toggleFullView,
   addItemToImagesList,
   changeFullViewImg,
+  setDevice,
 } = mainSlice.actions;
 export const { toggleIsFirstLoad, setFixedNav, setPagesRefs, setLocation } =
   navSlice.actions;

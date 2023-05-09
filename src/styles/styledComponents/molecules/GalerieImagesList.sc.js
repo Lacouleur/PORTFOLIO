@@ -69,7 +69,7 @@ export const ImageBox = styled.div`
   }
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     flex: 0 100%;
     padding: 0;
     margin-bottom: 8px;

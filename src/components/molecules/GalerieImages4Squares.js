@@ -22,6 +22,7 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const [lastImgHovered, setLastImgHovered] = useState(undefined);
   const [imgsUrls, setImgsUrls] = useState([]);
   const dispatch = useDispatch();
+  const { device } = useSelector((state) => state.main);
 
   const askedSize = {
     side: "w",
@@ -58,7 +59,7 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
         dispatch(
           toggleFullView({
             toogle: true,
-            url: imgsUrls[imgHovered - 1],
+            url: imgsUrls[imgHovered - 1 || 0],
             galerieName,
           }),
         );
@@ -90,28 +91,28 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
         {imgsUrls && (
           <>
             <SquareImg
-              onMouseEnter={() => setImgHovered(1)}
+              onMouseEnter={() => device !== "mobile" && setImgHovered(1)}
               imgHovered={imgHovered}
               lastImgHovered={lastImgHovered}
               id={1}
               src={imgsUrls[0]}
             />
             <SquareImg
-              onMouseEnter={() => setImgHovered(2)}
+              onMouseEnter={() => device !== "mobile" && setImgHovered(2)}
               imgHovered={imgHovered}
               lastImgHovered={lastImgHovered}
               id={2}
               src={imgsUrls[1]}
             />
             <SquareImg
-              onMouseEnter={() => setImgHovered(3)}
+              onMouseEnter={() => device !== "mobile" && setImgHovered(3)}
               imgHovered={imgHovered}
               lastImgHovered={lastImgHovered}
               id={3}
               src={imgsUrls[2]}
             />
             <SquareImg
-              onMouseEnter={() => setImgHovered(4)}
+              onMouseEnter={() => device !== "mobile" && setImgHovered(4)}
               imgHovered={imgHovered}
               lastImgHovered={lastImgHovered}
               id={4}

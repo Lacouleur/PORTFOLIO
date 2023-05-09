@@ -8,7 +8,7 @@ export const GaleriePresentationContainer = styled.div`
   margin-top: 32px;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     display: flex;
     flex-direction: column;
   }
@@ -26,7 +26,7 @@ export const GaleriePrezTextBlock = styled.div`
   max-height: ${({ expended }) => (expended ? "400px" : "80px")};
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     flex-direction: column;
     justify-content: space-between;
     width: max-content;
@@ -51,7 +51,7 @@ export const GalerieTextBox = styled.div`
   justify-content: space-between;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     width: 100%;
     transition: max-height 500ms;
     max-height: ${({ expended }) => (expended ? "400px" : "73px")};
@@ -65,7 +65,7 @@ export const GaleriePrezTextBody = styled.p`
   font: ${({ theme }) => theme.fonts.bodyMedium};
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     overflow: ${({ expended }) => (expended ? "scroll" : "hidden")};
     font-size: 14px;
   }

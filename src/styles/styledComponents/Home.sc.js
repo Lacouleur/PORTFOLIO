@@ -31,7 +31,7 @@ export const HomeTextBox = styled.div`
   max-height: 180px;
 
   // MOBILE
-  @media (max-width: 800px) {
+  @media (max-width: 800px) or (max-height: 500px) {
     display: none;
   }
 `;

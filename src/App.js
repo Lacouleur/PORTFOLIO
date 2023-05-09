@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Home from "./pages/HomePage/HomePage";
 import Theme from "./styles/core/theme";
@@ -14,11 +14,15 @@ import Header from "./components/header";
 import Navigation from "./components/atoms/Navigation";
 import FullView from "./pages/FullView/FullView";
 import useDelayUnmount from "./utils/customHooks/useDelayUnmount";
+import { setDevice } from "./store/redux";
+import useCheckDevice from "./utils/customHooks/useCheckDevice";
 
 function App() {
   const { isDark, isFullView } = useSelector((state) => state.main);
   const { fixedNav } = useSelector((state) => state.nav);
   const shouldRender = useDelayUnmount(isFullView.toogle, 400);
+  const dispatch = useDispatch();
+  const currentDevice = useCheckDevice();
 
   useEffect(() => {
     const body = document.getElementById("body");
@@ -28,6 +32,10 @@ function App() {
       body.setAttribute("style", "overflow: visible;");
     }
   }, [isFullView]);
+
+  useEffect(() => {
+    dispatch(setDevice(currentDevice));
+  }, [currentDevice]);
 
   return (
     <Theme isDark={isDark}>
