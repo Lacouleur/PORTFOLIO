@@ -78,4 +78,37 @@ export const Arrow = styled(SVG)`
   & path {
     fill: ${({ theme }) => theme.colors.white};
   }
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    display: none;
+  }
+`;
+
+export const SwiperContainer = styled.div`
+  .swiper {
+    z-index: 102;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+    &-wrapper {
+      height: 100%;
+      display: flex;
+      width: auto;
+      align-items: center;
+    }
+    &-slide {
+      height: auto;
+      width: auto;
+    }
+  }
+`;
+
+export const Image = styled.img`
+  max-width: 80vw;
+  max-height: 90vh;
 `;

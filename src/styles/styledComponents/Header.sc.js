@@ -26,6 +26,7 @@ export const HeaderContainer = styled.div`
     align-items: flex-start;
     z-index: 15;
     transition: height 400ms ease;
+    min-width: 300px;
     border-bottom: ${({ $selector, theme }) =>
       $selector ? `2px solid ${theme.colors.accent}` : ""};
   }
@@ -42,6 +43,11 @@ export const HeaderLeftContainer = styled.div`
 export const SocialIconsBox = styled.div`
   margin-left: 32px;
   display: flex;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    margin-left: 10px;
+  }
 `;
 
 export const SocialIcon = styled(SVG)`
@@ -63,6 +69,7 @@ export const SocialIcon = styled(SVG)`
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     margin-right: 8px;
+    transform: scale(0.9);
   }
 `;
 
@@ -73,6 +80,13 @@ export const HeaderName = styled.div`
 
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
+  }
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    font-size: 5vw;
+    height: 34px;
+    line-height: 34px;
   }
 `;
 

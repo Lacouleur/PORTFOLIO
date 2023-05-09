@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 const GaleriePageContainerIllustrationsMixin = css`
   border-top: 3px solid ${({ theme }) => theme.colors.accent};
   margin-top: 64px;
+  min-width: 300px;
 `;
 
 export const GaleriePageContainer = styled.div`

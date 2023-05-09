@@ -1,34 +1,12 @@
 import styled, { css } from "styled-components";
 
-const homepageSwitchBoxMixin = css`
-  position: relative;
-  margin: 0;
-`;
-
 export const SwitchBox = styled.label`
   margin: 16px 32px 0 0;
   cursor: pointer;
 
-  ${(props) => props.stylevariant === "homeSwitch" && homepageSwitchBoxMixin}
-
-  // MOBILE
-    @media (max-width: 800px) or (max-height: 500px) {
-    margin: 16px 16px 0 0;
-  }
-`;
-
-const homepageSwitchLabelMixin = css`
-  bottom: 16px;
-
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
-    bottom: 0px;
-  }
-
-  &::after {
-    margin-top: 3px;
-    width: 22px;
-    height: 23px;
+    margin: 16px 16px 0 0;
   }
 `;
 
@@ -58,6 +36,24 @@ export const SwitchLabel = styled.label`
     transition: 0.2s;
   }
 
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    width: 25px;
+    height: 15px;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 50%;
+      background: ${({ theme }) => theme.colors.font};
+      width: 12px;
+      height: 12px;
+      left: -1px;
+      transition: 0.2s;
+    }
+  }
+
   ${(props) => props.stylevariant === "homeSwitch" && homepageSwitchLabelMixin}
 `;
 
@@ -79,6 +75,17 @@ export const Switch = styled.input`
       height: 21px;
       margin-left: 25px;
       transition: all 0.2s ease 0s;
+    }
+  }
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    &:checked + ${SwitchLabel} {
+      &::after {
+        width: 12px;
+        height: 12px;
+        left: -13px;
+      }
     }
   }
 `;

@@ -1,22 +1,42 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
+import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Arrow,
   Close,
   FullPageImage,
   FullViewBackground,
   FullViewContainer,
+  SwiperContainer,
+  Image,
 } from "../../styles/styledComponents/FullView.sc";
 import closeIcon from "../../styles/assets/icons/System/Cancel.svg";
 import arrowRight from "../../styles/assets/icons/Arrow/Right.svg";
 import arrowLeft from "../../styles/assets/icons/Arrow/Left.svg";
+import "swiper/swiper-bundle.css";
 
 import { changeFullViewImg, toggleFullView } from "../../store/redux";
 
 function FullView({ fade }) {
-  const { isFullView } = useSelector((state) => state.main);
+  const { isFullView, device, paintingsImagesList } = useSelector(
+    (state) => state.main,
+  );
   const dispatch = useDispatch();
+
+  const swiperOptions = {
+    slidesPerView: "auto",
+    centeredSlides: true,
+    spaceBetween: 20,
+    loop: true,
+    // loop: true
+    // autoplay: {
+    //   delay: 1500,
+    //   disableOnInteraction: false
+    // }
+  };
 
   return (
     <FullViewContainer fade={fade}>
@@ -37,10 +57,25 @@ function FullView({ fade }) {
         direction="left"
         onClick={() => dispatch(changeFullViewImg("previous"))}
       />
-      <FullPageImage
-        src={isFullView.url}
-        onClick={() => dispatch(changeFullViewImg("next"))}
-      />
+      {device !== "mobile" && (
+        <FullPageImage
+          src={isFullView.url}
+          onClick={() => dispatch(changeFullViewImg("next"))}
+        />
+      )}
+
+      {device === "mobile" && (
+        <SwiperContainer>
+          <Swiper {...swiperOptions}>
+            {paintingsImagesList.map((img, index) => (
+              <SwiperSlide key={`${img}-galerieFull`}>
+                <Image src={img} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </SwiperContainer>
+      )}
+
       <FullViewBackground
         filter="blur(10px) sepia(50%)"
         onClick={() =>

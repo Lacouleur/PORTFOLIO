@@ -37,6 +37,7 @@ export const NavContainer = styled.div`
       ? FixedNavMixin
       : GalerieNavMixin};
   ${({ stylevariant }) => stylevariant === "fixed" && FixedNavMixin};
+  min-width: 300px;
 `;
 
 const GalerieNavTextMixin = css`
@@ -50,7 +51,7 @@ const GalerieNavTextMixin = css`
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
-    font-size: 0.5em;
+    font-size: 3.5vw;
     margin: auto;
   }
 `;

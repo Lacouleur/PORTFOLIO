@@ -6,7 +6,7 @@ export const Title = styled.h1`
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
-    font-size: 40px;
+    font-size: 11vw;
     margin: 0;
   }
 `;
@@ -29,6 +29,7 @@ export const SubTitle = styled.h2`
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     margin: 0;
+    font-size: 3vw;
   }
 `;
 
