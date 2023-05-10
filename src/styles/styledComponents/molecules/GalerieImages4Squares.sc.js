@@ -178,6 +178,8 @@ export const ArtworkAboutBox = styled.div`
   }
 `;
 export const ArtworkAboutText = styled.p`
+  margin-top: 16px;
   font: ${({ theme }) => theme.fonts.labelSmall};
   color: ${({ theme }) => theme.colors.fontDimmed};
+  font-size: 10px;
 `;

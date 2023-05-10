@@ -20,7 +20,7 @@ import { toggleFullView, addItemToImagesList } from "../../store/redux";
 function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const [imgHovered, setImgHovered] = useState(undefined);
   const [lastImgHovered, setLastImgHovered] = useState(undefined);
-  const [imgsUrls, setImgsUrls] = useState([]);
+  const [imgsInfos, setimgsInfos] = useState([]);
   const dispatch = useDispatch();
   const { device } = useSelector((state) => state.main);
 
@@ -33,16 +33,16 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
 
   useEffect(() => {
     if (paintingsImagesList) {
-      imgsUrls.map((newItem) => {
+      imgsInfos.map((newItem) => {
         if (paintingsImagesList.indexOf(newItem) === -1) {
           dispatch(addItemToImagesList({ galerieName, newItem }));
         }
       });
     }
-  }, [imgsUrls]);
+  }, [imgsInfos]);
 
   useEffect(() => {
-    setImgsUrls(
+    setimgsInfos(
       dynamicUrls({
         askedSize,
         nbOfImgs: 4,
@@ -55,11 +55,11 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
 
   return (
     <GalerieImages4SquaresContainer
-      onClick={() => {
+      onClick={(e) => {
         dispatch(
           toggleFullView({
             toogle: true,
-            url: imgsUrls[imgHovered - 1 || 0],
+            imgInfos: imgsInfos[imgHovered - 1 || 0],
             galerieName,
           }),
         );
@@ -67,18 +67,19 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
     >
       <Descriptionbox>
         <ArtworkTitleBox>
-          <ArtworkTitleText>{artworkName} maze</ArtworkTitleText>
+          <ArtworkTitleText>
+            {artworkName.replace(/_/g, " ")} maze
+          </ArtworkTitleText>
           <ArtworkTitleSize>100x100 - 2020</ArtworkTitleSize>
         </ArtworkTitleBox>
         <ArtworkAboutBox>
           <ArtworkAboutText>
             FR - Châssis ébéniste en bois plein français, toiles de lin épaisse
-            d’artisanat Italien, peintures haut de gamme Hollandaises, vernis
-            UV3
+            d’artisanat Italien, peintures haut de gamme Hollandaises, vernis UV
           </ArtworkAboutText>
           <ArtworkAboutText>
             EN - Cabinetmaker frame in French solid wood, thick linen canvas of
-            Italian craftsmanship, high-end Dutch paints, UV3 varnish
+            Italian craftsmanship, high-end Dutch paints, UV varnish
           </ArtworkAboutText>
         </ArtworkAboutBox>
       </Descriptionbox>
@@ -88,35 +89,35 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
           setImgHovered(undefined);
         }}
       >
-        {imgsUrls && (
+        {imgsInfos && imgsInfos.length > 3 && (
           <>
             <SquareImg
               onMouseEnter={() => device !== "mobile" && setImgHovered(1)}
               imgHovered={imgHovered}
               lastImgHovered={lastImgHovered}
               id={1}
-              src={imgsUrls[0]}
+              src={imgsInfos[0].url}
             />
             <SquareImg
               onMouseEnter={() => device !== "mobile" && setImgHovered(2)}
               imgHovered={imgHovered}
               lastImgHovered={lastImgHovered}
               id={2}
-              src={imgsUrls[1]}
+              src={imgsInfos[1].url}
             />
             <SquareImg
               onMouseEnter={() => device !== "mobile" && setImgHovered(3)}
               imgHovered={imgHovered}
               lastImgHovered={lastImgHovered}
               id={3}
-              src={imgsUrls[2]}
+              src={imgsInfos[2].url}
             />
             <SquareImg
               onMouseEnter={() => device !== "mobile" && setImgHovered(4)}
               imgHovered={imgHovered}
               lastImgHovered={lastImgHovered}
               id={4}
-              src={imgsUrls[3]}
+              src={imgsInfos[3].url}
             />
           </>
         )}

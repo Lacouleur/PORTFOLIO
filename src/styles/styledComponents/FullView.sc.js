@@ -114,6 +114,9 @@ export const Image = styled.img`
 `;
 
 export const ImageInfosContainer = styled.div`
+  & :first-letter {
+    text-transform: uppercase;
+  }
   z-index: 101;
   position: absolute;
   width: 300px;

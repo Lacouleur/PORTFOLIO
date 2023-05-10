@@ -11,7 +11,10 @@ function paintingsUrlBuilder(galerieName, artworkName, id, askedSize) {
     console.error("askedSize must be a number, we get : ", typeof askedSize);
   }
 
-  return `https://ik.imagekit.io/artworks/${galerieName}${size}/${artworkName}_maze/dvoindrot-${artworkName}_maze-${id}.jpg`;
+  return {
+    url: `https://ik.imagekit.io/artworks/${galerieName}${size}/${artworkName}_maze/dvoindrot-${artworkName}_maze-${id}.jpg`,
+    meta: { title: artworkName, id },
+  };
 }
 
 function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
@@ -31,14 +34,20 @@ function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
   if (!sub) {
     /*  https://ik.imagekit.io/artworks/illustrations/landscapes/dvoindrot-landscapes-4.jpg?updatedAt=1682953929018 */
 
-    return `${baseURL}${size}/${artworkName}/dvoindrot-${artworkName}-${id}.jpg`;
+    return {
+      url: `${baseURL}${size}/${artworkName}/dvoindrot-${artworkName}-${id}.jpg`,
+      meta: { title: artworkName, id, subName: sub?.subName },
+    };
   }
   if (sub) {
     /*  https://ik.imagekit.io/artworks/illustrations/characters/fox/dvoindrot-fox-5.png?updatedAt=1682954045013 */
 
-    return `${baseURL}/${artworkName}/${sub.subName}/dvoindrot-${
-      sub.subName
-    }-${id}.${sub.type || "jpg"}`;
+    return {
+      url: `${baseURL}/${artworkName}/${sub.subName}/dvoindrot-${
+        sub.subName
+      }-${id}.${sub.type || "jpg"}`,
+      meta: { title: artworkName, id, subName: sub.subName },
+    };
   }
 }
 

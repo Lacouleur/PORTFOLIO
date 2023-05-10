@@ -17,7 +17,12 @@ const mainSlice = createSlice({
   name: "main",
   initialState: {
     isDark: false,
-    isFullView: { toogle: false, url: "", imgIndex: 0, galerieName: "" },
+    isFullView: {
+      toogle: false,
+      imgInfos: { url: "", meta: { title: "", subName: undefined, id: "" } },
+      imgIndex: 0,
+      galerieName: "",
+    },
     paintingsImagesList: [],
     illustrationsImagesList: [],
     device: "desktop",
@@ -30,13 +35,22 @@ const mainSlice = createSlice({
         device: action.payload,
       }),
     toggleFullView: (state, action) => {
-      const { toogle, url, galerieName } = action.payload;
-      const imgIndex = findIndex(state.paintingsImagesList, url);
+      if (action.payload.toogle) {
+        const { toogle, imgInfos, galerieName } = action.payload;
+        const imgIndex = findIndex(state.paintingsImagesList, imgInfos.url);
+        return (state = {
+          ...state,
+          isFullView: { toogle, imgInfos, imgIndex, galerieName },
+        });
+      }
       return (state = {
         ...state,
-        isFullView: { toogle, url, imgIndex, galerieName },
+        isFullView: {
+          toogle: false,
+        },
       });
     },
+
     changeFullViewImg: (state, action) => {
       const { imgIndex, galerieName } = state.isFullView;
       const { paintingsImagesList, illustrationsImagesList } = state;
@@ -53,7 +67,7 @@ const mainSlice = createSlice({
         ...state,
         isFullView: {
           toogle: true,
-          url:
+          imgInfos:
             galerieName === "paintings"
               ? paintingsImagesList[move]
               : illustrationsImagesList[move],

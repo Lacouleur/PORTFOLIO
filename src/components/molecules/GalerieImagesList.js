@@ -26,7 +26,7 @@ function GalerieImagesList({
   noExpandLast,
   noHeader,
 }) {
-  const [imgsUrls, setImgsUrls] = useState([]);
+  const [imgsInfos, setimgsInfos] = useState([]);
   const dispatch = useDispatch();
   const askedSize = {
     side: "h",
@@ -37,16 +37,16 @@ function GalerieImagesList({
 
   useEffect(() => {
     if (illustrationsImagesList) {
-      imgsUrls.map((newItem) => {
+      imgsInfos.map((newItem) => {
         if (illustrationsImagesList.indexOf(newItem) === -1) {
           dispatch(addItemToImagesList({ galerieName, newItem }));
         }
       });
     }
-  }, [imgsUrls]);
+  }, [imgsInfos]);
 
   useEffect(() => {
-    setImgsUrls(
+    setimgsInfos(
       dynamicUrls({
         askedSize,
         nbOfImgs,
@@ -75,15 +75,15 @@ function GalerieImagesList({
       </GalerieImagesListHeader>
 
       <ImagesListContainer>
-        {imgsUrls &&
-          imgsUrls.length > 0 &&
-          imgsUrls.map((url) => (
+        {imgsInfos &&
+          imgsInfos.length > 0 &&
+          imgsInfos.map((infos) => (
             <ImageBox
               onClick={() => {
                 dispatch(
                   toggleFullView({
                     toogle: true,
-                    url: url,
+                    imgInfos: infos,
                     galerieName,
                   }),
                 );
@@ -92,7 +92,11 @@ function GalerieImagesList({
               nbPerRow={nbPerRow}
               noExpandLast={noExpandLast}
             >
-              <Image key={url} src={url} artworkName={artworkName} />
+              <Image
+                key={infos.url}
+                src={infos.url}
+                artworkName={artworkName}
+              />
             </ImageBox>
           ))}
       </ImagesListContainer>
