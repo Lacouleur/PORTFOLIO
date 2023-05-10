@@ -12,11 +12,16 @@ import {
   FullViewContainer,
   SwiperContainer,
   Image,
+  ImageInfosContainer,
+  ImageTitle,
+  ImageSubTitle,
+  ImageMeta,
 } from "../../styles/styledComponents/FullView.sc";
 import closeIcon from "../../styles/assets/icons/System/Cancel.svg";
 import arrowRight from "../../styles/assets/icons/Arrow/Right.svg";
 import arrowLeft from "../../styles/assets/icons/Arrow/Left.svg";
 import "swiper/swiper-bundle.css";
+import illustrationsInfos from "../../utils/texts/imagesInfos/illustrationsInfos.json";
 
 import { changeFullViewImg, toggleFullView } from "../../store/redux";
 
@@ -75,6 +80,17 @@ function FullView({ fade }) {
           </Swiper>
         </SwiperContainer>
       )}
+
+      <ImageInfosContainer align="left">
+        <ImageTitle>Titre de l&apos;image FR</ImageTitle>
+        <ImageSubTitle>les lapins gentils, concepte</ImageSubTitle>
+        <ImageMeta>paysage/scene - digital</ImageMeta>
+      </ImageInfosContainer>
+      <ImageInfosContainer align="right">
+        <ImageTitle>Image title En</ImageTitle>
+        <ImageSubTitle>nice rabbits, concept</ImageSubTitle>
+        <ImageMeta>paysage/scene - digital</ImageMeta>
+      </ImageInfosContainer>
 
       <FullViewBackground
         filter="blur(10px) sepia(50%)"

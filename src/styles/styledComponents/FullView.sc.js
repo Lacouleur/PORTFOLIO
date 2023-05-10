@@ -112,3 +112,28 @@ export const Image = styled.img`
   max-width: 80vw;
   max-height: 90vh;
 `;
+
+export const ImageInfosContainer = styled.div`
+  z-index: 101;
+  position: absolute;
+  width: 300px;
+  right: ${({ align }) => align === "right" && "20px"};
+  left: ${({ align }) => align === "left" && "20px"};
+  text-align: ${({ align }) => align};
+  bottom: 30px;
+  color: ${({ theme }) => theme.colors.white};
+`;
+
+export const ImageTitle = styled.p`
+  font: ${({ theme }) => theme.fonts.titleTiny};
+  line-height: 30px;
+`;
+export const ImageSubTitle = styled.p`
+  font: ${({ theme }) => theme.fonts.labelSmall};
+  font-size: 12px;
+`;
+export const ImageMeta = styled.p`
+  font: ${({ theme }) => theme.fonts.labelLink};
+  font-size: 11px;
+  line-height: 30px;
+`;

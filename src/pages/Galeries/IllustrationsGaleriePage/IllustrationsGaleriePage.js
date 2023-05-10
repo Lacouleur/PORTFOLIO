@@ -73,7 +73,7 @@ function IllustrationsGaleriePage() {
         <GalerieImagesList
           galerieName={galerieName}
           artworkName="characters"
-          subCollection={[{ subName: "rpg", imagesNumber: 3 }]}
+          subCollection={[{ subName: "rpg", imagesNumber: 3, type: "png" }]}
           customName="Personnages & objets / Characters & props"
           nbPerRow={2}
           noHeader
