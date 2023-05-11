@@ -109,21 +109,24 @@ export const SwiperContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  max-width: 80vw;
+  max-width: 75vw;
   max-height: 90vh;
+  border-radius: ${({ borderRadius }) => borderRadius && "10px"};
 `;
 
 export const ImageInfosContainer = styled.div`
   & :first-letter {
     text-transform: uppercase;
   }
-  z-index: 101;
+
+  z-index: 109;
   position: absolute;
-  width: 300px;
+  width: 15%;
+  max-width: 300px;
   right: ${({ align }) => align === "right" && "20px"};
   left: ${({ align }) => align === "left" && "20px"};
   text-align: ${({ align }) => align};
-  bottom: 30px;
+  bottom: 10px;
   color: ${({ theme }) => theme.colors.white};
 `;
 

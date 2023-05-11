@@ -1,6 +1,14 @@
 import styled, { css, keyframes } from "styled-components";
 import SVG from "react-inlinesvg";
 
+export const GaleriePresentationContainerNoTitleMixin = css`
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 32px;
+  margin-top: 16px;
+  padding: 32px;
+`;
+
 export const GaleriePresentationContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,6 +20,7 @@ export const GaleriePresentationContainer = styled.div`
     display: flex;
     flex-direction: column;
   }
+  ${({ noTitle }) => noTitle && GaleriePresentationContainerNoTitleMixin};
 `;
 
 export const GaleriePresentationTitle = styled.h2`

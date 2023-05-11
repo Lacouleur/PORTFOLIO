@@ -25,13 +25,14 @@ function GalerieImagesList({
   nbPerRow,
   noExpandLast,
   noHeader,
+  roundedBorders,
 }) {
   const [imgsInfos, setimgsInfos] = useState([]);
   const dispatch = useDispatch();
-  const askedSize = {
+  /*   const askedSize = {
     side: "h",
     size: 800,
-  };
+  }; */
 
   const { illustrationsImagesList } = useSelector((state) => state.main);
 
@@ -48,7 +49,7 @@ function GalerieImagesList({
   useEffect(() => {
     setimgsInfos(
       dynamicUrls({
-        askedSize,
+        askedSize: undefined,
         nbOfImgs,
         galerieName,
         artworkName,
@@ -88,14 +89,15 @@ function GalerieImagesList({
                   }),
                 );
               }}
+              key={infos.url}
               artworkName={artworkName}
               nbPerRow={nbPerRow}
               noExpandLast={noExpandLast}
             >
               <Image
-                key={infos.url}
                 src={infos.url}
                 artworkName={artworkName}
+                roundedBorders={roundedBorders}
               />
             </ImageBox>
           ))}
@@ -112,6 +114,7 @@ GalerieImagesList.defaultProps = {
   nbPerRow: undefined,
   noExpandLast: false,
   noHeader: false,
+  roundedBorders: false,
 };
 
 GalerieImagesList.propTypes = {
@@ -126,6 +129,7 @@ GalerieImagesList.propTypes = {
   nbPerRow: PropTypes.number,
   noExpandLast: PropTypes.bool,
   noHeader: PropTypes.bool,
+  roundedBorders: PropTypes.bool,
 };
 
 export default GalerieImagesList;

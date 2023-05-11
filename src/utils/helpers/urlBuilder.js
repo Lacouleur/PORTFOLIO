@@ -20,16 +20,8 @@ function paintingsUrlBuilder(galerieName, artworkName, id, askedSize) {
 function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
   // askedSize {side: "w" or "h", size: number}
 
-  let size = "";
+  const size = "";
   const baseURL = `https://ik.imagekit.io/artworks/${galerieName}`;
-
-  if (askedSize?.size && typeof askedSize.size === "number") {
-    size = `/tr:${askedSize.side}-${askedSize.size}`;
-  }
-
-  if (askedSize?.size && typeof askedSize.size !== "number") {
-    console.error("askedSize must be a number, we get : ", typeof askedSize);
-  }
 
   if (!sub) {
     /*  https://ik.imagekit.io/artworks/illustrations/landscapes/dvoindrot-landscapes-4.jpg?updatedAt=1682953929018 */
@@ -43,7 +35,7 @@ function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
     /*  https://ik.imagekit.io/artworks/illustrations/characters/fox/dvoindrot-fox-5.png?updatedAt=1682954045013 */
 
     return {
-      url: `${baseURL}/${artworkName}/${sub.subName}/dvoindrot-${
+      url: `${baseURL}${size}/${artworkName}/${sub.subName}/dvoindrot-${
         sub.subName
       }-${id}.${sub.type || "jpg"}`,
       meta: { title: artworkName, id, subName: sub.subName },

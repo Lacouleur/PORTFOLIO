@@ -15,14 +15,17 @@ function GaleriePresentationBlockText({
   galerieName,
   isDescription,
   foldable,
+  noTitle,
 }) {
   const [expended, setExepended] = useState(false);
 
   return (
-    <GaleriePresentationContainer>
-      <GaleriePresentationTitle>
-        {texts[galerieName].fr.title}
-      </GaleriePresentationTitle>
+    <GaleriePresentationContainer noTitle={noTitle}>
+      {!noTitle && (
+        <GaleriePresentationTitle>
+          {texts[galerieName].fr.title}
+        </GaleriePresentationTitle>
+      )}
       {isDescription && (
         <GaleriePrezTextBlock expended={foldable ? expended : false}>
           <GalerieTextBox expended={foldable ? expended : false}>
@@ -60,12 +63,14 @@ function GaleriePresentationBlockText({
 GaleriePresentationBlockText.defaultProps = {
   isDescription: true,
   foldable: false,
+  noTitle: false,
 };
 
 GaleriePresentationBlockText.propTypes = {
   galerieName: PropTypes.string.isRequired,
   isDescription: PropTypes.bool,
   foldable: PropTypes.bool,
+  noTitle: PropTypes.bool,
 };
 
 export default GaleriePresentationBlockText;

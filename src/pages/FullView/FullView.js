@@ -32,9 +32,6 @@ function FullView({ fade }) {
 
   const ImageMetaBase = getImageMetaBase(imgInfos, galerieName);
 
-  console.warn("STRING", ImageMetaBase);
-
-  console.warn("INDEEEE", imgIndex);
   /* 
   console.warn("TEXT", illustrationsInfos.cards); */
   const currentImagesList =
@@ -75,7 +72,10 @@ function FullView({ fade }) {
           >
             {currentImagesList.map((img, index) => (
               <SwiperSlide key={`${img.url}-galerieFull`}>
-                <Image src={img.url} />
+                <Image
+                  src={img.url}
+                  borderRadius={img.meta.title === "cards"}
+                />
               </SwiperSlide>
             ))}
           </Swiper>

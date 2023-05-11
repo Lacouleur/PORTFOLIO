@@ -8,7 +8,6 @@ import {
   ArtworkTitleSize,
   ArtworkTitleText,
   Descriptionbox,
-  EmptyBlock,
   GalerieImages4SquaresContainer,
   ImgBox,
   SquareImg,
@@ -24,17 +23,17 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const dispatch = useDispatch();
   const { device } = useSelector((state) => state.main);
 
-  const askedSize = {
+  /*   const askedSize = {
     side: "w",
     size: 800,
-  };
+  }; */
 
   const { paintingsImagesList } = useSelector((state) => state.main);
 
   useEffect(() => {
     if (paintingsImagesList) {
       imgsInfos.map((newItem) => {
-        if (paintingsImagesList.indexOf(newItem) === -1) {
+        if (paintingsImagesList.indexOf(newItem.url) === -1) {
           dispatch(addItemToImagesList({ galerieName, newItem }));
         }
       });
@@ -44,7 +43,7 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   useEffect(() => {
     setimgsInfos(
       dynamicUrls({
-        askedSize,
+        askedSize: undefined,
         nbOfImgs: 4,
         galerieName,
         artworkName,

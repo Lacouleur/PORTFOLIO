@@ -45,6 +45,7 @@ function IllustrationsGaleriePage() {
           nbOfImgs={9}
           customOrder={[9]}
           noExpandLast
+          roundedBorders
         />
         <GalerieImagesList
           galerieName={galerieName}
@@ -54,6 +55,7 @@ function IllustrationsGaleriePage() {
           customOrder={[3, 4, 5, 6]}
           nbPerRow={2}
           noExpandLast
+          roundedBorders
         />
         <GalerieImagesList
           galerieName={galerieName}
@@ -61,6 +63,7 @@ function IllustrationsGaleriePage() {
           customName="Concepts"
           nbOfImgs={3}
           customOrder={[3]}
+          roundedBorders
         />
         <GalerieImagesList
           galerieName={galerieName}
@@ -77,6 +80,7 @@ function IllustrationsGaleriePage() {
           customName="Personnages & objets / Characters & props"
           nbPerRow={2}
           noHeader
+          roundedBorders
         />
         <GalerieImagesList
           galerieName={galerieName}
@@ -85,6 +89,7 @@ function IllustrationsGaleriePage() {
           nbOfImgs={6}
           nbPerRow={3}
           customOrder={[1, 5, 2, 3, 4, 6]}
+          roundedBorders
         />
       </GaleriesContainer>
     </GaleriePageContainer>

@@ -44,7 +44,7 @@ export const expandLastMixin = css`
 export const Image = styled.img`
   // try to use img background//
   width: 100%;
-  border-radius: ${({ artworkName }) => (artworkName === "cards" ? "5px" : 0)};
+  border-radius: ${({ roundedBorders }) => roundedBorders && "10px"};
 `;
 
 export const ImageBox = styled.div`

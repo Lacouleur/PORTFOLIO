@@ -25,7 +25,7 @@ export const HeaderContainer = styled.div`
     height: ${({ $selector }) => $selector && "90px"};
     align-items: flex-start;
     z-index: 15;
-    transition: height 400ms ease;
+    transition: height 400ms ease, background-color 500ms ease;
     min-width: 300px;
     border-bottom: ${({ $selector, theme }) =>
       $selector ? `2px solid ${theme.colors.accent}` : ""};
