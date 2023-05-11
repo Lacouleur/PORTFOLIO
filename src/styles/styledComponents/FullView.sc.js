@@ -109,7 +109,8 @@ export const SwiperContainer = styled.div`
     &-slide {
       height: auto;
       width: auto;
-
+      max-width: 90vw;
+      max-height: 90vh;
       border-radius: ${({ borderRadius }) => borderRadius && "10px"};
       touch-action: manipulation;
     }
