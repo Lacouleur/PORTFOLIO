@@ -52,9 +52,8 @@ function IllustrationsGaleriePage() {
           artworkName="landscapes"
           customName="Paysages / Landscapes"
           nbOfImgs={7}
-          customOrder={[3, 4, 5, 6]}
+          customOrder={[3, 4, 6, 7, 1, 2, 5]}
           nbPerRow={2}
-          noExpandLast
           roundedBorders
         />
         <GalerieImagesList
