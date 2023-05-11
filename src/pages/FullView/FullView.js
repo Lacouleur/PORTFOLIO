@@ -85,13 +85,13 @@ function FullView({ fade }) {
             <ImageTitle>{ImageMetaBase.title.fr}</ImageTitle>
             <ImageSubTitle>{ImageMetaBase.subtitle.fr}</ImageSubTitle>
 
-            <ImageMeta>{`${imgInfos.meta.title} - ${ImageMetaBase.medium}`}</ImageMeta>
+            <ImageMeta>{`${ImageMetaBase.medium}`}</ImageMeta>
           </ImageInfosContainer>
           <ImageInfosContainer align="right">
             <ImageTitle>{ImageMetaBase.title.en}</ImageTitle>
             <ImageSubTitle>{ImageMetaBase.subtitle.en}</ImageSubTitle>
 
-            <ImageMeta>{`${imgInfos.meta.title} - ${ImageMetaBase.medium}`}</ImageMeta>
+            <ImageMeta>{`${ImageMetaBase.medium}`}</ImageMeta>
           </ImageInfosContainer>
         </>
       )}
