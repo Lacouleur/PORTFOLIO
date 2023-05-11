@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   height: 48px;
-  width: 95%;
+  width: 80vw;
   max-width: 1500px;
   display: flex;
   flex-direction: row;

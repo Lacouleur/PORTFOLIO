@@ -6,7 +6,7 @@ export const PageContainer = styled.div`
   color: ${(props) => props.theme.colors.font};
   top: 0;
   bottom: 0;
-  width: 95%;
+  width: 80vw;
   margin: auto;
   content: "";
   overflow: hidden;

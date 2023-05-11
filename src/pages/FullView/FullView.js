@@ -32,8 +32,6 @@ function FullView({ fade }) {
 
   const ImageMetaBase = getImageMetaBase(imgInfos, galerieName);
 
-  /* 
-  console.warn("TEXT", illustrationsInfos.cards); */
   const currentImagesList =
     galerieName === "paintings" ? paintingsImagesList : illustrationsImagesList;
 
@@ -56,7 +54,7 @@ function FullView({ fade }) {
       />
       {device !== "mobile" && (
         <FullPageImage
-          src={imgInfos?.url}
+          src={imgInfos?.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")}
           onClick={() => dispatch(changeFullViewImg("next"))}
         />
       )}

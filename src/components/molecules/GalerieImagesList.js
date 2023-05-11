@@ -29,10 +29,10 @@ function GalerieImagesList({
 }) {
   const [imgsInfos, setimgsInfos] = useState([]);
   const dispatch = useDispatch();
-  /*   const askedSize = {
-    side: "h",
+  const askedSize = {
+    side: "w",
     size: 800,
-  }; */
+  };
 
   const { illustrationsImagesList } = useSelector((state) => state.main);
 
@@ -49,7 +49,7 @@ function GalerieImagesList({
   useEffect(() => {
     setimgsInfos(
       dynamicUrls({
-        askedSize: undefined,
+        askedSize,
         nbOfImgs,
         galerieName,
         artworkName,
@@ -78,7 +78,7 @@ function GalerieImagesList({
       <ImagesListContainer>
         {imgsInfos &&
           imgsInfos.length > 0 &&
-          imgsInfos.map((infos) => (
+          imgsInfos.map((infos, index) => (
             <ImageBox
               onClick={() => {
                 dispatch(
@@ -95,7 +95,12 @@ function GalerieImagesList({
               noExpandLast={noExpandLast}
             >
               <Image
-                src={infos.url}
+                // allow to charge full frame image on last line
+                src={
+                  imgsInfos.length - 1 === index && !noExpandLast
+                    ? infos.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")
+                    : infos.url
+                }
                 artworkName={artworkName}
                 roundedBorders={roundedBorders}
               />

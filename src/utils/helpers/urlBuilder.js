@@ -1,14 +1,10 @@
 /* eslint-disable prettier/prettier */
 function paintingsUrlBuilder(galerieName, artworkName, id, askedSize) {
   // askedSize {side: "w" or "h", size: number}
-  let size = "";
+  let size = askedSize;
 
   if (askedSize?.size && typeof askedSize.size === "number") {
     size = `/tr:${askedSize.side}-${askedSize.size}`;
-  }
-
-  if (askedSize?.size && typeof askedSize.size !== "number") {
-    console.error("askedSize must be a number, we get : ", typeof askedSize);
   }
 
   return {
@@ -20,7 +16,12 @@ function paintingsUrlBuilder(galerieName, artworkName, id, askedSize) {
 function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
   // askedSize {side: "w" or "h", size: number}
 
-  const size = "";
+  let size = askedSize;
+
+  if (askedSize?.size && typeof askedSize.size === "number") {
+    size = `/tr:${askedSize.side}-${askedSize.size}`;
+  }
+
   const baseURL = `https://ik.imagekit.io/artworks/${galerieName}`;
 
   if (!sub) {

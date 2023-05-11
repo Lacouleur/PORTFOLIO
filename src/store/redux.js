@@ -1,18 +1,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-return-assign */
-import { configureStore, createSlice } from "@reduxjs/toolkit";
-import { func } from "prop-types";
-import { returnImgIndex } from "./reduxhelpers";
+import { configureStore, createSlice, current } from "@reduxjs/toolkit";
+import { findIndex, returnImgIndex } from "./reduxhelpers";
 
-function findIndex(list, url) {
-  let id = 0;
-  list?.find((img, index) => {
-    if (img === url) {
-      id = index;
-    }
-  });
-  return id;
-}
 const mainSlice = createSlice({
   name: "main",
   initialState: {
@@ -37,7 +27,12 @@ const mainSlice = createSlice({
     toggleFullView: (state, action) => {
       if (action.payload.toogle) {
         const { toogle, imgInfos, galerieName } = action.payload;
-        const imgIndex = findIndex(state.paintingsImagesList, imgInfos.url);
+        const imgIndex = findIndex(
+          galerieName === "paintings"
+            ? state.paintingsImagesList
+            : state.illustrationsImagesList,
+          imgInfos.url,
+        );
         return (state = {
           ...state,
           isFullView: { toogle, imgInfos, imgIndex, galerieName },
@@ -54,7 +49,6 @@ const mainSlice = createSlice({
     changeFullViewImg: (state, action) => {
       const { imgIndex, galerieName } = state.isFullView;
       const { paintingsImagesList, illustrationsImagesList } = state;
-
       const move = returnImgIndex(
         action.payload,
         imgIndex,
@@ -78,6 +72,7 @@ const mainSlice = createSlice({
     },
     addItemToImagesList: (state, action) => {
       const { galerieName, newItem } = action.payload;
+
       if (galerieName === "paintings") {
         return (state = {
           ...state,

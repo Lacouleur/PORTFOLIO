@@ -23,7 +23,7 @@ const FixedNavMixin = css`
   top: 48px;
   display: flex;
   flex-direction: row;
-  width: 95%;
+  width: 80vw;
   max-width: 1500px;
   justify-content: space-between;
   z-index: 10;

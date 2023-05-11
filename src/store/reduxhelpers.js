@@ -6,3 +6,13 @@ export function returnImgIndex(payload, imgIndex, ImgsListLength) {
     return imgIndex - 1 < 1 ? ImgsListLength - 1 : imgIndex - 1;
   }
 }
+
+export function findIndex(list, url) {
+  let id = 0;
+  list?.find((imgInfos, index) => {
+    if (imgInfos.url === url) {
+      id = index;
+    }
+  });
+  return id;
+}

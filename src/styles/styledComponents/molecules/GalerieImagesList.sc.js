@@ -42,13 +42,13 @@ export const expandLastMixin = css`
   }
 `;
 export const Image = styled.img`
-  // try to use img background//
+  align-self: center;
   width: 100%;
   border-radius: ${({ roundedBorders }) => roundedBorders && "10px"};
 `;
 
 export const ImageBox = styled.div`
-  display: block;
+  display: flex;
   flex: 0
     ${({ nbPerRow }) =>
       nbPerRow ? `calc(99% / ${nbPerRow})` : `calc(99% / 2)`};

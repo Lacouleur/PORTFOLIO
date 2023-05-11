@@ -23,10 +23,10 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const dispatch = useDispatch();
   const { device } = useSelector((state) => state.main);
 
-  /*   const askedSize = {
+  const askedSize = {
     side: "w",
-    size: 800,
-  }; */
+    size: 500,
+  };
 
   const { paintingsImagesList } = useSelector((state) => state.main);
 
@@ -43,7 +43,7 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   useEffect(() => {
     setimgsInfos(
       dynamicUrls({
-        askedSize: undefined,
+        askedSize,
         nbOfImgs: 4,
         galerieName,
         artworkName,
