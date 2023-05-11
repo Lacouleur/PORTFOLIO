@@ -1,6 +1,7 @@
 {
   "name": "sitefolio",
   "version": "0.1.0",
+  "homepage": "http://lacouleur.github.io/sitefolio",
   "private": false,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
@@ -23,7 +24,7 @@
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
+    "build": "webpack --config webpack.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -60,7 +61,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "gh-pages": "^5.0.0",
     "prettier": "^2.8.7",
-    "webpack": "^5.76.3"
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.1.1"
   },
   "lint": "eslint --max-warnings=0 ..."
 }
