@@ -16,6 +16,7 @@ import {
   ImageTitle,
   ImageSubTitle,
   ImageMeta,
+  Boxxxxx,
 } from "../../styles/styledComponents/FullView.sc";
 import closeIcon from "../../styles/assets/icons/System/Cancel.svg";
 import arrowRight from "../../styles/assets/icons/Arrow/Right.svg";

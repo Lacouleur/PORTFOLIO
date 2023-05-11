@@ -32,7 +32,7 @@ function PaintingsGaleriePage() {
       />
       <GaleriesContainer>
         {paintingsName.map((painting, index) => (
-          <>
+          <React.Fragment key={`${painting.name}`}>
             {index === 2 && (
               <GaleriePresentationBlockText
                 noTitle
@@ -41,12 +41,12 @@ function PaintingsGaleriePage() {
               />
             )}
             <GalerieImages4Squares
-              key={`${painting.name}`}
               galerieName={galerieName}
               artworkName={painting.name}
               selectedIds={[1, 2, 3]}
+              $first={index === 0}
             />
-          </>
+          </React.Fragment>
         ))}
       </GaleriesContainer>
     </GaleriePageContainer>

@@ -16,7 +16,12 @@ import {
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
 import { toggleFullView, addItemToImagesList } from "../../store/redux";
 
-function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
+function GalerieImages4Squares({
+  galerieName,
+  artworkName,
+  customOrder,
+  $first,
+}) {
   const [imgHovered, setImgHovered] = useState(undefined);
   const [lastImgHovered, setLastImgHovered] = useState(undefined);
   const [imgsInfos, setimgsInfos] = useState([]);
@@ -54,6 +59,7 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
 
   return (
     <GalerieImages4SquaresContainer
+      $first={$first}
       onClick={(e) => {
         dispatch(
           toggleFullView({
@@ -127,12 +133,14 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
 
 GalerieImages4Squares.defaultProps = {
   customOrder: undefined,
+  $first: false,
 };
 
 GalerieImages4Squares.propTypes = {
   galerieName: PropTypes.string.isRequired,
   artworkName: PropTypes.string.isRequired,
   customOrder: PropTypes.arrayOf(PropTypes.number),
+  $first: PropTypes.bool,
 };
 
 export default GalerieImages4Squares;

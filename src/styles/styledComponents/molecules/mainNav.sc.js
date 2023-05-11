@@ -38,6 +38,7 @@ export const NavContainer = styled.div`
       : GalerieNavMixin};
   ${({ stylevariant }) => stylevariant === "fixed" && FixedNavMixin};
   min-width: 300px;
+  width: 95vw;
 `;
 
 const GalerieNavTextMixin = css`

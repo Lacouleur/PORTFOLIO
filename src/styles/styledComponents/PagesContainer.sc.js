@@ -22,6 +22,7 @@ export const PageContainer = styled.div`
     position: relative;
     max-width: 800px;
     min-width: 300px;
+    width: 95vw;
     color: ${(props) => props.theme.colors.font};
     content: "";
     overflow: hidden;

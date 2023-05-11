@@ -36,8 +36,10 @@ export const GalerieImages4SquaresContainer = styled.div`
     aspect-ratio: 1 / 1;
     border: none;
     border-radius: 0;
-    border-top: ${({ theme }) => `1px solid ${theme.colors.font}`};
+    border-top: ${({ theme, $first }) =>
+      !$first && `1px solid ${theme.colors.font}`};
     min-width: 300px;
+    padding: 0;
   }
 `;
 

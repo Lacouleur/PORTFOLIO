@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   GaleriePageContainer,
   GaleriesContainer,
@@ -14,6 +14,7 @@ function IllustrationsGaleriePage() {
   const dispatch = useDispatch();
   const galerieName = "illustrations";
   const [isIllustrations, setIsIllustration] = useState(false);
+  const { device } = useSelector((state) => state.main);
 
   const illustrationsGalerieRef = useRef(null);
 

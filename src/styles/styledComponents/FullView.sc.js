@@ -101,17 +101,23 @@ export const SwiperContainer = styled.div`
       width: auto;
       align-items: center;
     }
+
+    &-horizontal {
+      touch-action: pan-y pinch-zoom;
+    }
+
     &-slide {
       height: auto;
       width: auto;
+
+      border-radius: ${({ borderRadius }) => borderRadius && "10px"};
+      touch-action: manipulation;
     }
   }
 `;
 
 export const Image = styled.img`
-  max-width: 75vw;
-  max-height: 90vh;
-  border-radius: ${({ borderRadius }) => borderRadius && "10px"};
+  width: 100%;
 `;
 
 export const ImageInfosContainer = styled.div`

@@ -2,11 +2,18 @@ import styled, { css, keyframes } from "styled-components";
 import SVG from "react-inlinesvg";
 
 export const GaleriePresentationContainerNoTitleMixin = css`
-  border: 1px solid black;
-  border-radius: 5px;
+  border-top: 1px solid ${({ theme }) => theme.colors.font};
   margin-bottom: 32px;
   margin-top: 16px;
   padding: 32px;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-top: 0;
+  }
 `;
 
 export const GaleriePresentationContainer = styled.div`
@@ -63,8 +70,8 @@ export const GalerieTextBox = styled.div`
   @media (max-width: 800px) or (max-height: 500px) {
     width: 100%;
     transition: max-height 500ms;
-    max-height: ${({ expended }) => (expended ? "400px" : "73px")};
-    margin-top: 16px;
+    max-height: ${({ expended }) => (expended ? "400px" : "71px")};
+    margin-top: 32px;
   }
 `;
 
