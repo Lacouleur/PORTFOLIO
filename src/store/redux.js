@@ -28,14 +28,24 @@ const mainSlice = createSlice({
       if (action.payload.toogle) {
         const { toogle, imgInfos, galerieName } = action.payload;
         const imgIndex = findIndex(
-          galerieName === "paintings"
+          galerieName && galerieName === "paintings"
             ? state.paintingsImagesList
             : state.illustrationsImagesList,
           imgInfos.url,
         );
         return (state = {
           ...state,
-          isFullView: { toogle, imgInfos, imgIndex, galerieName },
+          isFullView: toogle
+            ? { toogle, imgInfos, imgIndex, galerieName }
+            : {
+                toogle: false,
+                imgInfos: {
+                  url: "",
+                  meta: { title: "", subName: undefined, id: "" },
+                },
+                imgIndex: 0,
+                galerieName: "",
+              },
         });
       }
       return (state = {

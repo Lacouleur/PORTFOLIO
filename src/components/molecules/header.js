@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import artStationIcon from "../styles/assets/icons/Social/Artstation.svg";
-import InstaIcon from "../styles/assets/icons/Social/Instagram.svg";
-import mailToIcon from "../styles/assets/icons/Social/Mail.svg";
+import artStationIcon from "../../styles/assets/icons/Social/Artstation.svg";
+import InstaIcon from "../../styles/assets/icons/Social/Instagram.svg";
+import mailToIcon from "../../styles/assets/icons/Social/Mail.svg";
 import {
   HeaderContainer,
   HeaderName,
@@ -13,12 +13,12 @@ import {
   Selector,
   SelectorText,
   SelectorSeparator,
-} from "../styles/styledComponents/Header.sc";
-import SwitchButton from "./atoms/SwitchButton";
-import { toggleIsDark } from "../store/redux";
-import useDelayUnmount from "../utils/customHooks/useDelayUnmount";
-import { handleClickScroll } from "../utils/helpers/navigationHelpers";
-import useClickOutside from "../utils/customHooks/useClickOutside";
+} from "../../styles/styledComponents/Header.sc";
+import SwitchButton from "../atoms/SwitchButton";
+import { toggleIsDark } from "../../store/redux";
+import useDelayUnmount from "../../utils/customHooks/useDelayUnmount";
+import { handleClickScroll } from "../../utils/helpers/navigationHelpers";
+import useClickOutside from "../../utils/customHooks/useClickOutside";
 
 function Header() {
   const dispatch = useDispatch();

@@ -30,6 +30,31 @@ export const Close = styled(SVG)`
     opacity: 1;
     transform: rotate(0.25turn) scale(2);
   }
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    top: auto;
+    bottom: 10vh;
+    left: 50%;
+    transform: translate(-50%) scale(2);
+    opacity: 1;
+    &:hover {
+      transform: translate(-50%) rotate(0.25turn) scale(2);
+    }
+  }
+
+  // MOBILE HORIZONTAL
+  @media (max-height: 500px) {
+    right: 32px;
+    top: 32px;
+    left: auto;
+    transform: translate(-50%) scale(2);
+    opacity: 1;
+
+    &:hover {
+      transform: rotate(0.25turn) scale(2);
+    }
+  }
 `;
 
 export const FullPageImage = styled.img`
@@ -119,6 +144,7 @@ export const SwiperContainer = styled.div`
 
 export const Image = styled.img`
   width: 100%;
+  max-height: 90vh;
 `;
 
 export const ImageInfosContainer = styled.div`

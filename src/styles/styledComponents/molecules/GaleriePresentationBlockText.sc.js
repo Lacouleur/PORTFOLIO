@@ -5,7 +5,7 @@ export const GaleriePresentationContainerNoTitleMixin = css`
   border-top: 1px solid ${({ theme }) => theme.colors.font};
   margin-bottom: 32px;
   margin-top: 16px;
-  padding: 32px;
+  padding: 32px 0;
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {

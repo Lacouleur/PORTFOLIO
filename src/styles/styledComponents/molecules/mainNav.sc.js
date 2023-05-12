@@ -28,17 +28,21 @@ const FixedNavMixin = css`
   justify-content: space-between;
   z-index: 10;
   background-color: ${({ theme }) => theme.colors.background};
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    width: 95vw;
+  }
 `;
 
 export const NavContainer = styled.div`
+  min-width: 300px;
   ${({ stylevariant }) => stylevariant === "home" && HomeNavMixin};
   ${({ stylevariant, fixedVersion }) =>
     stylevariant === "galerie" && fixedVersion
       ? FixedNavMixin
       : GalerieNavMixin};
   ${({ stylevariant }) => stylevariant === "fixed" && FixedNavMixin};
-  min-width: 300px;
-  width: 95vw;
 `;
 
 const GalerieNavTextMixin = css`
@@ -49,7 +53,7 @@ const GalerieNavTextMixin = css`
   align-self: center;
   margin-right: 12px;
   text-transform: capitalize;
-
+  font-size: clamp(1.5rem, 2.5vw, 32px);
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     font-size: 3.5vw;
@@ -102,6 +106,24 @@ export const NavButton = styled.div`
 `;
 
 export const NavButtonBackground = styled.div`
+  // ANIM
+  ${({ location, galerieName, $firstload }) => {
+    if (
+      location === galerieName &&
+      galerieName === "paintings" &&
+      !$firstload
+    ) {
+      return mixinAnimLeftToRight;
+    }
+    if (
+      location === galerieName &&
+      galerieName === "illustrations" &&
+      !$firstload
+    ) {
+      return mixinAnimRightToLeft;
+    }
+  }};
+
   position: absolute;
   left: 0;
   z-index: 0;
@@ -110,18 +132,6 @@ export const NavButtonBackground = styled.div`
   height: 100%;
   background-color: ${({ location, galerieName, theme }) =>
     location === galerieName ? theme.colors.accent : "transparent"};
-
-  // ANIM
-  ${({ location, galerieName, $firstload }) => {
-    if (location === galerieName && galerieName === "paintings" && !$firstload)
-      return mixinAnimLeftToRight;
-    if (
-      location === galerieName &&
-      galerieName === "illustrations" &&
-      !$firstload
-    )
-      return mixinAnimRightToLeft;
-  }};
 `;
 
 export const CrossIcon = styled(SVG)`

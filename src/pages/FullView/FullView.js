@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -30,11 +30,19 @@ function FullView({ fade }) {
     useSelector((state) => state.main);
   const dispatch = useDispatch();
   const { imgInfos, galerieName, imgIndex } = isFullView;
+  const [currentImagesList, setCurrentImageList] = useState(undefined);
 
   const ImageMetaBase = getImageMetaBase(imgInfos, galerieName);
 
-  const currentImagesList =
-    galerieName === "paintings" ? paintingsImagesList : illustrationsImagesList;
+  useEffect(() => {
+    if (galerieName) {
+      setCurrentImageList(
+        galerieName === "paintings"
+          ? paintingsImagesList
+          : illustrationsImagesList,
+      );
+    }
+  }, [galerieName]);
 
   return (
     <FullViewContainer fade={fade}>
@@ -60,7 +68,7 @@ function FullView({ fade }) {
         />
       )}
 
-      {device === "mobile" && (
+      {currentImagesList && device === "mobile" && (
         <SwiperContainer>
           <Swiper
             slidesPerView="auto"

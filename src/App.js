@@ -10,12 +10,13 @@ import {
 } from "./styles/styledComponents/PagesContainer.sc";
 import PaintingsGaleriePage from "./pages/Galeries/PaintingsGaleriePage/PaintingsGaleriePage";
 import IllustrationsGaleriePage from "./pages/Galeries/IllustrationsGaleriePage/IllustrationsGaleriePage";
-import Header from "./components/header";
+import Header from "./components/molecules/header";
 import Navigation from "./components/atoms/Navigation";
 import FullView from "./pages/FullView/FullView";
 import useDelayUnmount from "./utils/customHooks/useDelayUnmount";
 import { setDevice } from "./store/redux";
 import useCheckDevice from "./utils/customHooks/useCheckDevice";
+import Footer from "./components/molecules/Footer";
 
 function App() {
   const { isDark, isFullView } = useSelector((state) => state.main);
@@ -48,6 +49,7 @@ function App() {
           <Navigation stylevariant="galerie" />
           <PaintingsGaleriePage />
           <IllustrationsGaleriePage />
+          <Footer />
         </PageContainer>
       </SiteContainer>
     </Theme>

@@ -7,12 +7,12 @@ export function useScrollPosition(
   positionShift = 0,
   exeption = false,
 ) {
-  const [navBarTop, setNavbarTop] = useState(undefined);
+  const [ElementTop, setElementTop] = useState(undefined);
 
   const isSticky = () => {
     const { scrollY: scrollTop } = window;
 
-    if (scrollTop >= navBarTop + positionShift) {
+    if (scrollTop >= ElementTop + positionShift) {
       if (dispatch) {
         dispatch(setter(true));
       } else {
@@ -27,19 +27,19 @@ export function useScrollPosition(
 
   useEffect(() => {
     if (exeption) return;
-    const navBarEl = elementRef.current.offsetTop;
-    setNavbarTop(navBarEl);
+    const ElementEl = elementRef.current.offsetTop;
+    setElementTop(ElementEl);
   }, [elementRef]);
 
   useEffect(() => {
-    if (!navBarTop || exeption) return;
+    if (!ElementTop || exeption) return;
     window.addEventListener("load", isSticky);
     window.addEventListener("scroll", isSticky);
     return () => {
       window.removeEventListener("scroll", isSticky);
       window.removeEventListener("load", isSticky);
     };
-  }, [navBarTop]);
+  }, [ElementTop]);
 }
 
 export default useScrollPosition;

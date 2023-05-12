@@ -224,10 +224,40 @@ function AnimLeftToRight() {
 `;
 }
 
+function AnimBottomTotop() {
+  return keyframes`
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 48px;
+  }
+`;
+}
+
+function AnimTopToBottom() {
+  return keyframes`
+  0% {
+    height: 48px;
+  }
+  100% {
+    height: 0px;
+  }
+`;
+}
+
 export const mixinAnimRightToLeft = css`
   animation: ${AnimRightToLeft} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 `;
 
 export const mixinAnimLeftToRight = css`
   animation: ${AnimLeftToRight} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+`;
+
+export const mixinAnimBottomTotop = css`
+  animation: ${AnimBottomTotop} 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+`;
+
+export const mixinAnimTopToBottom = css`
+  animation: ${AnimTopToBottom} 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 `;

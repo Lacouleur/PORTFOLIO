@@ -15,10 +15,10 @@ export const SwitchLabel = styled.label`
   left: 0;
   transform: translate(0, 50%);
   bottom: 50%;
-  width: 48px;
-  height: 24px;
+  width: 40px;
+  height: 20px;
   border-radius: 15px;
-  border: 2px solid ${({ theme }) => theme.colors.font};
+  outline: 2px solid ${({ theme }) => theme.colors.font};
   cursor: pointer;
   background: transparent;
 
@@ -29,7 +29,12 @@ export const SwitchLabel = styled.label`
   &::after {
     content: "";
     display: block;
+    position: absolute;
     border-radius: 50%;
+    transform: translate(0, 50%);
+    bottom: 50%;
+    left: -1px;
+
     background: ${({ theme }) => theme.colors.font};
     width: 22px;
     height: 22px;
@@ -42,19 +47,12 @@ export const SwitchLabel = styled.label`
     height: 15px;
 
     &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      border-radius: 50%;
       background: ${({ theme }) => theme.colors.font};
       width: 12px;
       height: 12px;
-      left: -1px;
       transition: 0.2s;
     }
   }
-
-  ${(props) => props.stylevariant === "homeSwitch" && homepageSwitchLabelMixin}
 `;
 
 export const Switch = styled.input`
@@ -73,7 +71,7 @@ export const Switch = styled.input`
       background: ${({ theme }) => theme.colors.font};
       width: 21px;
       height: 21px;
-      margin-left: 25px;
+      margin-left: 22px;
       transition: all 0.2s ease 0s;
     }
   }
