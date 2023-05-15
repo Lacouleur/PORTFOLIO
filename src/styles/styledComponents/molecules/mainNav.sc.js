@@ -5,10 +5,11 @@ import {
   mixinAnimRightToLeft,
 } from "../atoms/Animations.sc";
 
-const HomeNavMixin = css`
-  padding-right: 32px;
-  margin-top: 64px;
-  height: 100%;
+const HomeNavContainerMixin = css`
+  display: block;
+  height: ${({ viewHeight, titleHeight }) =>
+    `calc(${viewHeight}px - ${titleHeight}px - 48px )`};
+  width: 100vw;
 `;
 
 const GalerieNavMixin = css`
@@ -16,6 +17,11 @@ const GalerieNavMixin = css`
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    min-width: 300px;
+  }
 `;
 
 const FixedNavMixin = css`
@@ -32,17 +38,15 @@ const FixedNavMixin = css`
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     width: 95vw;
+    min-width: 300px;
   }
 `;
 
 export const NavContainer = styled.div`
-  min-width: 300px;
-  ${({ stylevariant }) => stylevariant === "home" && HomeNavMixin};
-  ${({ stylevariant, fixedVersion }) =>
-    stylevariant === "galerie" && fixedVersion
-      ? FixedNavMixin
-      : GalerieNavMixin};
-  ${({ stylevariant }) => stylevariant === "fixed" && FixedNavMixin};
+  min-width: 800px;
+  ${({ stylevariant }) => stylevariant === "home" && HomeNavContainerMixin};
+  ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavMixin};
+  ${({ fixedVersion }) => fixedVersion && FixedNavMixin};
 `;
 
 const GalerieNavTextMixin = css`
@@ -61,10 +65,6 @@ const GalerieNavTextMixin = css`
   }
 `;
 
-export const NavText = styled.p`
-  ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavTextMixin};
-`;
-
 export const SpanNav = styled.span`
   display: inline;
   // MOBILE
@@ -72,6 +72,31 @@ export const SpanNav = styled.span`
     text-align: center;
     line-height: 2px;
   }
+`;
+
+const HomeNavTextMixin = css`
+  z-index: 5;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  font: ${({ theme }) => theme.fonts.titleMedium};
+  color: ${({ theme }) => theme.colors.font};
+  line-height: 48px;
+`;
+
+export const NavText = styled.div`
+  ${({ stylevariant }) => stylevariant === "home" && HomeNavTextMixin};
+  ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavTextMixin};
+`;
+
+const HomeNavButtonMixin = css`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  min-height: 50%;
+  background-color: ${({ theme }) => theme.colors.backgroundDimmed};
+  border-top: 2px solid ${({ theme }) => theme.colors.font};
 `;
 
 const GalerieNavButtonMixin = css`
@@ -102,6 +127,7 @@ const GalerieNavButtonMixin = css`
 `;
 
 export const NavButton = styled.div`
+  ${({ stylevariant }) => stylevariant === "home" && HomeNavButtonMixin};
   ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavButtonMixin};
 `;
 
@@ -127,11 +153,12 @@ export const NavButtonBackground = styled.div`
   position: absolute;
   left: 0;
   z-index: 0;
-  width: ${({ location, galerieName }) =>
-    location === galerieName ? "100%" : "0%"};
+  width: 100%;
   height: 100%;
   background-color: ${({ location, galerieName, theme }) =>
-    location === galerieName ? theme.colors.accent : "transparent"};
+    location === galerieName
+      ? theme.colors.accent
+      : theme.colors.backgroundDimmed};
 `;
 
 export const CrossIcon = styled(SVG)`

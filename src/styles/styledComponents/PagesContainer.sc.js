@@ -47,5 +47,5 @@ export const SiteContainer = styled.div`
   right: 0;
   left: 0;
   bottom: 0;
-  overflow: ${(props) => (props.isModalOpen ? "hidden" : "visible")};
+  overflow: hidden;
 `;

@@ -8,10 +8,12 @@ import {
 } from "./atoms/Animations.sc";
 
 export const HeaderContainer = styled.div`
+  min-width: 800px;
   position: fixed;
   top: 0;
   height: 48px;
   width: 80vw;
+
   max-width: 1500px;
   display: flex;
   flex-direction: row;

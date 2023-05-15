@@ -6,7 +6,15 @@ export const Title = styled.h1`
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
-    font-size: 11vw;
+    /*    font-size: 16vw; */
+    font-size: clamp(20px, 16vw, 100px);
+    margin: 0;
+  }
+
+  // MOBILE
+  @media (max-height: 500px) {
+    /*    font-size: 16vw; */
+    font-size: clamp(20px, 13vw, 40px);
     margin: 0;
   }
 `;
@@ -27,9 +35,16 @@ export const SubTitle = styled.h2`
   margin-left: 16px;
 
   // MOBILE
-  @media (max-width: 800px) or (max-height: 500px) {
+  @media (max-width: 800px) {
     margin: 0;
-    font-size: 3vw;
+    font-size: 5vw;
+  }
+
+  // MOBILE
+  @media (max-height: 500px) {
+    /*    font-size: 16vw; */
+    font-size: clamp(10px, 5vw, 20px);
+    margin: 0;
   }
 `;
 

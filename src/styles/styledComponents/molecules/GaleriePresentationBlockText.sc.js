@@ -33,6 +33,11 @@ export const GaleriePresentationContainer = styled.div`
 export const GaleriePresentationTitle = styled.h2`
   font: ${({ theme }) => theme.fonts.titleMedium};
   margin-bottom: 16px;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    margin-top: 32px;
+  }
 `;
 
 export const GaleriePrezTextBlock = styled.div`

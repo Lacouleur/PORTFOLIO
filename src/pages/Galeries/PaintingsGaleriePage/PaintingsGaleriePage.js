@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   GaleriePageContainer,
   GaleriesContainer,
 } from "../../../styles/styledComponents/GaleriesPages.sc";
 import GaleriePresentationBlockText from "../../../components/molecules/GaleriePresentationBlockText";
 import GalerieImages4Squares from "../../../components/molecules/GalerieImages4Squares";
+import { setLocation } from "../../../store/redux";
+import { useScrollPosition } from "../../../utils/customHooks/useScrollPosition";
 
 function PaintingsGaleriePage() {
+  const [isPaintings, setIsPaintings] = useState(false);
+  const dispatch = useDispatch();
+  const paintingsGalerieRef = useRef(null);
   const galerieName = "paintings";
   const paintingsName = [
     { name: "complementary", selectedIds: [1, 2, 3] },
@@ -23,8 +29,16 @@ function PaintingsGaleriePage() {
     { name: "moving_squares", selectedIds: [1, 2, 3] },
   ];
 
+  useEffect(() => {
+    if (isPaintings) {
+      dispatch(setLocation("paintings"));
+    }
+  }, [isPaintings]);
+
+  useScrollPosition(paintingsGalerieRef, undefined, setIsPaintings, -160);
+
   return (
-    <GaleriePageContainer id={galerieName}>
+    <GaleriePageContainer id={galerieName} ref={paintingsGalerieRef}>
       <GaleriePresentationBlockText
         isDescription={false}
         galerieName={galerieName}

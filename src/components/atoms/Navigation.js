@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-expressions */
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -20,54 +20,78 @@ import { useScrollPosition } from "../../utils/customHooks/useScrollPosition";
 import { handleClickScroll } from "../../utils/helpers/navigationHelpers";
 
 function Navigation({ stylevariant, fixedVersion }) {
-  const { isFirstLoad, location } = useSelector((state) => state.nav);
+  const { isFirstLoad, location, titleHeight } = useSelector(
+    (state) => state.nav,
+  );
+  const { device } = useSelector((state) => state.main);
   const dispatch = useDispatch();
-  const navigationRef = useRef(null);
 
-  useScrollPosition(navigationRef, dispatch, setFixedNav, -48, fixedVersion);
+  const [viewHeight, setViewHeight] = useState(window.innerHeight);
+  const navPosition = device === "mobile" ? viewHeight : -48;
+  const navigationRef = useRef();
+
+  useScrollPosition(
+    navigationRef,
+    dispatch,
+    setFixedNav,
+    navPosition,
+    fixedVersion,
+  );
+
+  useEffect(() => {
+    if (device === "mobile" && window.innerHeight !== viewHeight) {
+      setViewHeight(window.innerHeight);
+    }
+  }, [window.innerHeight, window.innerWidth]);
 
   return (
     <NavContainer
-      id={fixedVersion ? "fixedNav" : "classicNav"}
       stylevariant={stylevariant}
       fixedVersion={fixedVersion}
-      ref={fixedVersion ? undefined : navigationRef}
+      ref={navigationRef}
+      viewHeight={viewHeight}
+      titleHeight={titleHeight}
+      id={`${stylevariant}-navigation`}
     >
       <NavButton
         onClick={() => {
-          if (location !== "paintings") {
-            handleClickScroll("paintings");
+          if (
+            location !== "paintings" ||
+            navigationRef.current.id === "home-navigation"
+          ) {
+            handleClickScroll("paintings", device);
             dispatch(setLocation("paintings"));
           }
           dispatch(toggleIsFirstLoad(false));
         }}
         galerieName="paintings"
-        location={location}
+        location={location || "paintings"}
         stylevariant={stylevariant}
         smooth
       >
+        <NavText stylevariant={stylevariant}>
+          {texts.mainPage.fr.nav.paintings}
+          <SpanNav>{stylevariant === "galerie" && "\u00A0-\u00A0"}</SpanNav>
+          {texts.mainPage.en.nav.paintings}
+        </NavText>
+        <CrossIcon
+          src={location === "/paints" ? ArrowDownIcon : ArrowRightIcon}
+        />
         {stylevariant && stylevariant === "galerie" && (
-          <>
-            <NavText stylevariant={stylevariant}>
-              {texts.mainPage.fr.nav.paintings}
-              <SpanNav>&nbsp;-&nbsp;</SpanNav>
-              {texts.mainPage.en.nav.paintings}
-            </NavText>
-            <CrossIcon
-              src={location === "/paints" ? ArrowDownIcon : ArrowRightIcon}
-            />
-            <NavButtonBackground
-              $firstload={!!isFirstLoad}
-              location={location}
-              galerieName="paintings"
-            />
-          </>
+          <NavButtonBackground
+            $firstload={!!isFirstLoad}
+            location={location || "paintings"}
+            galerieName="paintings"
+          />
         )}
       </NavButton>
       <NavButton
         onClick={() => {
-          if (location !== "illustrations") {
-            handleClickScroll("illustrations");
+          if (
+            location !== "illustrations" ||
+            navigationRef.current.id === "home-navigation"
+          ) {
+            handleClickScroll("illustrations", device);
             dispatch(setLocation("illustrations"));
           }
           dispatch(toggleIsFirstLoad(false));
@@ -78,24 +102,20 @@ function Navigation({ stylevariant, fixedVersion }) {
         stylevariant={stylevariant}
         smooth
       >
+        <NavText stylevariant={stylevariant}>
+          {texts.mainPage.fr.nav.illustrations}
+          <SpanNav>{stylevariant === "galerie" && "\u00A0-\u00A0"}</SpanNav>
+          {texts.mainPage.en.nav.illustrations}
+        </NavText>
+        <CrossIcon
+          src={location === "/illustrations" ? ArrowDownIcon : ArrowRightIcon}
+        />
         {stylevariant && stylevariant === "galerie" && (
-          <>
-            <NavText stylevariant={stylevariant}>
-              {texts.mainPage.fr.nav.illustrations}
-              <SpanNav>&nbsp;-&nbsp;</SpanNav>
-              {texts.mainPage.en.nav.illustrations}
-            </NavText>
-            <CrossIcon
-              src={
-                location === "/illustrations" ? ArrowDownIcon : ArrowRightIcon
-              }
-            />
-            <NavButtonBackground
-              $firstload={!!isFirstLoad}
-              location={location}
-              galerieName="illustrations"
-            />
-          </>
+          <NavButtonBackground
+            $firstload={!!isFirstLoad}
+            location={location}
+            galerieName="illustrations"
+          />
         )}
       </NavButton>
     </NavContainer>

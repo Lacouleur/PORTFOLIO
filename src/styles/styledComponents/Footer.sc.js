@@ -6,6 +6,8 @@ import {
 
 export const FooterContainer = styled.div`
   width: 80vw;
+  max-width: 1500px;
+  min-width: 800px;
   height: 48px;
   bottom: 0;
   position: ${({ isFooterFixed }) => isFooterFixed && "fixed"};
@@ -38,7 +40,7 @@ export const FooterCredit = styled.p`
   }
 `;
 
-export const FooterName = styled.p`
+export const FooterName = styled.b`
   font: ${({ theme }) => theme.fonts.labelLink};
   color: ${({ theme }) => theme.colors.accent};
   display: inline;

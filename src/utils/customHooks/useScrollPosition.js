@@ -8,27 +8,36 @@ export function useScrollPosition(
   exeption = false,
 ) {
   const [ElementTop, setElementTop] = useState(undefined);
+  const [ElementHeight, setElementHeight] = useState(undefined);
+  const [ElementId, setElementId] = useState(undefined);
+
+  function setOrDispatch(testRez) {
+    if (dispatch) {
+      dispatch(setter(testRez));
+    } else {
+      setter(testRez);
+    }
+  }
 
   const isSticky = () => {
     const { scrollY: scrollTop } = window;
 
-    if (scrollTop >= ElementTop + positionShift) {
-      if (dispatch) {
-        dispatch(setter(true));
-      } else {
-        setter(true);
-      }
-    } else if (dispatch) {
-      dispatch(setter(false));
+    if (ElementId === "home-navigation") {
+      setOrDispatch(scrollTop >= ElementTop + ElementHeight - 68);
     } else {
-      setter(false);
+      setOrDispatch(scrollTop >= ElementTop + positionShift);
     }
   };
 
   useEffect(() => {
     if (exeption) return;
-    const ElementEl = elementRef.current.offsetTop;
-    setElementTop(ElementEl);
+    if (!elementRef) return;
+    if (elementRef.current) {
+      setElementHeight(elementRef.current.offsetHeight);
+      setElementTop(elementRef.current.offsetTop);
+      setElementId(elementRef.current.id);
+      isSticky();
+    }
   }, [elementRef]);
 
   useEffect(() => {
@@ -36,8 +45,8 @@ export function useScrollPosition(
     window.addEventListener("load", isSticky);
     window.addEventListener("scroll", isSticky);
     return () => {
-      window.removeEventListener("scroll", isSticky);
       window.removeEventListener("load", isSticky);
+      window.removeEventListener("resize", isSticky);
     };
   }, [ElementTop]);
 }

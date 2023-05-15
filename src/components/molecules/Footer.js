@@ -5,29 +5,24 @@ import {
   FooterCredit,
   FooterName,
 } from "../../styles/styledComponents/Footer.sc";
+import { watchFooterScroll } from "../../utils/helpers/footerHelper";
 
 function Footer() {
   const [isFooterFixed, setIsFooterFixed] = useState(true);
   const [footerAnim, setFooterAnim] = useState("in");
-
-  const { isFullView } = useSelector((state) => state.main);
+  const { isFullView, device } = useSelector((state) => state.main);
 
   useEffect(() => {
-    if (window.scrollY !== 0) {
-      setFooterAnim("out");
-      if (window.scrollY > 500) {
-        setIsFooterFixed(false);
-      }
-    }
-    if (window.scrollY === 0) {
-      setFooterAnim("in");
-      setIsFooterFixed(true);
-    }
-  }, [window.scrollY]);
+    watchFooterScroll(setFooterAnim, setIsFooterFixed, isFullView.toogle);
+  }, [window.scrollY, isFullView.toogle]);
+
+  useEffect(() => {
+    watchFooterScroll(setFooterAnim, setIsFooterFixed);
+  }, []);
 
   return (
     <FooterContainer
-      isFooterFixed={isFullView.toogle ? false : isFooterFixed}
+      isFooterFixed={device !== "mobile" ? isFooterFixed : false}
       fade={footerAnim}
     >
       <FooterCredit>

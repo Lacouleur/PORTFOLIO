@@ -14,15 +14,12 @@ function IllustrationsGaleriePage() {
   const dispatch = useDispatch();
   const galerieName = "illustrations";
   const [isIllustrations, setIsIllustration] = useState(false);
-  const { device } = useSelector((state) => state.main);
 
   const illustrationsGalerieRef = useRef(null);
 
   useEffect(() => {
     if (isIllustrations) {
       dispatch(setLocation("illustrations"));
-    } else {
-      dispatch(setLocation("paintings"));
     }
   }, [isIllustrations]);
 

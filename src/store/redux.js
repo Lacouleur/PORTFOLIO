@@ -104,7 +104,8 @@ const navSlice = createSlice({
   initialState: {
     isFirstLoad: true,
     fixedNav: undefined,
-    location: "paintings",
+    location: "",
+    titleHeight: 100,
   },
   reducers: {
     toggleIsFirstLoad: (state, action) =>
@@ -118,6 +119,11 @@ const navSlice = createSlice({
       (state = {
         ...state,
         location: action.payload,
+      }),
+    setTitleHeight: (state, action) =>
+      (state = {
+        ...state,
+        titleHeight: action.payload,
       }),
   },
 });
@@ -146,6 +152,11 @@ export const {
   changeFullViewImg,
   setDevice,
 } = mainSlice.actions;
-export const { toggleIsFirstLoad, setFixedNav, setPagesRefs, setLocation } =
-  navSlice.actions;
+export const {
+  toggleIsFirstLoad,
+  setFixedNav,
+  setPagesRefs,
+  setLocation,
+  setTitleHeight,
+} = navSlice.actions;
 export const { setShowName } = headerSlice.actions;

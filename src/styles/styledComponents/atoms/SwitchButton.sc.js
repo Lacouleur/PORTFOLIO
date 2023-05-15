@@ -48,8 +48,8 @@ export const SwitchLabel = styled.label`
 
     &::after {
       background: ${({ theme }) => theme.colors.font};
-      width: 12px;
-      height: 12px;
+      width: 17px;
+      height: 17px;
       transition: 0.2s;
     }
   }
@@ -80,8 +80,8 @@ export const Switch = styled.input`
   @media (max-width: 800px) or (max-height: 500px) {
     &:checked + ${SwitchLabel} {
       &::after {
-        width: 12px;
-        height: 12px;
+        width: 17px;
+        height: 17px;
         left: -13px;
       }
     }

@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   SubTitle,
   SubTitleBox,
@@ -7,14 +7,22 @@ import {
   TitleContainer,
 } from "../../styles/styledComponents/atoms/texts.sc";
 import { HomeSection } from "../../styles/styledComponents/Home.sc";
-import { setShowName } from "../../store/redux";
+import { setShowName, setTitleHeight } from "../../store/redux";
 import { useScrollPosition } from "../../utils/customHooks/useScrollPosition";
 
 function Home() {
   const dispatch = useDispatch();
   const titleRef = useRef(null);
+  const { titleHeight } = useSelector((state) => state.nav);
 
   useScrollPosition(titleRef, dispatch, setShowName);
+
+  useEffect(() => {
+    const CurrentTitleHeight = titleRef?.current.clientHeight;
+    if (CurrentTitleHeight && CurrentTitleHeight !== titleHeight) {
+      dispatch(setTitleHeight(titleRef.current.clientHeight));
+    }
+  }, [window.innerHeight, window.innerWidth]);
 
   return (
     <HomeSection>

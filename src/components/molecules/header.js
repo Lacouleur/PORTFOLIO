@@ -22,7 +22,7 @@ import useClickOutside from "../../utils/customHooks/useClickOutside";
 
 function Header() {
   const dispatch = useDispatch();
-  const { isDark } = useSelector((state) => state.main);
+  const { isDark, device } = useSelector((state) => state.main);
   const [isInstaSelector, setIsInstaSelector] = useState(false);
   const { showName } = useSelector((state) => state.header);
   const headerRef = useRef();
@@ -75,7 +75,7 @@ function Header() {
       {shouldRender && (
         <HeaderName
           onClick={() => {
-            handleClickScroll("home");
+            handleClickScroll("home", device);
           }}
           fade={showName ? "in" : "out"}
         >

@@ -31,7 +31,7 @@ export const Close = styled(SVG)`
     transform: rotate(0.25turn) scale(2);
   }
 
-  // MOBILE
+  /*   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     top: auto;
     bottom: 10vh;
@@ -41,7 +41,7 @@ export const Close = styled(SVG)`
     &:hover {
       transform: translate(-50%) rotate(0.25turn) scale(2);
     }
-  }
+  } */
 
   // MOBILE HORIZONTAL
   @media (max-height: 500px) {

@@ -17,6 +17,13 @@ export const HomeSection = styled.div`
   justify-content: space-between;
   height: 45%;
   margin: 64px 0 32px 0;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    max-height: 50vh;
+    min-height: 20vh;
+    margin: 48px 0 16px 0;
+  }
 `;
 
 export const HomeTextBox = styled.div`
