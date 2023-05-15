@@ -6,7 +6,7 @@ import { findIndex, returnImgIndex } from "./reduxhelpers";
 const mainSlice = createSlice({
   name: "main",
   initialState: {
-    isDark: false,
+    isDark: true,
     isFullView: {
       toogle: false,
       imgInfos: { url: "", meta: { title: "", subName: undefined, id: "" } },

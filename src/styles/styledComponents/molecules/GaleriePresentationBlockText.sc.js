@@ -37,6 +37,7 @@ export const GaleriePresentationTitle = styled.h2`
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     margin-top: 32px;
+    margin-bottom: 0px;
   }
 `;
 

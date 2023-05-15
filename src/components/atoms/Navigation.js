@@ -11,6 +11,7 @@ import {
   CrossIcon,
   NavButtonBackground,
   SpanNav,
+  Blur,
 } from "../../styles/styledComponents/molecules/mainNav.sc";
 import texts from "../../utils/texts/texts.json";
 import ArrowDownIcon from "../../styles/assets/icons/Arrow/Down.svg";
@@ -69,7 +70,12 @@ function Navigation({ stylevariant, fixedVersion }) {
         stylevariant={stylevariant}
         smooth
       >
-        <NavText stylevariant={stylevariant}>
+        <Blur stylevariant={stylevariant} />
+        <NavText
+          stylevariant={stylevariant}
+          galerieName="paintings"
+          location={location || "paintings"}
+        >
           {texts.mainPage.fr.nav.paintings}
           <SpanNav>{stylevariant === "galerie" && "\u00A0-\u00A0"}</SpanNav>
           {texts.mainPage.en.nav.paintings}
@@ -77,13 +83,14 @@ function Navigation({ stylevariant, fixedVersion }) {
         <CrossIcon
           src={location === "/paints" ? ArrowDownIcon : ArrowRightIcon}
         />
-        {stylevariant && stylevariant === "galerie" && (
-          <NavButtonBackground
-            $firstload={!!isFirstLoad}
-            location={location || "paintings"}
-            galerieName="paintings"
-          />
-        )}
+
+        <NavButtonBackground
+          $firstload={!!isFirstLoad}
+          location={location || "paintings"}
+          galerieName="paintings"
+          image="https://ik.imagekit.io/artworks/paintings/complementary_maze/dvoindrot-complementary_maze-0.jpg"
+          stylevariant={stylevariant}
+        />
       </NavButton>
       <NavButton
         onClick={() => {
@@ -110,13 +117,16 @@ function Navigation({ stylevariant, fixedVersion }) {
         <CrossIcon
           src={location === "/illustrations" ? ArrowDownIcon : ArrowRightIcon}
         />
-        {stylevariant && stylevariant === "galerie" && (
-          <NavButtonBackground
-            $firstload={!!isFirstLoad}
-            location={location}
-            galerieName="illustrations"
-          />
-        )}
+
+        <Blur stylevariant={stylevariant} />
+
+        <NavButtonBackground
+          image="https://ik.imagekit.io/artworks/illustrations/cards/dvoindrot-cards-1.jpg"
+          $firstload={!!isFirstLoad}
+          location={location}
+          stylevariant={stylevariant}
+          galerieName="illustrations"
+        />
       </NavButton>
     </NavContainer>
   );

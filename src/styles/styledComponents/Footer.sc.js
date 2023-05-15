@@ -25,6 +25,7 @@ export const FooterContainer = styled.div`
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     width: 95vw;
+    min-width: 300px;
     paddin: 0 16px;
   }
 `;

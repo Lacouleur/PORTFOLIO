@@ -77,11 +77,25 @@ export const SpanNav = styled.span`
 const HomeNavTextMixin = css`
   z-index: 5;
   text-transform: capitalize;
+  display: inline-block;
   display: flex;
   flex-direction: column;
   font: ${({ theme }) => theme.fonts.titleMedium};
   color: ${({ theme }) => theme.colors.font};
-  line-height: 48px;
+  padding: 50% 0;
+`;
+
+export const Blur = styled.div`
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: 1;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 `;
 
 export const NavText = styled.div`
@@ -94,9 +108,10 @@ const HomeNavButtonMixin = css`
   justify-content: start;
   align-items: center;
   width: 100%;
-  min-height: 50%;
-  background-color: ${({ theme }) => theme.colors.backgroundDimmed};
-  border-top: 2px solid ${({ theme }) => theme.colors.font};
+  height: 50%;
+  border-top: 4px solid ${({ theme }) => theme.colors.font};
+  overflow: hidden;
+  position: relative;
 `;
 
 const GalerieNavButtonMixin = css`
@@ -131,7 +146,7 @@ export const NavButton = styled.div`
   ${({ stylevariant }) => stylevariant === "galerie" && GalerieNavButtonMixin};
 `;
 
-export const NavButtonBackground = styled.div`
+const NavButtonBgMixin = css`
   // ANIM
   ${({ location, galerieName, $firstload }) => {
     if (
@@ -159,6 +174,26 @@ export const NavButtonBackground = styled.div`
     location === galerieName
       ? theme.colors.accent
       : theme.colors.backgroundDimmed};
+`;
+
+const HomeNavButtonBgMixin = css`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: hotpink;
+  ${({ image }) => console.warn(image)};
+  background-image: ${({ image }) => `url(${image})`};
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  background-position: -100px -170px;
+  opacity: 0.4;
+`;
+
+export const NavButtonBackground = styled.div`
+  ${({ stylevariant }) => stylevariant === "galerie" && NavButtonBgMixin};
+  ${({ stylevariant }) => stylevariant === "home" && HomeNavButtonBgMixin};
 `;
 
 export const CrossIcon = styled(SVG)`

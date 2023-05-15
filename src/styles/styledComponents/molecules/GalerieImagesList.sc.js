@@ -20,6 +20,11 @@ export const GalerieSectionDescBox = styled.div`
 export const GalerieSectionDesc = styled.p`
   font: ${({ theme }) => theme.fonts.bodyMedium};
   width: 49%;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    font-size: 11px;
+  }
 `;
 
 export const GalerieSectionTitle = styled.h3`
