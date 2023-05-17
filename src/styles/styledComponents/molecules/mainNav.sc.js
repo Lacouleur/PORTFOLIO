@@ -7,17 +7,27 @@ import {
 
 const HomeNavContainerMixin = css`
   display: flex;
-
   height: ${({ viewSize, titleHeight }) =>
     `calc(${viewSize.height}px - ${titleHeight}px - 40px - 102px)`};
   width: auto;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid ${({ theme }) => theme.colors.fontDimmed};
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: ${({ viewSize, titleHeight }) =>
-      `calc(${viewSize.height}px - ${titleHeight}px - 48px )`};
-    width: 100vw;
+      `calc(${viewSize.height - 70}px - ${titleHeight}px)`};
+    overflow: hidden;
+    border-radius: 0;
+    border: none;
+    min-width: 300px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -26,6 +36,9 @@ const GalerieNavMixin = css`
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  border-bottom: solid 1px ${({ theme }) => theme.colors.accent};
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
@@ -43,6 +56,9 @@ const FixedNavMixin = css`
   justify-content: space-between;
   z-index: 10;
   background-color: ${({ theme }) => theme.colors.background};
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  border-bottom: solid 1px ${({ theme }) => theme.colors.accent};
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
@@ -99,9 +115,10 @@ const HomeNavTextMixin = css`
 export const NavSeparator = styled.div`
   width: 4px;
   height: auto;
-  background-color: ${({ theme }) => theme.colors.font};
+  background-color: ${({ theme }) => theme.colors.fontDimmed};
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
+    visibility: ${({ stylevariant }) => stylevariant === "home" && "hidden"};
     width: ${({ stylevariant }) => stylevariant === "home" && "100%"};
     height: ${({ stylevariant }) => stylevariant === "home" && "4px"};
   }
@@ -128,7 +145,9 @@ const HomeNavButtonMixin = css`
     align-items: center;
     overflow: hidden;
     width: 100%;
-    height: 50%;
+    height: 48%;
+    border-radius: 10px;
+    border: 1px solid ${({ theme }) => theme.colors.fontDimmed};
   }
 `;
 
@@ -141,7 +160,7 @@ const GalerieNavButtonMixin = css`
   text-decoration: none;
   border: none;
   padding-left: 16px;
-  border-bottom: solid 1px ${({ theme }) => theme.colors.accent};
+
   opacity: ${({ location, galerieName }) =>
     location === galerieName ? "1" : "0.6"};
   cursor: pointer;
@@ -204,8 +223,8 @@ const paintingsButtonBackgroundMixin = css`
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
-    background-position: 20% 10%;
-    background-size: ${({ viewSize }) => `calc(${viewSize.height}px)`};
+    background-position: 30% 80%;
+    background-size: ${({ viewSize }) => `calc(${viewSize.height}px + 20%)`};
   }
 `;
 
