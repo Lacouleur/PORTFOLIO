@@ -4,7 +4,18 @@ import { ThemeProvider } from "styled-components";
 
 const colorsList = {
   brightRed: "#FF5F55",
-  hollowRed: "#FF5F55",
+  light: "#f2e4c4",
+  darkLake: "#0d292b",
+  dark80: "#2b302f",
+  dark50: "#4e5151",
+  white50: "#f2e4c490",
+  warmGrey70: "#c1b6ac70",
+};
+
+/* light: "#CCD5AE",
+  darkLake: "#253d3b", */
+/* const colorsList = {
+  brightRed: "#FF5F55",
   light: "#f2e4c4",
   darkLake: "#253d3b",
   dark80: "#2b302f",
@@ -12,7 +23,7 @@ const colorsList = {
   white50: "#f2e4c490",
   warmGrey70: "#c1b6ac70",
 };
-
+ */
 /* const colorsList = {
   brightRed: "#FF5F55",
   light: "#6bf9c5",
@@ -40,13 +51,13 @@ const { brightRed, light, darkLake, dark80, dark50, warmGrey70, white50 } =
 
 const themeLight = {
   colors: {
-    background: light,
-    font: darkLake,
-    fontDimmed: dark50,
+    background: "#d6d3bc",
+    font: "#02171f",
+    fontDimmed: "#587885",
     accent: brightRed,
-    dark: dark80,
-    white: light,
-    backgroundDimmed: warmGrey70,
+    dark: "#2e2421",
+    white: "#F9FBE7",
+    backgroundDimmed: "#ECCDB4",
   },
   fonts: {
     ...fontSizesList,
@@ -56,12 +67,12 @@ const themeLight = {
 const themeDark = {
   colors: {
     background: darkLake,
-    font: light,
+    font: "#f2e4c4",
     fontDimmed: white50,
     accent: brightRed,
-    dark: dark80,
-    white: light,
-    backgroundDimmed: warmGrey70,
+    dark: "#2e2421",
+    white: "#F9FBE7",
+    backgroundDimmed: "#1a4245",
   },
   fonts: {
     ...fontSizesList,

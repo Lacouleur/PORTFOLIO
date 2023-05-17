@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   SubTitle,
-  SubTitleBox,
   Title,
   TitleContainer,
 } from "../../styles/styledComponents/atoms/texts.sc";
@@ -26,7 +25,7 @@ function Home() {
 
   return (
     <HomeSection>
-      <TitleContainer ref={titleRef}>
+      <TitleContainer ref={titleRef} id="title">
         <Title>Damien Voindrot</Title>
         <SubTitle>Artiste Visuel / Visual Artist</SubTitle>
       </TitleContainer>

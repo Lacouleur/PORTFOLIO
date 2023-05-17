@@ -35,32 +35,23 @@ function PaintingsGaleriePage() {
     }
   }, [isPaintings]);
 
-  useScrollPosition(paintingsGalerieRef, undefined, setIsPaintings, -160);
+  useScrollPosition(paintingsGalerieRef, undefined, setIsPaintings, -1000);
 
   return (
     <GaleriePageContainer id={galerieName} ref={paintingsGalerieRef}>
       <GaleriePresentationBlockText
-        isDescription={false}
+        isDescription
         galerieName={galerieName}
         foldable
       />
       <GaleriesContainer>
         {paintingsName.map((painting, index) => (
-          <React.Fragment key={`${painting.name}`}>
-            {index === 2 && (
-              <GaleriePresentationBlockText
-                noTitle
-                galerieName={galerieName}
-                foldable
-              />
-            )}
-            <GalerieImages4Squares
-              galerieName={galerieName}
-              artworkName={painting.name}
-              selectedIds={[1, 2, 3]}
-              $first={index === 0}
-            />
-          </React.Fragment>
+          <GalerieImages4Squares
+            key={painting.name}
+            galerieName={galerieName}
+            artworkName={painting.name}
+            selectedIds={[1, 2, 3]}
+          />
         ))}
       </GaleriesContainer>
     </GaleriePageContainer>

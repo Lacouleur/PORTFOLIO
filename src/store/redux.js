@@ -152,6 +152,7 @@ export const {
   changeFullViewImg,
   setDevice,
 } = mainSlice.actions;
+
 export const {
   toggleIsFirstLoad,
   setFixedNav,
@@ -159,4 +160,5 @@ export const {
   setLocation,
   setTitleHeight,
 } = navSlice.actions;
+
 export const { setShowName } = headerSlice.actions;

@@ -18,7 +18,7 @@ export const SwitchLabel = styled.label`
   width: 40px;
   height: 20px;
   border-radius: 15px;
-  outline: 2px solid ${({ theme }) => theme.colors.font};
+  outline: 2px solid ${({ theme }) => theme.colors.fontDimmed};
   cursor: pointer;
   background: transparent;
 
@@ -61,7 +61,7 @@ export const Switch = styled.input`
   border-radius: 15px;
   width: 0;
   height: 0;
-  border: 2px solid ${({ theme }) => theme.colors.font};
+  border: 2px solid ${({ theme }) => theme.colors.fontDimmed};
 
   &:checked + ${SwitchLabel} {
     &::after {

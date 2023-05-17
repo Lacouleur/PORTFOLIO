@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const PageContainer = styled.div`
   position: relative;
   min-width: 800px;
-  color: ${(props) => props.theme.colors.font};
+
   top: 0;
   bottom: 0;
   width: 80vw;
@@ -40,8 +40,8 @@ export const SiteContainer = styled.div`
   height: ${(props) => props.height || ""};
   width: 100%;
   min-width: 150px;
-  color: ${(props) => props.theme.colors.font};
-  background-color: ${(props) => props.theme.colors.background};
+  color: ${({ theme }) => theme.colors.font};
+  background-color: ${({ theme }) => theme.colors.background};
   transition: background-color 500ms ease;
   top: 0;
   right: 0;

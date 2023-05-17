@@ -2,7 +2,7 @@ import styled, { css, keyframes } from "styled-components";
 import SVG from "react-inlinesvg";
 
 export const GaleriePresentationContainerNoTitleMixin = css`
-  border-top: 1px solid ${({ theme }) => theme.colors.font};
+  border-top: 1px solid ${({ theme }) => theme.colors.fontDimmed};
   margin-bottom: 32px;
   margin-top: 16px;
   padding: 32px 0;

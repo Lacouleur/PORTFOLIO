@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   GaleriePageContainer,
   GaleriesContainer,
@@ -20,6 +20,8 @@ function IllustrationsGaleriePage() {
   useEffect(() => {
     if (isIllustrations) {
       dispatch(setLocation("illustrations"));
+    } else {
+      dispatch(setLocation("paintings"));
     }
   }, [isIllustrations]);
 

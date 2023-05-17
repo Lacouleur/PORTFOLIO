@@ -11,31 +11,37 @@ import {
   CrossIcon,
   NavButtonBackground,
   SpanNav,
-  Blur,
+  NavSeparator,
 } from "../../styles/styledComponents/molecules/mainNav.sc";
 import texts from "../../utils/texts/texts.json";
 import ArrowDownIcon from "../../styles/assets/icons/Arrow/Down.svg";
 import ArrowRightIcon from "../../styles/assets/icons/Arrow/Right.svg";
 import { setFixedNav, setLocation, toggleIsFirstLoad } from "../../store/redux";
 import { useScrollPosition } from "../../utils/customHooks/useScrollPosition";
-import { handleClickScroll } from "../../utils/helpers/navigationHelpers";
+import {
+  handleClickScroll,
+  handleSizeChange,
+} from "../../utils/helpers/navigationHelpers";
 
 function Navigation({ stylevariant, fixedVersion }) {
   const { isFirstLoad, location, titleHeight } = useSelector(
     (state) => state.nav,
   );
-  const { device, isFullView } = useSelector((state) => state.main);
+  const { device } = useSelector((state) => state.main);
   const dispatch = useDispatch();
 
   const navigationRef = useRef();
 
-  const [viewHeight, setViewHeight] = useState(window.innerHeight);
+  const [viewSize, setViewSize] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
   const [navigationSize, setNavigationSize] = useState({
     height: 0,
     width: 0,
   });
 
-  const navPosition = device === "mobile" ? viewHeight : -48;
+  const navPosition = device === "mobile" ? -96 : -48;
 
   useScrollPosition(
     navigationRef,
@@ -46,15 +52,13 @@ function Navigation({ stylevariant, fixedVersion }) {
   );
 
   useEffect(() => {
-    if (window.innerHeight !== viewHeight) {
-      setViewHeight(window.innerHeight);
-    }
-    if (navigationRef.current.clientHeight !== navigationSize) {
-      setNavigationSize({
-        height: navigationRef.current.clientHeight,
-        width: navigationRef.current.clientWidth,
-      });
-    }
+    handleSizeChange(
+      navigationRef,
+      viewSize,
+      navigationSize,
+      setViewSize,
+      setNavigationSize,
+    );
   }, [window.innerHeight, window.innerWidth]);
 
   return (
@@ -62,7 +66,7 @@ function Navigation({ stylevariant, fixedVersion }) {
       stylevariant={stylevariant}
       fixedVersion={fixedVersion}
       ref={navigationRef}
-      viewHeight={viewHeight}
+      viewSize={viewSize}
       titleHeight={titleHeight}
       id={`${stylevariant}-navigation`}
     >
@@ -82,7 +86,6 @@ function Navigation({ stylevariant, fixedVersion }) {
         stylevariant={stylevariant}
         smooth
       >
-        <Blur stylevariant={stylevariant} />
         <NavText
           stylevariant={stylevariant}
           galerieName="paintings"
@@ -99,6 +102,7 @@ function Navigation({ stylevariant, fixedVersion }) {
 
         <NavButtonBackground
           navigationSize={navigationSize}
+          viewSize={viewSize}
           $firstload={!!isFirstLoad}
           location={location || "paintings"}
           galerieName="paintings"
@@ -106,6 +110,7 @@ function Navigation({ stylevariant, fixedVersion }) {
           stylevariant={stylevariant}
         />
       </NavButton>
+      <NavSeparator stylevariant={stylevariant} />
       <NavButton
         onClick={() => {
           if (
@@ -133,11 +138,10 @@ function Navigation({ stylevariant, fixedVersion }) {
           src={location === "illustrations" ? ArrowDownIcon : ArrowRightIcon}
         />
 
-        <Blur stylevariant={stylevariant} />
-
         <NavButtonBackground
           navigationSize={navigationSize}
-          image="https://ik.imagekit.io/artworks/illustrations/cards/dvoindrot-cards-1.jpg"
+          viewSize={viewSize}
+          image="https://ik.imagekit.io/artworks/illustrations/personal/dvoindrot-personal-2.jpg"
           $firstload={!!isFirstLoad}
           location={location}
           stylevariant={stylevariant}

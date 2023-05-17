@@ -11,12 +11,46 @@ import {
 } from "../atoms/Animations.sc";
 
 export const GalerieImages4SquaresContainer = styled.div`
-  border: ${({ theme }) => `1px solid ${theme.colors.font}`};
+  border: ${({ theme }) => `1px solid ${theme.colors.fontDimmed}`};
   border-radius: 5px;
   padding: 8px;
   width: 49%;
   display: flex;
   align-self: flex-start;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 24px;
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+  transition: background-color 400ms ease;
+
+  &:hover {
+    border: ${({ theme }) => `2px solid ${theme.colors.accent}`};
+    background-color: ${({ theme }) => theme.colors.backgroundDimmed};
+    cursor: pointer;
+  }
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    width: 100%;
+    margin: 16px 0 32px 0;
+    flex-direction: column;
+    aspect-ratio: 1 / 1;
+    border: none;
+    border-radius: 0;
+    border-top: ${({ theme }) => `1px solid ${theme.colors.fontDimmed}`};
+    min-width: 300px;
+    padding: 0;
+  }
+`;
+/* export const GalerieImages4SquaresContainer = styled.div`
+  border: ${({ theme }) => `1px solid ${theme.colors.fontDimmed}`};
+  border-radius: 5px;
+  padding: 8px;
+  width: 49%;
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
   position: relative;
   margin-bottom: 24px;
   aspect-ratio: 4 / 2.8;
@@ -32,16 +66,16 @@ export const GalerieImages4SquaresContainer = styled.div`
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     width: 100%;
+    margin: 16px 0 32px 0;
     flex-direction: column;
     aspect-ratio: 1 / 1;
     border: none;
     border-radius: 0;
-    border-top: ${({ theme, $first }) =>
-      !$first && `1px solid ${theme.colors.font}`};
+    border-top: ${({ theme }) => `1px solid ${theme.colors.fontDimmed}`};
     min-width: 300px;
     padding: 0;
   }
-`;
+`; */
 
 const zoomFullMixin = css`
   width: 100%;
@@ -109,7 +143,7 @@ export const SquareImg = styled.img`
 
 export const ImgBox = styled.div`
   aspect-ratio: 1 / 1;
-  width: 70%;
+  width: 100%;
   height: 100%;
   position: relative;
 
@@ -120,7 +154,7 @@ export const ImgBox = styled.div`
 `;
 
 export const Descriptionbox = styled.div`
-  width: 40%;
+  width: 100%;
   overflow: hidden;
   margin-right: 8px;
   display: flex;
@@ -130,7 +164,8 @@ export const Descriptionbox = styled.div`
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     width: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+    margin-top: 16px;
   }
 `;
 
@@ -138,6 +173,7 @@ export const ArtworkTitleBox = styled.div`
   display: flex;
   flex-direction: column;
   hyphens: auto;
+  margin-bottom: 32px;
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
@@ -149,12 +185,14 @@ export const ArtworkTitleBox = styled.div`
 
 export const ArtworkTitleText = styled.p`
   font: ${({ theme }) => theme.fonts.artTitleMedium};
+  font-size: 30px;
   text-transform: capitalize;
   white-space: break-spaces;
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     margin-right: 16px;
+    font: ${({ theme }) => theme.fonts.artTitleMedium};
   }
 `;
 

@@ -4,7 +4,7 @@ export const GalerieImagesListContainer = styled.div`
   margin-top: 16px;
   padding-top: 32px;
   border-top: ${({ theme, noHeader }) =>
-    noHeader ? "none" : `1px solid ${theme.colors.font}`};
+    noHeader ? "none" : `1px solid ${theme.colors.fontDimmed}`};
 `;
 
 export const GalerieImagesListHeader = styled.div`

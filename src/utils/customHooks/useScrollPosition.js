@@ -22,11 +22,9 @@ export function useScrollPosition(
   const isSticky = () => {
     const { scrollY: scrollTop } = window;
 
-    if (ElementId === "home-navigation") {
-      setOrDispatch(scrollTop >= ElementTop + ElementHeight - 68);
-    } else {
-      setOrDispatch(scrollTop >= ElementTop + positionShift);
-    }
+    if (ElementId === "home-navigation") return;
+
+    setOrDispatch(scrollTop >= ElementTop + positionShift);
   };
 
   useEffect(() => {

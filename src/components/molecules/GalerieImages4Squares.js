@@ -16,12 +16,7 @@ import {
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
 import { toggleFullView, addItemToImagesList } from "../../store/redux";
 
-function GalerieImages4Squares({
-  galerieName,
-  artworkName,
-  customOrder,
-  $first,
-}) {
+function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
   const [imgHovered, setImgHovered] = useState(undefined);
   const [lastImgHovered, setLastImgHovered] = useState(undefined);
   const [imgsInfos, setimgsInfos] = useState([]);
@@ -59,7 +54,6 @@ function GalerieImages4Squares({
 
   return (
     <GalerieImages4SquaresContainer
-      $first={$first}
       onClick={(e) => {
         dispatch(
           toggleFullView({
@@ -77,7 +71,7 @@ function GalerieImages4Squares({
           </ArtworkTitleText>
           <ArtworkTitleSize>100x100 - 2020</ArtworkTitleSize>
         </ArtworkTitleBox>
-        <ArtworkAboutBox>
+        {/*       <ArtworkAboutBox>
           <ArtworkAboutText>
             FR - Châssis ébéniste en bois plein français, toiles de lin épaisse
             d’artisanat Italien, peintures haut de gamme Hollandaises, vernis UV
@@ -86,7 +80,7 @@ function GalerieImages4Squares({
             EN - Cabinetmaker frame in French solid wood, thick linen canvas of
             Italian craftsmanship, high-end Dutch paints, UV varnish
           </ArtworkAboutText>
-        </ArtworkAboutBox>
+        </ArtworkAboutBox> */}
       </Descriptionbox>
       <ImgBox
         onMouseLeave={() => {
@@ -133,14 +127,38 @@ function GalerieImages4Squares({
 
 GalerieImages4Squares.defaultProps = {
   customOrder: undefined,
-  $first: false,
 };
 
 GalerieImages4Squares.propTypes = {
   galerieName: PropTypes.string.isRequired,
   artworkName: PropTypes.string.isRequired,
   customOrder: PropTypes.arrayOf(PropTypes.number),
-  $first: PropTypes.bool,
 };
 
 export default GalerieImages4Squares;
+
+/* {device !== "mobile" && (
+  <>
+    <SquareImg
+      onMouseEnter={() => setImgHovered(2)}
+      imgHovered={imgHovered}
+      lastImgHovered={lastImgHovered}
+      id={2}
+      src={imgsInfos[1].url}
+    />
+    <SquareImg
+      onMouseEnter={() => setImgHovered(3)}
+      imgHovered={imgHovered}
+      lastImgHovered={lastImgHovered}
+      id={3}
+      src={imgsInfos[2].url}
+    />
+    <SquareImg
+      onMouseEnter={() => setImgHovered(4)}
+      imgHovered={imgHovered}
+      lastImgHovered={lastImgHovered}
+      id={4}
+      src={imgsInfos[3].url}
+    />
+  </>
+)} */

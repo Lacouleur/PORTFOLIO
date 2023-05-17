@@ -176,13 +176,13 @@ const expendFromLeft = keyframes`
             width: 0;
   }
   100% {
-            width: 100px;
+            width: 150px;
   }
 `;
 
 const foldFromRight = keyframes`
   0% {
-            width: 100px;
+            width: 150px;
   }
   100% {
             width: 0;

@@ -56,9 +56,32 @@ function Header() {
             <SocialIcon $selector={isInstaSelector} src={InstaIcon} />
             {renderExpend && (
               <SelectorContainer expend={!!isInstaSelector}>
-                <SelectorText>Peintures</SelectorText>
+                <SelectorText
+                  onClick={() =>
+                    window
+                      .open(
+                        "https://www.instagram.com/damien_voindrot.art/",
+                        "_blank",
+                      )
+                      .focus()
+                  }
+                >
+                  Insta Peintures
+                </SelectorText>
                 <SelectorSeparator />
-                <SelectorText last>Illustrations</SelectorText>
+                <SelectorText
+                  onClick={() =>
+                    window
+                      .open(
+                        "https://www.instagram.com/damienv.illus/",
+                        "_blank",
+                      )
+                      .focus()
+                  }
+                  last
+                >
+                  Insta Illustrations
+                </SelectorText>
               </SelectorContainer>
             )}
           </Selector>

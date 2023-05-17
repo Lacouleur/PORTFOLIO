@@ -7,14 +7,16 @@ import {
 
 const HomeNavContainerMixin = css`
   display: flex;
-  height: ${({ viewHeight, titleHeight }) =>
-    `calc(${viewHeight}px - ${titleHeight}px - 48px - 102px)`};
+
+  height: ${({ viewSize, titleHeight }) =>
+    `calc(${viewSize.height}px - ${titleHeight}px - 40px - 102px)`};
   width: auto;
+
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     display: block;
-    height: ${({ viewHeight, titleHeight }) =>
-      `calc(${viewHeight}px - ${titleHeight}px - 48px )`};
+    height: ${({ viewSize, titleHeight }) =>
+      `calc(${viewSize.height}px - ${titleHeight}px - 48px )`};
     width: 100vw;
   }
 `;
@@ -64,8 +66,8 @@ const GalerieNavTextMixin = css`
   align-self: center;
   margin-right: 12px;
   text-transform: capitalize;
-
   font-size: clamp(1.5rem, 2.5vw, 32px);
+
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     font-size: 3.5vw;
@@ -75,6 +77,7 @@ const GalerieNavTextMixin = css`
 
 export const SpanNav = styled.span`
   display: inline;
+
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     text-align: center;
@@ -93,17 +96,15 @@ const HomeNavTextMixin = css`
   padding: 50% 0;
 `;
 
-export const Blur = styled.div`
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  z-index: 1;
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+export const NavSeparator = styled.div`
+  width: 4px;
+  height: auto;
+  background-color: ${({ theme }) => theme.colors.font};
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    width: ${({ stylevariant }) => stylevariant === "home" && "100%"};
+    height: ${({ stylevariant }) => stylevariant === "home" && "4px"};
+  }
 `;
 
 export const NavText = styled.div`
@@ -117,7 +118,6 @@ const HomeNavButtonMixin = css`
   align-items: center;
   width: 50%;
   height: 100%;
-  border-right: 4px solid ${({ theme }) => theme.colors.font};
   overflow: hidden;
   position: relative;
 
@@ -126,9 +126,9 @@ const HomeNavButtonMixin = css`
     display: flex;
     justify-content: start;
     align-items: center;
-    border-top: 4px solid ${({ theme }) => theme.colors.font};
     overflow: hidden;
-    border-right: none;
+    width: 100%;
+    height: 50%;
   }
 `;
 
@@ -136,7 +136,6 @@ const GalerieNavButtonMixin = css`
   height: 74px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   position: relative;
   width: 50%;
   text-decoration: none;
@@ -185,6 +184,7 @@ const NavButtonBgMixin = css`
 
   position: absolute;
   left: 0;
+  right: 0;
   z-index: 0;
   width: 100%;
   height: 100%;
@@ -201,14 +201,27 @@ const paintingsButtonBackgroundMixin = css`
   background-size: ${({ navigationSize }) =>
     `calc(${navigationSize.width}px * 1.5)`};
   min-height: ${({ navigationSize }) => `${navigationSize.height}px`};
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    background-position: 20% 10%;
+    background-size: ${({ viewSize }) => `calc(${viewSize.height}px)`};
+  }
 `;
 
 const illustrationsButtonBackgroundMixin = css`
   background-attachment: fixed;
   background-position: ${({ navigationSize }) =>
-    `calc(${navigationSize.width}px / 3) 30%`};
+    `calc(${navigationSize.width}px / 2) 100%`};
   background-repeat: no-repeat;
-  background-size: ${({ navigationSize }) => `${navigationSize.width}px`};
+  background-size: ${({ navigationSize }) =>
+    `calc(${navigationSize.width}px - 20%)`};
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    background-position: bottom;
+    background-size: ${({ viewSize }) => `auto calc(${viewSize.height}px)`};
+  }
 `;
 
 const HomeNavButtonBgMixin = css`
@@ -220,19 +233,12 @@ const HomeNavButtonBgMixin = css`
   background-image: ${({ image }) => `url(${image})`};
   min-width: 500px;
   min-height: auto;
+  opacity: 0.4;
 
   ${({ galerieName }) =>
     galerieName === "paintings"
       ? paintingsButtonBackgroundMixin
       : illustrationsButtonBackgroundMixin};
-
-  opacity: 0.4;
-
-  // MOBILE
-  @media (max-width: 800px) or (max-height: 500px) {
-    background-position: -100px -170px;
-    background-size: cover;
-  }
 `;
 
 export const NavButtonBackground = styled.div`

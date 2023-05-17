@@ -45,7 +45,7 @@ function App() {
           <Home />
           <Navigation stylevariant="home" />
           {fixedNav && <Navigation stylevariant="galerie" fixedVersion />}
-          {/*  {device !== "mobile" && <Navigation stylevariant="galerie" />} */}
+          <Navigation stylevariant="galerie" />
 
           <PaintingsGaleriePage />
           <IllustrationsGaleriePage />

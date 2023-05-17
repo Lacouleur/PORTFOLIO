@@ -122,7 +122,8 @@ export const SelectorText = styled.span`
 export const SelectorContainer = styled.div`
   cursor: pointer;
   margin-right: 8px;
-  width: 100px;
+  white-space: nowrap;
+  width: 150px;
   background-color: ${({ theme }) => theme.colors.backgroundDimmed};
   border-radius: 5px;
   display: flex;

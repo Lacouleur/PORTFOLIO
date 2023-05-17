@@ -66,7 +66,7 @@ export const FullPageImage = styled.img`
   left: 50%;
   bottom: 50%;
   max-height: 90vh;
-  max-width: 90%;
+  max-width: 70vw;
   cursor: pointer;
 `;
 
