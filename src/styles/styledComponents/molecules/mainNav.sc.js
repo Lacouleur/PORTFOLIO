@@ -6,10 +6,17 @@ import {
 } from "../atoms/Animations.sc";
 
 const HomeNavContainerMixin = css`
-  display: block;
+  display: flex;
   height: ${({ viewHeight, titleHeight }) =>
-    `calc(${viewHeight}px - ${titleHeight}px - 48px )`};
-  width: 100vw;
+    `calc(${viewHeight}px - ${titleHeight}px - 48px - 102px)`};
+  width: auto;
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    display: block;
+    height: ${({ viewHeight, titleHeight }) =>
+      `calc(${viewHeight}px - ${titleHeight}px - 48px )`};
+    width: 100vw;
+  }
 `;
 
 const GalerieNavMixin = css`
@@ -57,6 +64,7 @@ const GalerieNavTextMixin = css`
   align-self: center;
   margin-right: 12px;
   text-transform: capitalize;
+
   font-size: clamp(1.5rem, 2.5vw, 32px);
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
@@ -105,13 +113,23 @@ export const NavText = styled.div`
 
 const HomeNavButtonMixin = css`
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 50%;
-  border-top: 4px solid ${({ theme }) => theme.colors.font};
+  width: 50%;
+  height: 100%;
+  border-right: 4px solid ${({ theme }) => theme.colors.font};
   overflow: hidden;
   position: relative;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-top: 4px solid ${({ theme }) => theme.colors.font};
+    overflow: hidden;
+    border-right: none;
+  }
 `;
 
 const GalerieNavButtonMixin = css`
@@ -176,19 +194,45 @@ const NavButtonBgMixin = css`
       : theme.colors.backgroundDimmed};
 `;
 
+const paintingsButtonBackgroundMixin = css`
+  background-attachment: fixed;
+  background-position: -200px;
+  background-repeat: no-repeat;
+  background-size: ${({ navigationSize }) =>
+    `calc(${navigationSize.width}px * 1.5)`};
+  min-height: ${({ navigationSize }) => `${navigationSize.height}px`};
+`;
+
+const illustrationsButtonBackgroundMixin = css`
+  background-attachment: fixed;
+  background-position: ${({ navigationSize }) =>
+    `calc(${navigationSize.width}px / 3) 30%`};
+  background-repeat: no-repeat;
+  background-size: ${({ navigationSize }) => `${navigationSize.width}px`};
+`;
+
 const HomeNavButtonBgMixin = css`
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: hotpink;
-  ${({ image }) => console.warn(image)};
   background-image: ${({ image }) => `url(${image})`};
-  background-size: cover; /* <------ */
-  background-repeat: no-repeat;
-  background-position: -100px -170px;
+  min-width: 500px;
+  min-height: auto;
+
+  ${({ galerieName }) =>
+    galerieName === "paintings"
+      ? paintingsButtonBackgroundMixin
+      : illustrationsButtonBackgroundMixin};
+
   opacity: 0.4;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    background-position: -100px -170px;
+    background-size: cover;
+  }
 `;
 
 export const NavButtonBackground = styled.div`
@@ -202,7 +246,7 @@ export const CrossIcon = styled(SVG)`
   right: 5%;
   transform: translate(0, -50%);
   top: 50%;
-
+  display: ${({ stylevariant }) => stylevariant === "home" && "none"};
   & path {
     fill: ${({ theme, mail }) => (mail ? "none" : theme.colors.font)};
     stroke: ${({ theme, mail }) => (mail ? theme.colors.font : "none")};

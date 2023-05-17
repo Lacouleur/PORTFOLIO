@@ -43,9 +43,9 @@ function App() {
         <PageContainer id="home">
           <Header />
           <Home />
-          {device === "mobile" && <Navigation stylevariant="home" />}
+          <Navigation stylevariant="home" />
           {fixedNav && <Navigation stylevariant="galerie" fixedVersion />}
-          {device !== "mobile" && <Navigation stylevariant="galerie" />}
+          {/*  {device !== "mobile" && <Navigation stylevariant="galerie" />} */}
 
           <PaintingsGaleriePage />
           <IllustrationsGaleriePage />

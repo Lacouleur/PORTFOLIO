@@ -24,12 +24,18 @@ function Navigation({ stylevariant, fixedVersion }) {
   const { isFirstLoad, location, titleHeight } = useSelector(
     (state) => state.nav,
   );
-  const { device } = useSelector((state) => state.main);
+  const { device, isFullView } = useSelector((state) => state.main);
   const dispatch = useDispatch();
 
-  const [viewHeight, setViewHeight] = useState(window.innerHeight);
-  const navPosition = device === "mobile" ? viewHeight : -48;
   const navigationRef = useRef();
+
+  const [viewHeight, setViewHeight] = useState(window.innerHeight);
+  const [navigationSize, setNavigationSize] = useState({
+    height: 0,
+    width: 0,
+  });
+
+  const navPosition = device === "mobile" ? viewHeight : -48;
 
   useScrollPosition(
     navigationRef,
@@ -40,8 +46,14 @@ function Navigation({ stylevariant, fixedVersion }) {
   );
 
   useEffect(() => {
-    if (device === "mobile" && window.innerHeight !== viewHeight) {
+    if (window.innerHeight !== viewHeight) {
       setViewHeight(window.innerHeight);
+    }
+    if (navigationRef.current.clientHeight !== navigationSize) {
+      setNavigationSize({
+        height: navigationRef.current.clientHeight,
+        width: navigationRef.current.clientWidth,
+      });
     }
   }, [window.innerHeight, window.innerWidth]);
 
@@ -81,14 +93,16 @@ function Navigation({ stylevariant, fixedVersion }) {
           {texts.mainPage.en.nav.paintings}
         </NavText>
         <CrossIcon
-          src={location === "/paints" ? ArrowDownIcon : ArrowRightIcon}
+          stylevariant={stylevariant}
+          src={location === "paintings" ? ArrowDownIcon : ArrowRightIcon}
         />
 
         <NavButtonBackground
+          navigationSize={navigationSize}
           $firstload={!!isFirstLoad}
           location={location || "paintings"}
           galerieName="paintings"
-          image="https://ik.imagekit.io/artworks/paintings/complementary_maze/dvoindrot-complementary_maze-0.jpg"
+          image="https://ik.imagekit.io/artworks/paintings/candy_maze/dvoindrot-candy_maze-0.jpg"
           stylevariant={stylevariant}
         />
       </NavButton>
@@ -115,12 +129,14 @@ function Navigation({ stylevariant, fixedVersion }) {
           {texts.mainPage.en.nav.illustrations}
         </NavText>
         <CrossIcon
-          src={location === "/illustrations" ? ArrowDownIcon : ArrowRightIcon}
+          stylevariant={stylevariant}
+          src={location === "illustrations" ? ArrowDownIcon : ArrowRightIcon}
         />
 
         <Blur stylevariant={stylevariant} />
 
         <NavButtonBackground
+          navigationSize={navigationSize}
           image="https://ik.imagekit.io/artworks/illustrations/cards/dvoindrot-cards-1.jpg"
           $firstload={!!isFirstLoad}
           location={location}
