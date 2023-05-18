@@ -51,7 +51,7 @@ const { brightRed, light, darkLake, dark80, dark50, warmGrey70, white50 } =
 
 const themeLight = {
   colors: {
-    background: "#d6d3bc",
+    background: "#f2e4c4",
     font: "#02171f",
     fontDimmed: "#587885",
     accent: brightRed,

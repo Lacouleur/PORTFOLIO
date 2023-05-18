@@ -171,8 +171,12 @@ export const ImageSubTitle = styled.p`
   font: ${({ theme }) => theme.fonts.labelSmall};
   font-size: 12px;
 `;
-export const ImageMeta = styled.p`
+export const ImageMedium = styled.p`
   font: ${({ theme }) => theme.fonts.labelLink};
   font-size: 11px;
   line-height: 30px;
 `;
+
+export const ImageMetaContainer = styled.div``;
+
+export const ImageMetaBox = styled.div``;

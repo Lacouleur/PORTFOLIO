@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const SwitchBox = styled.label`
   margin: 16px 32px 0 0;

@@ -43,6 +43,8 @@ export const GalerieImages4SquaresContainer = styled.div`
     padding: 0;
   }
 `;
+
+// HORIZONTAL 4squares GALERY
 /* export const GalerieImages4SquaresContainer = styled.div`
   border: ${({ theme }) => `1px solid ${theme.colors.fontDimmed}`};
   border-radius: 5px;

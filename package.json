@@ -14,7 +14,6 @@
     "react-inlinesvg": "^3.0.2",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
-    "react-scripts": "^5.0.1",
     "styled-components": "^5.3.9",
     "swiper": "^9.3.0",
     "uuidv4": "^6.2.13",
@@ -69,7 +68,8 @@
     "prettier": "^2.8.7",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
-    "webpack": "^5.76.3"
+    "webpack": "^5.76.3",
+    "react-scripts": "^5.0.1"
   },
   "lint": "eslint --max-warnings=0 ..."
 }

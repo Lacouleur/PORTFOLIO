@@ -8,14 +8,11 @@ import {
   NavContainer,
   NavText,
   NavButton,
-  CrossIcon,
   NavButtonBackground,
   SpanNav,
   NavSeparator,
 } from "../../styles/styledComponents/molecules/mainNav.sc";
 import texts from "../../utils/texts/texts.json";
-import ArrowDownIcon from "../../styles/assets/icons/Arrow/Down.svg";
-import ArrowRightIcon from "../../styles/assets/icons/Arrow/Right.svg";
 import { setFixedNav, setLocation, toggleIsFirstLoad } from "../../store/redux";
 import { useScrollPosition } from "../../utils/customHooks/useScrollPosition";
 import {
@@ -36,12 +33,19 @@ function Navigation({ stylevariant, fixedVersion }) {
     height: window.innerHeight,
     width: window.innerWidth,
   });
+
+  const [backgroundImgsSize, setBackgroundImgsSize] = useState(800);
+  const [navPosition, setNavPosition] = useState(
+    device === "mobile" ? -96 : -48,
+  );
   const [navigationSize, setNavigationSize] = useState({
     height: 0,
     width: 0,
   });
 
-  const navPosition = device === "mobile" ? -96 : -48;
+  const paintingButtonUrl = `https://ik.imagekit.io/artworks/paintings/tr:w-${backgroundImgsSize}/candy_maze/dvoindrot-candy_maze-0.jpg`;
+
+  const illustrationButtonUrl = `https://ik.imagekit.io/artworks/illustrations/tr:w-${backgroundImgsSize}/personal/dvoindrot-personal-2.jpg`;
 
   useScrollPosition(
     navigationRef,
@@ -50,6 +54,11 @@ function Navigation({ stylevariant, fixedVersion }) {
     navPosition,
     fixedVersion,
   );
+
+  useEffect(() => {
+    setNavPosition(device === "mobile" ? -96 : -48);
+    setBackgroundImgsSize(device === "mobile" ? 600 : 900);
+  }, [device]);
 
   useEffect(() => {
     handleSizeChange(
@@ -95,19 +104,15 @@ function Navigation({ stylevariant, fixedVersion }) {
           <SpanNav>{stylevariant === "galerie" && "\u00A0-\u00A0"}</SpanNav>
           {texts.mainPage.en.nav.paintings}
         </NavText>
-        <CrossIcon
-          stylevariant={stylevariant}
-          src={location === "paintings" ? ArrowDownIcon : ArrowRightIcon}
-        />
 
         <NavButtonBackground
           navigationSize={navigationSize}
           viewSize={viewSize}
           $firstload={!!isFirstLoad}
           location={location || "paintings"}
-          galerieName="paintings"
-          image="https://ik.imagekit.io/artworks/paintings/candy_maze/dvoindrot-candy_maze-0.jpg"
+          image={paintingButtonUrl}
           stylevariant={stylevariant}
+          galerieName="paintings"
         />
       </NavButton>
       <NavSeparator stylevariant={stylevariant} />
@@ -133,15 +138,15 @@ function Navigation({ stylevariant, fixedVersion }) {
           <SpanNav>{stylevariant === "galerie" && "\u00A0-\u00A0"}</SpanNav>
           {texts.mainPage.en.nav.illustrations}
         </NavText>
-        <CrossIcon
+        {/*  <CrossIcon
           stylevariant={stylevariant}
           src={location === "illustrations" ? ArrowDownIcon : ArrowRightIcon}
-        />
+        /> */}
 
         <NavButtonBackground
           navigationSize={navigationSize}
           viewSize={viewSize}
-          image="https://ik.imagekit.io/artworks/illustrations/personal/dvoindrot-personal-2.jpg"
+          image={illustrationButtonUrl}
           $firstload={!!isFirstLoad}
           location={location}
           stylevariant={stylevariant}

@@ -25,6 +25,7 @@ function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
   const baseURL = `https://ik.imagekit.io/artworks/${galerieName}`;
 
   if (!sub) {
+    // url example
     /*  https://ik.imagekit.io/artworks/illustrations/landscapes/dvoindrot-landscapes-4.jpg?updatedAt=1682953929018 */
 
     return {
@@ -33,6 +34,7 @@ function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
     };
   }
   if (sub) {
+    // url example
     /*  https://ik.imagekit.io/artworks/illustrations/characters/fox/dvoindrot-fox-5.png?updatedAt=1682954045013 */
 
     return {

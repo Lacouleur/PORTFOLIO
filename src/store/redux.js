@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-return-assign */
-import { configureStore, createSlice, current } from "@reduxjs/toolkit";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { findIndex, returnImgIndex } from "./reduxhelpers";
 
 const mainSlice = createSlice({

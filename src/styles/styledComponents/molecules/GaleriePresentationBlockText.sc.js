@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
 
 export const GaleriePresentationContainerNoTitleMixin = css`

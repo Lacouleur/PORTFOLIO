@@ -4,7 +4,7 @@ import {
   Switch,
   SwitchBox,
   SwitchLabel,
-} from "../../styles/styledComponents/atoms/SwitchButton.sc.js";
+} from "../../styles/styledComponents/atoms/SwitchButton.sc";
 
 function SwitchButton({ isChecked, action, componentId, stylevariant }) {
   return (

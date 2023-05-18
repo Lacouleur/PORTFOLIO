@@ -151,10 +151,28 @@
     "rpg": {
       "1": {
         "id": "characters-rpg-1",
-        "title": { "fr": "estoc", "en": "thrust" },
+        "title": { "fr": "Ensorceleur", "en": "Sorcerer" },
         "subtitle": {
           "fr": "dessin de props et personnage",
-          "en": "adventurer fox, character concept"
+          "en": "props & character concept"
+        },
+        "medium": "digital"
+      },
+      "2": {
+        "id": "characters-rpg-2",
+        "title": { "fr": "prêtre", "en": "priest" },
+        "subtitle": {
+          "fr": "dessin de props et personnage",
+          "en": "props & character concept"
+        },
+        "medium": "digital"
+      },
+      "3": {
+        "id": "characters-rpg-3",
+        "title": { "fr": "éclaireur", "en": "ranger" },
+        "subtitle": {
+          "fr": "dessin de props et personnage",
+          "en": "props & character concept"
         },
         "medium": "digital"
       }

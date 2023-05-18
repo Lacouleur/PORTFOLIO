@@ -43,6 +43,7 @@ const GalerieNavMixin = css`
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     min-width: 300px;
+    border-radius: 0;
   }
 `;
 
@@ -59,6 +60,7 @@ const FixedNavMixin = css`
   border-radius: 0 0 10px 10px;
   overflow: hidden;
   border-bottom: solid 1px ${({ theme }) => theme.colors.accent};
+  border-radius: 0;
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
@@ -250,6 +252,7 @@ const HomeNavButtonBgMixin = css`
   bottom: 0;
   left: 0;
   background-image: ${({ image }) => `url(${image})`};
+  background-color: ${({ theme }) => theme.colors.backgroundDimmed};
   min-width: 500px;
   min-height: auto;
   opacity: 0.4;
