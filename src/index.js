@@ -12,7 +12,6 @@ import "./styles/css/index.css";
 
 import App from "./App";
 import Home from "./pages/HomePage/HomePage";
-import Page404 from "./pages/Page404";
 
 const domNode = document.getElementById("root");
 const root = createRoot(domNode);

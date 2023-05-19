@@ -110,38 +110,6 @@ export const Arrow = styled(SVG)`
   }
 `;
 
-export const SwiperContainer = styled.div`
-  .swiper {
-    z-index: 102;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-
-    &-wrapper {
-      height: 100%;
-      display: flex;
-      width: auto;
-      align-items: center;
-    }
-
-    &-horizontal {
-      touch-action: pan-y pinch-zoom;
-    }
-
-    &-slide {
-      height: auto;
-      width: auto;
-      max-width: 90vw;
-      max-height: 90vh;
-      border-radius: ${({ borderRadius }) => borderRadius && "10px"};
-      touch-action: manipulation;
-    }
-  }
-`;
-
 export const Image = styled.img`
   width: 100%;
   max-height: 90vh;

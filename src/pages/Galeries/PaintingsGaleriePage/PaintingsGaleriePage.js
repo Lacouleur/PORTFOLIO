@@ -15,18 +15,18 @@ function PaintingsGaleriePage() {
   const paintingsGalerieRef = useRef(null);
   const galerieName = "paintings";
   const paintingsName = [
-    { name: "complementary", selectedIds: [1, 2, 3] },
-    { name: "opposite", selectedIds: [1, 2, 3] },
-    { name: "energy", selectedIds: [1, 2, 3] },
-    { name: "candy", selectedIds: [1, 2, 3] },
-    { name: "jungle", selectedIds: [1, 2, 3] },
-    { name: "red_70s", selectedIds: [1, 2, 3] },
-    { name: "color_wheel", selectedIds: [1, 2, 3] },
-    { name: "eyes", selectedIds: [1, 2, 3] },
-    { name: "jazz_jam", selectedIds: [1, 2, 3] },
-    { name: "avatar", selectedIds: [1, 2, 3] },
-    { name: "optic", selectedIds: [1, 2, 3] },
-    { name: "moving_squares", selectedIds: [1, 2, 3] },
+    { name: "complementary", isExhibed: true, selectedIds: [1, 2, 3] },
+    { name: "opposite", isExhibed: true, selectedIds: [1, 2, 3] },
+    { name: "energy", isExhibed: true, selectedIds: [1, 2, 3] },
+    { name: "candy", isExhibed: true, selectedIds: [1, 2, 3] },
+    { name: "jungle", isExhibed: true, selectedIds: [1, 2, 3] },
+    { name: "red_70s", isExhibed: true, selectedIds: [1, 2, 3] },
+    { name: "color_wheel", isExhibed: false, selectedIds: [1, 2, 3] },
+    { name: "eyes", isExhibed: false, selectedIds: [1, 2, 3] },
+    { name: "jazz_jam", isExhibed: false, selectedIds: [1, 2, 3] },
+    { name: "avatar", isExhibed: true, selectedIds: [1, 2, 3] },
+    { name: "optic", isExhibed: true, selectedIds: [1, 2, 3] },
+    { name: "moving_squares", isExhibed: true, selectedIds: [1, 2, 3] },
   ];
 
   useEffect(() => {
@@ -51,6 +51,7 @@ function PaintingsGaleriePage() {
             galerieName={galerieName}
             artworkName={painting.name}
             selectedIds={[1, 2, 3]}
+            isExhibed={painting.isExhibed}
           />
         ))}
       </GaleriesContainer>

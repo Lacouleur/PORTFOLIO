@@ -157,11 +157,9 @@ export const ImgBox = styled.div`
 
 export const Descriptionbox = styled.div`
   width: 100%;
-  overflow: hidden;
   margin-right: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
@@ -175,13 +173,11 @@ export const ArtworkTitleBox = styled.div`
   display: flex;
   flex-direction: column;
   hyphens: auto;
-  margin-bottom: 32px;
 
   // MOBILE
   @media (max-width: 800px) or (max-height: 500px) {
     flex-direction: row;
     align-items: flex-end;
-    margin-bottom: 16px;
   }
 `;
 
@@ -224,4 +220,18 @@ export const ArtworkAboutText = styled.p`
   font: ${({ theme }) => theme.fonts.labelSmall};
   color: ${({ theme }) => theme.colors.fontDimmed};
   font-size: 10px;
+`;
+
+export const ArtworkExhib = styled.p`
+  font: ${({ theme }) => theme.fonts.labelSmall};
+  color: ${({ theme }) => theme.colors.fontDimmed};
+  font-size: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+`;
+
+export const ArtworkExhibSpan = styled.span``;
+
+export const ArtworkExhibB = styled.b`
+  color: ${({ theme }) => theme.colors.font};
 `;

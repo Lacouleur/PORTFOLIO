@@ -115,7 +115,7 @@ function Navigation({ stylevariant, fixedVersion }) {
           galerieName="paintings"
         />
       </NavButton>
-      <NavSeparator stylevariant={stylevariant} />
+      {device !== "mobile" && <NavSeparator stylevariant={stylevariant} />}
       <NavButton
         onClick={() => {
           if (

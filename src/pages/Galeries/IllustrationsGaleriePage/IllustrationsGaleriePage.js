@@ -39,21 +39,21 @@ function IllustrationsGaleriePage() {
       <GaleriesContainer>
         <GalerieImagesList
           galerieName={galerieName}
+          artworkName="landscapes"
+          customName="Paysages / Landscapes"
+          nbOfImgs={7}
+          customOrder={[3, 4, 6, 7, 1, 2, 5]}
+          nbPerRow={2}
+          roundedBorders
+        />
+        <GalerieImagesList
+          galerieName={galerieName}
           artworkName="cards"
           customName="cartes / cards concept"
           nbPerRow={4}
           nbOfImgs={9}
           customOrder={[9]}
           noExpandLast
-          roundedBorders
-        />
-        <GalerieImagesList
-          galerieName={galerieName}
-          artworkName="landscapes"
-          customName="Paysages / Landscapes"
-          nbOfImgs={7}
-          customOrder={[3, 4, 6, 7, 1, 2, 5]}
-          nbPerRow={2}
           roundedBorders
         />
         <GalerieImagesList

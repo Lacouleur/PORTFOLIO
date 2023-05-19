@@ -3,20 +3,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
-import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Arrow,
   Close,
   FullPageImage,
   FullViewBackground,
   FullViewContainer,
-  SwiperContainer,
   Image,
 } from "../../styles/styledComponents/FullView.sc";
 import closeIcon from "../../styles/assets/icons/System/Cancel.svg";
 import arrowRight from "../../styles/assets/icons/Arrow/Right.svg";
 import arrowLeft from "../../styles/assets/icons/Arrow/Left.svg";
-import "swiper/swiper-bundle.css";
 import { changeFullViewImg, toggleFullView } from "../../store/redux";
 import { getImageMetaBase } from "../../utils/helpers/FullviewHelpers";
 import { ImageMetas } from "../../components/atoms/ImageMetas";
@@ -57,33 +54,16 @@ function FullView({ fade }) {
         direction="left"
         onClick={() => dispatch(changeFullViewImg("previous"))}
       />
-      {device !== "mobile" && (
-        <FullPageImage
-          src={imgInfos?.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")}
-          onClick={() => dispatch(changeFullViewImg("next"))}
-        />
-      )}
 
-      {currentImagesList && device === "mobile" && (
-        <SwiperContainer>
-          <Swiper
-            slidesPerView="auto"
-            centeredSlides
-            spaceBetween={20}
-            loop
-            initialSlide={imgIndex}
-          >
-            {currentImagesList.map((img, index) => (
-              <SwiperSlide key={`${img.url}-galerieFull`}>
-                <Image
-                  src={img.url}
-                  borderRadius={img.meta.title === "cards"}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </SwiperContainer>
-      )}
+      <FullPageImage
+        src={imgInfos?.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")}
+        onClick={() => {
+          if (device !== "mobile") {
+            dispatch(changeFullViewImg("next"));
+          }
+        }}
+      />
+
       {ImageMetaBase && device !== "mobile" && (
         <ImageMetas
           titleFr={ImageMetaBase.title.fr}

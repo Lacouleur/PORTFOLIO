@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import {
+  ArtworkExhib,
+  ArtworkExhibB,
+  ArtworkExhibSpan,
   ArtworkTitleBox,
   ArtworkTitleSize,
   ArtworkTitleText,
@@ -14,7 +17,12 @@ import {
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
 import { toggleFullView, addItemToImagesList } from "../../store/redux";
 
-function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
+function GalerieImages4Squares({
+  galerieName,
+  artworkName,
+  customOrder,
+  isExhibed,
+}) {
   const [imgHovered, setImgHovered] = useState(undefined);
   const [lastImgHovered, setLastImgHovered] = useState(undefined);
   const [imgsInfos, setimgsInfos] = useState([]);
@@ -69,6 +77,13 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
           </ArtworkTitleText>
           <ArtworkTitleSize>100x100 - 2020</ArtworkTitleSize>
         </ArtworkTitleBox>
+        {isExhibed && (
+          <ArtworkExhib>
+            <ArtworkExhibSpan>Expo/Exhibition :</ArtworkExhibSpan>{" "}
+            <ArtworkExhibB>Honfleur - Art Range Galerie</ArtworkExhibB>
+          </ArtworkExhib>
+        )}
+
         {/*       <ArtworkAboutBox>
           <ArtworkAboutText>
             FR - Châssis ébéniste en bois plein français, toiles de lin épaisse
@@ -125,12 +140,14 @@ function GalerieImages4Squares({ galerieName, artworkName, customOrder }) {
 
 GalerieImages4Squares.defaultProps = {
   customOrder: undefined,
+  isExhibed: false,
 };
 
 GalerieImages4Squares.propTypes = {
   galerieName: PropTypes.string.isRequired,
   artworkName: PropTypes.string.isRequired,
   customOrder: PropTypes.arrayOf(PropTypes.number),
+  isExhibed: PropTypes.bool,
 };
 
 export default GalerieImages4Squares;
