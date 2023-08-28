@@ -39,29 +39,22 @@ function IllustrationsGaleriePage() {
       <GaleriesContainer>
         <GalerieImagesList
           galerieName={galerieName}
-          artworkName="landscapes"
-          customName="Paysages / Landscapes"
-          nbOfImgs={7}
-          customOrder={[3, 4, 6, 7, 1, 2, 5]}
-          nbPerRow={2}
-          roundedBorders
-        />
-        <GalerieImagesList
-          galerieName={galerieName}
           artworkName="cards"
           customName="cartes / cards concept"
           nbPerRow={4}
-          nbOfImgs={9}
-          customOrder={[9]}
+          nbOfImgs={13}
+          customOrder={[4, 5, 11, 8, 1, 2, 3, 12, 9, 10, 7, 6, 13]}
           noExpandLast
           roundedBorders
         />
+
         <GalerieImagesList
           galerieName={galerieName}
-          artworkName="concepts"
-          customName="Concepts"
-          nbOfImgs={3}
-          customOrder={[3]}
+          artworkName="landscapes"
+          customName="Paysages / Landscapes"
+          nbOfImgs={7}
+          nbPerRow={2}
+          customOrder={[3, 4, 6, 7, 1, 2, 1]}
           roundedBorders
         />
         <GalerieImagesList
@@ -75,9 +68,10 @@ function IllustrationsGaleriePage() {
         <GalerieImagesList
           galerieName={galerieName}
           artworkName="characters"
-          subCollection={[{ subName: "rpg", imagesNumber: 3, type: "jpg" }]}
+          subCollection={[{ subName: "rpg", imagesNumber: 7, type: "jpg" }]}
           customName="Personnages & objets / Characters & props"
           nbPerRow={2}
+          customOrder={[1, 2, 3, 4, 7, 6, 5]}
           noHeader
           roundedBorders
         />
@@ -87,7 +81,7 @@ function IllustrationsGaleriePage() {
           customName="Personal work"
           nbOfImgs={6}
           nbPerRow={3}
-          customOrder={[1, 5, 2, 3, 4, 7, 6]}
+          customOrder={[1, 5, 4, 6, 3, 7, 2]}
           roundedBorders
         />
       </GaleriesContainer>

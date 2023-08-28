@@ -10,7 +10,7 @@
 
 # production
 /build
-
+/Notes.txt
 # misc
 .DS_Store
 .env.local

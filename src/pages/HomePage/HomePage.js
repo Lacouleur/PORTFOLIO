@@ -26,7 +26,7 @@ function Home() {
   return (
     <HomeSection>
       <TitleContainer ref={titleRef} id="title">
-        <Title>Damien Voindrot</Title>
+        <Title>Jaune Lacouleur</Title>
         <SubTitle>Artiste Visuel / Visual Artist</SubTitle>
       </TitleContainer>
     </HomeSection>

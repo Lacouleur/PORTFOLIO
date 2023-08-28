@@ -19,6 +19,7 @@ export const GalerieSectionDescBox = styled.div`
 
 export const GalerieSectionDesc = styled.p`
   font: ${({ theme }) => theme.fonts.bodyMedium};
+
   width: 49%;
 
   // MOBILE
@@ -29,6 +30,7 @@ export const GalerieSectionDesc = styled.p`
 
 export const GalerieSectionTitle = styled.h3`
   font: ${({ theme }) => theme.fonts.titlesmall};
+  color: ${({ theme }) => theme.colors.accent};
   margin-bottom: 16px;
 `;
 
