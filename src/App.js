@@ -43,11 +43,11 @@ function App() {
         <PageContainer id="home">
           <Header />
           <Home />
-          <Navigation stylevariant="home" />
+          {/*           <Navigation stylevariant="home" />
           {fixedNav && <Navigation stylevariant="galerie" fixedVersion />}
           <Navigation stylevariant="galerie" />
 
-          <PaintingsGaleriePage />
+          <PaintingsGaleriePage /> */}
           <IllustrationsGaleriePage />
           <Footer />
         </PageContainer>

@@ -21,7 +21,7 @@
   "paintings": {
     "id": "paintings",
     "fr": {
-      "title": "Labyrinthes",
+      "title": "Labyrinthes / Mazes",
       "prez": "FR - Je peins des formes abstraites de labyrinthes. En les créant, c'est moi qui me perds dans ces labyrinthes. Trouver l'issue du labyrinthe signifie offrir au spectateur l'harmonie des formes et la dynamique des couleurs. De façons métaphoriques, les labyrinthes sont les difficultés, inutiles, rituelles, que nous mettons dans notre quotidien pour donner de la valeur à ce que nous accomplissons. Combien de temps faut-il travailler sur un sujet pour qu'il soit sérieux ? Comment faut-il réaliser ce cocktail pour qu'il ait le parfum du luxe ? Comment dois-je choisir mes vêtements pour avoir l'air formel ? Toutes ces choses que l'on fait, nous perdant dans le repli de nos esprits, espérant donner de la valeur au chemin parcouru, une couleur à nos questions et une texture à nos histoires."
     },
     "en": {
@@ -32,8 +32,8 @@
   "illustrations": {
     "id": "illustrations",
     "fr": {
-      "title": "Illustrations",
-      "prez": "FR - Passioné de jeu de rôles et de jeu de société, je prête mon savoir-faire artistique dans ce domaine. Vous trouverez sous cette section quelques-uns de mes travaux, professionnels et personnels.",
+      "title": "Port Folio",
+      "prez": "FR - Je suis un artiste français passionné de jeux de rôles, de jeux de société et de jeux vidéo. En défilant cette page, vous allez découvrir quelques-uns de mes travaux professionnels et personnels.",
       "collections": {
         "cards": "FR- concept d'illustrations pour carte à jouer.",
         "landscapes": "FR- différents travaux de mise en scène et de paysages",
@@ -44,7 +44,7 @@
     },
     "en": {
       "title": "Illustrations",
-      "prez": "En - Passionate about role-playing games and board games, I use my skills in this field. You will find under this section some of my works, professional and personal.",
+      "prez": "En - Passionate about role-playing games, board games and video games. While scrolling this page, you will discover some of my professional and personal work.",
       "collections": {
         "cards": "EN- illustrations concept for game cards.",
         "landscapes": "EN- various works of staging and landscapes",

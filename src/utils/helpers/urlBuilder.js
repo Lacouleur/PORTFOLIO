@@ -18,6 +18,17 @@ function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
 
   let size = askedSize;
 
+  function imgId() {
+    console.log(id.toString());
+
+    if (id.toString().length === 1) {
+      return `0${id}`;
+    }
+    return id;
+  }
+
+  const buildId = imgId();
+
   if (askedSize?.size && typeof askedSize.size === "number") {
     size = `/tr:${askedSize.side}-${askedSize.size}`;
   }
@@ -28,9 +39,13 @@ function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
     // url example
     /*  https://ik.imagekit.io/artworks/illustrations/landscapes/dvoindrot-landscapes-4.jpg?updatedAt=1682953929018 */
 
+    console.warn(
+      `${baseURL}${size}/${artworkName}/JauneLacouleur-${artworkName}-${buildId}.jpg`,
+    );
+
     return {
-      url: `${baseURL}${size}/${artworkName}/dvoindrot-${artworkName}-${id}.jpg`,
-      meta: { title: artworkName, id, subName: sub?.subName },
+      url: `${baseURL}${size}/${artworkName}/JauneLacouleur-${artworkName}-${buildId}.jpg`,
+      meta: { title: artworkName, buildId, subName: sub?.subName },
     };
   }
   if (sub) {
@@ -38,10 +53,10 @@ function illustrationsUrlBuilder(galerieName, artworkName, id, askedSize, sub) {
     /*  https://ik.imagekit.io/artworks/illustrations/characters/fox/dvoindrot-fox-5.png?updatedAt=1682954045013 */
 
     return {
-      url: `${baseURL}${size}/${artworkName}/${sub.subName}/dvoindrot-${
+      url: `${baseURL}${size}/${artworkName}/${sub.subName}/JauneLacouleur-${
         sub.subName
-      }-${id}.${sub.type || "jpg"}`,
-      meta: { title: artworkName, id, subName: sub.subName },
+      }-${buildId}.${sub.type || "jpg"}`,
+      meta: { title: artworkName, buildId, subName: sub.subName },
     };
   }
 }

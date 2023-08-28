@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import artStationIcon from "../../styles/assets/icons/Social/Artstation.svg";
 import InstaIcon from "../../styles/assets/icons/Social/Instagram.svg";
 import mailToIcon from "../../styles/assets/icons/Social/Mail.svg";
 import {
@@ -9,10 +8,6 @@ import {
   SocialIcon,
   SocialIconsBox,
   HeaderLeftContainer,
-  SelectorContainer,
-  Selector,
-  SelectorText,
-  SelectorSeparator,
 } from "../../styles/styledComponents/Header.sc";
 import SwitchButton from "../atoms/SwitchButton";
 import { toggleIsDark } from "../../store/redux";
@@ -28,7 +23,6 @@ function Header() {
   const headerRef = useRef();
 
   const shouldRender = useDelayUnmount(showName, 200);
-  const renderExpend = useDelayUnmount(isInstaSelector, 200);
 
   useClickOutside(headerRef, () => setIsInstaSelector(false));
 
@@ -44,15 +38,26 @@ function Header() {
         />
 
         <SocialIconsBox>
-          <SocialIcon
+          {/*          <SocialIcon
             src={artStationIcon}
             onClick={() =>
               window
                 .open("https://www.artstation.com/j_lacouleur", "_blank")
                 .focus()
             }
+          /> */}
+          <SocialIcon
+            src={InstaIcon}
+            onClick={() =>
+              window
+                .open(
+                  "https://www.instagram.com/jaune_lacouleur.art/",
+                  "_blank",
+                )
+                .focus()
+            }
           />
-          <Selector onClick={() => setIsInstaSelector(!isInstaSelector)}>
+          {/* <Selector onClick={() => setIsInstaSelector(!isInstaSelector)}>
             <SocialIcon $selector={isInstaSelector} src={InstaIcon} />
             {renderExpend && (
               <SelectorContainer expend={!!isInstaSelector}>
@@ -84,13 +89,13 @@ function Header() {
                 </SelectorText>
               </SelectorContainer>
             )}
-          </Selector>
+          </Selector> */}
 
           <SocialIcon
             mail="true"
             src={mailToIcon}
             onClick={() =>
-              window.open("mailto:" + "damien.voindrot@gmail.com", "_blank")
+              window.open("mailto:" + "j.lacouleur@gmail.com", "_blank")
             }
           />
         </SocialIconsBox>
@@ -102,7 +107,7 @@ function Header() {
           }}
           fade={showName ? "in" : "out"}
         >
-          Damien Voindrot
+          Jaune Lacouleur
         </HeaderName>
       )}
     </HeaderContainer>
