@@ -101,6 +101,7 @@ function GalerieImagesList({
                     ? infos.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")
                     : infos.url
                 }
+                alt={`jaune lacouleur artist rpg jdr jeux illustrateur illustration artwork JauneLacouleur ${artworkName}`}
                 artworkName={artworkName}
                 roundedBorders={roundedBorders}
               />
