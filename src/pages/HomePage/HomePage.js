@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  ColoredLetter,
   SubTitle,
   Title,
   TitleContainer,
@@ -26,7 +27,10 @@ function Home() {
   return (
     <HomeSection>
       <TitleContainer ref={titleRef} id="title">
-        <Title>Jaune Lacouleur</Title>
+        <Title>
+          <ColoredLetter>J</ColoredLetter>aune <ColoredLetter>L</ColoredLetter>
+          acouleur
+        </Title>
         <SubTitle>Artiste Visuel / Visual Artist</SubTitle>
       </TitleContainer>
     </HomeSection>
