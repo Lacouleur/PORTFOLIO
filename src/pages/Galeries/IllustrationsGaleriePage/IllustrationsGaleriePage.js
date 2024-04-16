@@ -39,6 +39,17 @@ function IllustrationsGaleriePage() {
       <GaleriesContainer>
         <GalerieImagesList
           galerieName={galerieName}
+          artworkName="popculture"
+          customName="Pop Culture"
+          nbPerRow={3}
+          nbOfImgs={6}
+          customOrder={[]}
+          noExpandLast
+          roundedBorders
+        />
+
+        <GalerieImagesList
+          galerieName={galerieName}
           artworkName="cards"
           customName="cartes / cards concept"
           nbPerRow={4}
