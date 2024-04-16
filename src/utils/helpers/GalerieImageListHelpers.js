@@ -13,7 +13,7 @@ function getAllUrls({
   askedSize,
   imagesNumber,
   galerieName,
-  artworkName,
+  artWorkCategory,
   sub,
   customOrder,
 }) {
@@ -45,7 +45,7 @@ function getAllUrls({
     if (imagesNumber) {
       const url = urlBuilder({
         galerieName,
-        artworkName,
+        artWorkCategory,
         id: buildId(galerieName, customIndex, index, customOrder),
         askedSize,
         sub,
@@ -61,7 +61,7 @@ export function dynamicUrls({
   askedSize,
   nbOfImgs,
   galerieName,
-  artworkName,
+  artWorkCategory,
   subCollection,
   customOrder,
 }) {
@@ -76,7 +76,7 @@ export function dynamicUrls({
           askedSize,
           imagesNumber,
           galerieName,
-          artworkName,
+          artWorkCategory,
           sub,
           customOrder,
         });
@@ -92,7 +92,7 @@ export function dynamicUrls({
         askedSize,
         imagesNumber,
         galerieName,
-        artworkName,
+        artWorkCategory,
         customOrder,
       });
     }
@@ -103,7 +103,7 @@ export function dynamicUrls({
       askedSize,
       imagesNumber,
       galerieName,
-      artworkName,
+      artWorkCategory,
       customOrder,
     });
   }

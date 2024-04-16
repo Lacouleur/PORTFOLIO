@@ -39,7 +39,7 @@ function IllustrationsGaleriePage() {
       <GaleriesContainer>
         <GalerieImagesList
           galerieName={galerieName}
-          artworkName="popculture"
+          artWorkCategory="popculture"
           customName="Pop Culture"
           nbPerRow={3}
           nbOfImgs={6}
@@ -50,7 +50,7 @@ function IllustrationsGaleriePage() {
 
         <GalerieImagesList
           galerieName={galerieName}
-          artworkName="cards"
+          artWorkCategory="cards"
           customName="cartes / cards concept"
           nbPerRow={4}
           nbOfImgs={13}
@@ -61,7 +61,7 @@ function IllustrationsGaleriePage() {
 
         <GalerieImagesList
           galerieName={galerieName}
-          artworkName="landscapes"
+          artWorkCategory="landscapes"
           customName="Paysages / Landscapes"
           nbOfImgs={7}
           nbPerRow={2}
@@ -70,7 +70,7 @@ function IllustrationsGaleriePage() {
         />
         <GalerieImagesList
           galerieName={galerieName}
-          artworkName="characters"
+          artWorkCategory="characters"
           subCollection={[{ subName: "fox", imagesNumber: 6, type: "png" }]}
           customName="Personnages concepts/ Characters concepts"
           nbPerRow={3}
@@ -78,7 +78,7 @@ function IllustrationsGaleriePage() {
         />
         <GalerieImagesList
           galerieName={galerieName}
-          artworkName="characters"
+          artWorkCategory="characters"
           subCollection={[{ subName: "rpg", imagesNumber: 7, type: "jpg" }]}
           customName="Personnages & objets / Characters & props"
           nbPerRow={2}
@@ -88,7 +88,7 @@ function IllustrationsGaleriePage() {
         />
         <GalerieImagesList
           galerieName={galerieName}
-          artworkName="personal"
+          artWorkCategory="personal"
           customName="Personal work"
           nbOfImgs={6}
           nbPerRow={3}

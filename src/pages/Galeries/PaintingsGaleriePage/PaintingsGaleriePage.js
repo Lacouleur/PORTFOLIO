@@ -49,7 +49,7 @@ function PaintingsGaleriePage() {
           <GalerieImages4Squares
             key={painting.name}
             galerieName={galerieName}
-            artworkName={painting.name}
+            artWorkCategory={painting.name}
             selectedIds={[1, 2, 3]}
             isExhibed={painting.isExhibed}
           />

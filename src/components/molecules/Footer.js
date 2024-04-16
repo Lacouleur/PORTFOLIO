@@ -20,6 +20,10 @@ function Footer() {
     watchFooterScroll(setFooterAnim, setIsFooterFixed);
   }, []);
 
+  useEffect(() => {
+    if (isFullView.toogle) setIsFooterFixed(false);
+  }, [isFullView]);
+
   return (
     <FooterContainer
       isFooterFixed={device !== "mobile" ? isFooterFixed : false}

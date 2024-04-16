@@ -27,6 +27,8 @@ function FullView({ fade }) {
 
   const ImageMetaBase = getImageMetaBase(imgInfos, galerieName);
 
+  useEffect(() => {}, [ImageMetaBase]);
+
   useEffect(() => {
     if (galerieName) {
       setCurrentImageList(

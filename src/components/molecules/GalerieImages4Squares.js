@@ -19,7 +19,7 @@ import { toggleFullView, addItemToImagesList } from "../../store/redux";
 
 function GalerieImages4Squares({
   galerieName,
-  artworkName,
+  artWorkCategory,
   customOrder,
   isExhibed,
 }) {
@@ -52,7 +52,7 @@ function GalerieImages4Squares({
         askedSize,
         nbOfImgs: 4,
         galerieName,
-        artworkName,
+        artWorkCategory,
         customOrder,
       }),
     );
@@ -73,7 +73,7 @@ function GalerieImages4Squares({
       <Descriptionbox>
         <ArtworkTitleBox>
           <ArtworkTitleText>
-            {artworkName.replace(/_/g, " ")} maze
+            {artWorkCategory.replace(/_/g, " ")} maze
           </ArtworkTitleText>
           <ArtworkTitleSize>100x100 - 2020</ArtworkTitleSize>
         </ArtworkTitleBox>
@@ -145,7 +145,7 @@ GalerieImages4Squares.defaultProps = {
 
 GalerieImages4Squares.propTypes = {
   galerieName: PropTypes.string.isRequired,
-  artworkName: PropTypes.string.isRequired,
+  artWorkCategory: PropTypes.string.isRequired,
   customOrder: PropTypes.arrayOf(PropTypes.number),
   isExhibed: PropTypes.bool,
 };

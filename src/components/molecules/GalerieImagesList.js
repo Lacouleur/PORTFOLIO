@@ -17,7 +17,7 @@ import { addItemToImagesList, toggleFullView } from "../../store/redux";
 
 function GalerieImagesList({
   galerieName,
-  artworkName,
+  artWorkCategory,
   subCollection,
   customName,
   nbOfImgs,
@@ -52,7 +52,7 @@ function GalerieImagesList({
         askedSize,
         nbOfImgs,
         galerieName,
-        artworkName,
+        artWorkCategory,
         subCollection,
         customOrder,
       }),
@@ -62,14 +62,16 @@ function GalerieImagesList({
   return (
     <GalerieImagesListContainer noHeader={noHeader}>
       <GalerieImagesListHeader>
-        <GalerieSectionTitle>{customName || artworkName}</GalerieSectionTitle>
+        <GalerieSectionTitle>
+          {customName || artWorkCategory}
+        </GalerieSectionTitle>
         {!subCollection && (
           <GalerieSectionDescBox>
             <GalerieSectionDesc>
-              {texts[galerieName].fr.collections[artworkName]}
+              {texts[galerieName].fr.collections[artWorkCategory]}
             </GalerieSectionDesc>
             <GalerieSectionDesc>
-              {texts[galerieName].en.collections[artworkName]}
+              {texts[galerieName].en.collections[artWorkCategory]}
             </GalerieSectionDesc>
           </GalerieSectionDescBox>
         )}
@@ -89,8 +91,8 @@ function GalerieImagesList({
                   }),
                 );
               }}
-              key={infos.url}
-              artworkName={artworkName}
+              key={`${infos.url}${Math.random()}`}
+              artWorkCategory={artWorkCategory}
               nbPerRow={nbPerRow}
               noExpandLast={noExpandLast}
             >
@@ -101,8 +103,8 @@ function GalerieImagesList({
                     ? infos.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")
                     : infos.url
                 }
-                alt={`jaune lacouleur artist rpg jdr jeux illustrateur illustration artwork JauneLacouleur ${artworkName}`}
-                artworkName={artworkName}
+                alt={`jaune lacouleur artist rpg jdr jeux illustrateur illustration artwork JauneLacouleur ${artWorkCategory}`}
+                artWorkCategory={artWorkCategory}
                 roundedBorders={roundedBorders}
               />
             </ImageBox>
@@ -125,7 +127,7 @@ GalerieImagesList.defaultProps = {
 
 GalerieImagesList.propTypes = {
   galerieName: PropTypes.string.isRequired,
-  artworkName: PropTypes.string.isRequired,
+  artWorkCategory: PropTypes.string.isRequired,
   nbOfImgs: PropTypes.number,
   customName: PropTypes.string,
   subCollection: PropTypes.arrayOf(

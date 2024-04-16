@@ -1,10 +1,4 @@
-export function watchFooterScroll(
-  setFooterAnim,
-  setIsFooterFixed,
-
-  isFullView,
-) {
-  if (isFullView) setIsFooterFixed(false);
+export function watchFooterScroll(setFooterAnim, setIsFooterFixed) {
   if (window.scrollY !== 0) {
     setFooterAnim("out");
     if (window.scrollY > 500) {

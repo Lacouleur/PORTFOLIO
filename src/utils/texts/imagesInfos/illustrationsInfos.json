@@ -387,5 +387,79 @@
       },
       "medium": "digital"
     }
+  },
+  "popculture": {
+    "1": {
+      "id": "popculture-1",
+      "title": {
+        "fr": "Joker",
+        "en": "Joker"
+      },
+      "subtitle": {
+        "fr": "Fanart",
+        "en": "Fanart"
+      },
+      "medium": "digital"
+    },
+    "2": {
+      "id": "popculture-2",
+      "title": {
+        "fr": "Final Fantasy",
+        "en": "Final Fantasy"
+      },
+      "subtitle": {
+        "fr": "Fanart",
+        "en": "Fanart"
+      },
+      "medium": "digital"
+    },
+    "3": {
+      "id": "popculture-3",
+      "title": {
+        "fr": "The Last Of Us",
+        "en": "The Last of Us"
+      },
+      "subtitle": {
+        "fr": "Fanart",
+        "en": "Fanart"
+      },
+      "medium": "digital"
+    },
+    "4": {
+      "id": "popculture-4",
+      "title": {
+        "fr": "Matrix",
+        "en": "Matrix"
+      },
+      "subtitle": {
+        "fr": "Fanart",
+        "en": "Fanart"
+      },
+      "medium": "digital"
+    },
+    "5": {
+      "id": "popculture-5",
+      "title": {
+        "fr": "Stranger Things",
+        "en": "Stranger Things"
+      },
+      "subtitle": {
+        "fr": "Fanart",
+        "en": "Fanart"
+      },
+      "medium": "digital"
+    },
+    "6": {
+      "id": "popculture-6",
+      "title": {
+        "fr": "Dune",
+        "en": "Dune"
+      },
+      "subtitle": {
+        "fr": "Fanart",
+        "en": "Fanart"
+      },
+      "medium": "digital"
+    }
   }
 }
