@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
 import Zoom from "react-medium-image-zoom";
-import "react-medium-image-zoom/dist/styles.css";
+import "../css/react-medium-image-zoom.css";
 import { mountAnimation, unMountAnimation } from "./atoms/Animations.sc";
 
 export const ReactZoom = styled(Zoom)``;

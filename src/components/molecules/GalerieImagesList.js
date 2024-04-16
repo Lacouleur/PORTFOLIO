@@ -91,14 +91,10 @@ function GalerieImagesList({
                   nbPerRow={nbPerRow}
                   noExpandLast={noExpandLast}
                 >
-                  <ReactZoom>
+                  <ReactZoom background="black">
                     <Image
-                      // allow to charge full frame image on last line
-                      src={
-                        imgsInfos.length - 1 === index && !noExpandLast
-                          ? infos.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")
-                          : infos.url
-                      }
+                      // charge full rez image
+                      src={infos.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")}
                       alt={`jaune lacouleur artist rpg jdr jeux illustrateur illustration artwork JauneLacouleur ${artWorkCategory}`}
                       artWorkCategory={artWorkCategory}
                       roundedBorders={roundedBorders}
