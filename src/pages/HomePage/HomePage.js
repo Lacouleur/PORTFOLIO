@@ -37,6 +37,10 @@ function Home() {
   );
 }
 
+/*
+Liste des categories 
+
+ */
 /* Home.defaultProps = {
   position: undefined,
 };
