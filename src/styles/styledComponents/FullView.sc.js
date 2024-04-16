@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import { mountAnimation, unMountAnimation } from "./atoms/Animations.sc";
+
+export const ReactZoom = styled(Zoom)``;
 
 export const FullViewContainer = styled.div`
   position: fixed;
@@ -68,6 +72,14 @@ export const FullPageImage = styled.img`
   max-height: 90vh;
   max-width: 70vw;
   cursor: pointer;
+
+  // MOBILE
+  @media (max-width: 800px) or (max-height: 500px) {
+    width: 100vw;
+    height: auto;
+    max-width: none;
+    max-height: none;
+  }
 `;
 
 export const FullViewBackground = styled.div`

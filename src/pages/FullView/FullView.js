@@ -9,6 +9,7 @@ import {
   FullPageImage,
   FullViewBackground,
   FullViewContainer,
+  ReactZoom,
   Image,
 } from "../../styles/styledComponents/FullView.sc";
 import closeIcon from "../../styles/assets/icons/System/Cancel.svg";

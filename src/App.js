@@ -39,7 +39,9 @@ function App() {
   return (
     <Theme isDark={isDark}>
       <SiteContainer position="relative">
-        {FullViewRender && <FullView fade={isFullView.toogle ? "in" : "out"} />}
+        {FullViewRender && device !== "mobile" && (
+          <FullView fade={isFullView.toogle ? "in" : "out"} />
+        )}
         <PageContainer id="home">
           <Header />
           <Home />

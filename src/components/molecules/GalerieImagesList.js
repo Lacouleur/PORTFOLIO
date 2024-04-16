@@ -14,6 +14,7 @@ import {
 import texts from "../../utils/texts/texts.json";
 import { dynamicUrls } from "../../utils/helpers/GalerieImageListHelpers";
 import { addItemToImagesList, toggleFullView } from "../../store/redux";
+import { ReactZoom } from "../../styles/styledComponents/FullView.sc";
 
 function GalerieImagesList({
   galerieName,
@@ -28,6 +29,7 @@ function GalerieImagesList({
   roundedBorders,
 }) {
   const [imgsInfos, setimgsInfos] = useState([]);
+  const { device } = useSelector((state) => state.main);
   const dispatch = useDispatch();
   const askedSize = {
     side: "w",
@@ -81,33 +83,59 @@ function GalerieImagesList({
         {imgsInfos &&
           imgsInfos.length > 0 &&
           imgsInfos.map((infos, index) => (
-            <ImageBox
-              onClick={() => {
-                dispatch(
-                  toggleFullView({
-                    toogle: true,
-                    imgInfos: infos,
-                    galerieName,
-                  }),
-                );
-              }}
-              key={`${infos.url}${Math.random()}`}
-              artWorkCategory={artWorkCategory}
-              nbPerRow={nbPerRow}
-              noExpandLast={noExpandLast}
-            >
-              <Image
-                // allow to charge full frame image on last line
-                src={
-                  imgsInfos.length - 1 === index && !noExpandLast
-                    ? infos.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")
-                    : infos.url
-                }
-                alt={`jaune lacouleur artist rpg jdr jeux illustrateur illustration artwork JauneLacouleur ${artWorkCategory}`}
-                artWorkCategory={artWorkCategory}
-                roundedBorders={roundedBorders}
-              />
-            </ImageBox>
+            <>
+              {device === "mobile" && (
+                <ImageBox
+                  key={`${infos.url}${Math.random()}`}
+                  artWorkCategory={artWorkCategory}
+                  nbPerRow={nbPerRow}
+                  noExpandLast={noExpandLast}
+                >
+                  <ReactZoom>
+                    <Image
+                      // allow to charge full frame image on last line
+                      src={
+                        imgsInfos.length - 1 === index && !noExpandLast
+                          ? infos.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")
+                          : infos.url
+                      }
+                      alt={`jaune lacouleur artist rpg jdr jeux illustrateur illustration artwork JauneLacouleur ${artWorkCategory}`}
+                      artWorkCategory={artWorkCategory}
+                      roundedBorders={roundedBorders}
+                    />
+                  </ReactZoom>
+                </ImageBox>
+              )}
+              {device !== "mobile" && (
+                <ImageBox
+                  onClick={() => {
+                    dispatch(
+                      toggleFullView({
+                        toogle: true,
+                        imgInfos: infos,
+                        galerieName,
+                      }),
+                    );
+                  }}
+                  key={`${infos.url}${Math.random()}`}
+                  artWorkCategory={artWorkCategory}
+                  nbPerRow={nbPerRow}
+                  noExpandLast={noExpandLast}
+                >
+                  <Image
+                    // allow to charge full frame image on last line
+                    src={
+                      imgsInfos.length - 1 === index && !noExpandLast
+                        ? infos.url.replace(/\/tr:[A-Za-z]-[0-9]+/i, "")
+                        : infos.url
+                    }
+                    alt={`jaune lacouleur artist rpg jdr jeux illustrateur illustration artwork JauneLacouleur ${artWorkCategory}`}
+                    artWorkCategory={artWorkCategory}
+                    roundedBorders={roundedBorders}
+                  />
+                </ImageBox>
+              )}
+            </>
           ))}
       </ImagesListContainer>
     </GalerieImagesListContainer>
