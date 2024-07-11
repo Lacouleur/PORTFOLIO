@@ -69,7 +69,13 @@
     "react-scripts": "^5.0.1",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
+    "typescript": "^5.5.2",
     "webpack": "^5.76.3"
+  },
+  "overrides": {
+    "typescript": "^5.5.2",
+    "nth-check": "^2.1.1",
+    "postcss": "8.4.38"
   },
   "lint": "eslint --max-warnings=0 ..."
 }
