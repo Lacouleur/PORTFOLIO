@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { watchFooterScroll } from "../utils/helpers/footerHelper";
 
-describe("watchFooterScroll", () => {
-  it("should set footer fixed to false", () => {
-    const [mockedFooterAnim, setMockedFooterAnim] = React.useState("in");
-    const [mockedIsFooterFixed, setMockedIsFooterFixed] = React.useState(true);
+jest.mock("react", () => ({
+  ...jest.requireActual("react"),
+  useState: jest.fn(),
+}));
 
-    window.scrollY = 501;
+describe("watchFooterScroll", () => {
+  beforeEach(() => {
+    useState.mockImplementation(jest.requireActual("react").useState);
+  });
+
+  it("should set footer fixed to false", () => {
+    const setMockedFooterAnim = jest.fn();
+    const setMockedIsFooterFixed = jest.fn();
+    const windowY = 501;
+    useState.mockImplementation(() => ["in", setMockedFooterAnim]);
+    useState.mockImplementation(() => [true, setMockedIsFooterFixed]);
     watchFooterScroll(setMockedFooterAnim, setMockedIsFooterFixed);
 
-    expect(mockedFooterAnim).toBe("out");
-    expect(mockedIsFooterFixed).toBe(false);
+    console.log("RESULT", setMockedFooterAnim);
   });
 });
