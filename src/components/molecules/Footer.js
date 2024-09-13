@@ -13,11 +13,13 @@ function Footer() {
   const { isFullView, device } = useSelector((state) => state.main);
 
   useEffect(() => {
-    watchFooterScroll(setFooterAnim, setIsFooterFixed, isFullView.toogle);
+    setFooterAnim(watchFooterScroll("anim"));
+    setIsFooterFixed(watchFooterScroll("isFixed"));
   }, [window.scrollY, isFullView.toogle]);
 
   useEffect(() => {
-    watchFooterScroll(setFooterAnim, setIsFooterFixed);
+    setFooterAnim(watchFooterScroll("anim"));
+    setIsFooterFixed(watchFooterScroll("isFixed"));
   }, []);
 
   useEffect(() => {
